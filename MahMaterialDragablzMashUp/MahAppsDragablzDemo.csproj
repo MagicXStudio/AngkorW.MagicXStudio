@@ -25,5 +25,9 @@
     <PackageReference Include="ShowMeTheXAML" />
     <PackageReference Include="ShowMeTheXAML.AvalonEdit" />
     <PackageReference Include="ShowMeTheXAML.MSBuild" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Services" />
   </ItemGroup>
 </Project>

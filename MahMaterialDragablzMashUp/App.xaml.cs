@@ -1,5 +1,6 @@
 ﻿using System.Windows.Media;
 using MaterialDesignThemes.Wpf;
+using Microsoft.Extensions.DependencyInjection;
 using ShowMeTheXAML;
 
 namespace MahMaterialDragablzMashUp
@@ -11,6 +12,7 @@ namespace MahMaterialDragablzMashUp
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            ServiceCollection services = new ServiceCollection();
             XamlDisplay.Init();
             base.OnStartup(e);
 
