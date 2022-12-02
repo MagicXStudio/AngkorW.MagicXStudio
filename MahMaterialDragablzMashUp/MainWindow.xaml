@@ -6,7 +6,7 @@
                       xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
                       xmlns:mahMaterialDragablzMashUp="clr-namespace:MahMaterialDragablzMashUp"
                       xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
-                      Title="Material-MahApps-Dragablz Mash Up"
+                      Title="PLC Tool"
                       Width="800"
                       Height="640"
                       FontFamily="{DynamicResource MahApps.Fonts.Family.Window.Title}"
@@ -45,17 +45,17 @@
       <dragablz:TabablzControl.InterTabController>
         <dragablz:InterTabController />
       </dragablz:TabablzControl.InterTabController>
-      <TabItem Header="DIALOGS">
+      <TabItem Header="设置">
         <mahMaterialDragablzMashUp:Dialogs Margin="8">
           <mahMaterialDragablzMashUp:Dialogs.DataContext>
             <mahMaterialDragablzMashUp:DialogsViewModel />
           </mahMaterialDragablzMashUp:Dialogs.DataContext>
         </mahMaterialDragablzMashUp:Dialogs>
       </TabItem>
-      <TabItem Header="MAHAPPS">
+      <TabItem Header="幅宽表">
         <mahMaterialDragablzMashUp:Mah Margin="16" />
       </TabItem>
-      <TabItem Header="PALETTE">
+      <TabItem Header="传感器">
         <mahMaterialDragablzMashUp:PaletteSelector Margin="16">
           <mahMaterialDragablzMashUp:PaletteSelector.DataContext>
             <mahMaterialDragablzMashUp:PaletteSelectorViewModel />
