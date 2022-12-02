@@ -30,6 +30,7 @@ namespace MahMaterialDragablzMashUp
             services.AddSingleton<IFilesService, FilesService>();
             services.AddSingleton<ISettingsService, SettingsService>();
             services.AddSingleton<IClipboardService, ClipboardService>();
+           
 
             // Viewmodels
             services.AddTransient<MahViewModel>();
@@ -38,10 +39,18 @@ namespace MahMaterialDragablzMashUp
             IConfigurationBuilder cfgBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
+                .AddJsonFile("plc-settings.json")
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")}.json", optional: true, reloadOnChange: false)
                 ;
             IConfiguration configuration = cfgBuilder.Build();
             services.AddSingleton<IConfiguration>(configuration);
+
+            //http://www.qb5200.com/article/478972.html
+            services.AddOptions();
+            //实例化一个对应 PlcDevices json 数组对象, 使用了 IConfiguration.Get<T>()
+            var plcDeviceSettings = configuration.GetSection("plc").Get<List<PlcOptions>>();
+            //或直接通过 service.Configure<T>() 将appsettings 指定 section 放入DI 容器, 这里的T 为 List<PlcDevice>
+            services.Configure<List<PlcOptions>>(configuration.GetSection("plc"));
 
             //创建 logger
             var serilogLogger = new LoggerConfiguration()

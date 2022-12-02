@@ -12,7 +12,7 @@ namespace MahAppsDragablzDemo
         IFilesService FilesService { get; }
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
-        private PLCOptions _plcOptions;
+        private PlcOptions _plcOptions;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -39,7 +39,7 @@ namespace MahAppsDragablzDemo
             }
         }
 
-        public MahViewModel(IFilesService filesService, IConfiguration configuration, ILogger<MahViewModel> logger, IOptions<PLCOptions> plcOptions)
+        public MahViewModel(IFilesService filesService, IConfiguration configuration, ILogger<MahViewModel> logger, IOptions<PlcOptions> plcOptions)
         {
             FilesService= filesService;
             _configuration = configuration;
