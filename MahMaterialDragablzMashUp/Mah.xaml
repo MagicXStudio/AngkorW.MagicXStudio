@@ -11,9 +11,7 @@
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
-  <UserControl.DataContext>
-    <local:MahViewModel />
-  </UserControl.DataContext>
+  
   <UserControl.Resources>
     <ObjectDataProvider x:Key="EnumValues"
                         MethodName="GetValues"

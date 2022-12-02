@@ -1,4 +1,7 @@
-﻿namespace MahMaterialDragablzMashUp
+﻿using MahAppsDragablzDemo;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace MahMaterialDragablzMashUp
 {
     /// <summary>
     /// Interaction logic for MahApps.xaml
@@ -8,6 +11,7 @@
         public Mah()
         {
             InitializeComponent();
+            this.DataContext = App.Current.Services.GetService<MahViewModel>();
         }
     }
 }

@@ -1,10 +1,13 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using MahAppsDragablzDemo.Services;
 
 namespace MahAppsDragablzDemo
 {
     public class MahViewModel : INotifyPropertyChanged
     {
+        IFilesService FilesService { get; }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public ObservableCollection<GridRowData> GridData { get; }
@@ -30,12 +33,14 @@ namespace MahAppsDragablzDemo
             }
         }
 
-        public MahViewModel()
+        public MahViewModel(IFilesService filesService)
         {
+            FilesService= filesService;
+
             GridData = new ObservableCollection<GridRowData> {
                 new GridRowData {
                     IsChecked = false,
-                    Text = "Mars",
+                    Text =FilesService.Content,
                     EnumValue = EnumValues.ValueA,
                     IntValue = 4879
                 },
