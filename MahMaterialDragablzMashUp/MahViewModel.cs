@@ -1,12 +1,18 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using MahAppsDragablzDemo.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace MahAppsDragablzDemo
 {
     public class MahViewModel : INotifyPropertyChanged
     {
         IFilesService FilesService { get; }
+        private readonly IConfiguration _configuration;
+        private readonly ILogger _logger;
+        private PLCOptions _plcOptions;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -33,9 +39,15 @@ namespace MahAppsDragablzDemo
             }
         }
 
-        public MahViewModel(IFilesService filesService)
+        public MahViewModel(IFilesService filesService, IConfiguration configuration, ILogger<MahViewModel> logger, IOptions<PLCOptions> plcOptions)
         {
             FilesService= filesService;
+            _configuration = configuration;
+            _logger = logger;
+            _plcOptions = plcOptions.Value;
+
+            var connectionString = _configuration.GetConnectionString("SqlDb");  //从配置文件中读取oeeDb connectionString 
+            _logger.LogInformation(connectionString);
 
             GridData = new ObservableCollection<GridRowData> {
                 new GridRowData {
