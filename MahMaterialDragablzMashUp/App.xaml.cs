@@ -1,8 +1,11 @@
-﻿using System.Windows.Media;
+﻿using System.Configuration;
+using System.Windows.Media;
 using MahAppsDragablzDemo;
 using MahAppsDragablzDemo.Services;
 using MaterialDesignThemes.Wpf;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using ShowMeTheXAML;
 
 namespace MahMaterialDragablzMashUp
@@ -30,6 +33,26 @@ namespace MahMaterialDragablzMashUp
 
             // Viewmodels
             services.AddTransient<MahViewModel>();
+
+            //注册配置
+            IConfigurationBuilder cfgBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")}.json", optional: true, reloadOnChange: false)
+                ;
+            IConfiguration configuration = cfgBuilder.Build();
+            services.AddSingleton<IConfiguration>(configuration);
+
+            //创建 logger
+            var serilogLogger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .Enrich.FromLogContext()
+                .CreateLogger();
+
+            //register logger
+            services.AddLogging(builder => {
+                object p = builder.AddSerilog(logger: serilogLogger, dispose: true);
+            });
 
             return services.BuildServiceProvider();
         }

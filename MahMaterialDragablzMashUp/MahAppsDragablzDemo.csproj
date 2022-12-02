@@ -22,12 +22,27 @@
   <ItemGroup>
     <PackageReference Include="Dragablz" />
     <PackageReference Include="MahApps.Metro" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.Extensions.Logging" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
+    <PackageReference Include="Serilog.Settings.Configuration" />
     <PackageReference Include="ShowMeTheXAML" />
     <PackageReference Include="ShowMeTheXAML.AvalonEdit" />
     <PackageReference Include="ShowMeTheXAML.MSBuild" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
