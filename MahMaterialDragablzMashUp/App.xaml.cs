@@ -5,6 +5,7 @@ using MahAppsDragablzDemo.Services;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using ShowMeTheXAML;
 
@@ -30,7 +31,7 @@ namespace MahMaterialDragablzMashUp
             services.AddSingleton<IFilesService, FilesService>();
             services.AddSingleton<ISettingsService, SettingsService>();
             services.AddSingleton<IClipboardService, ClipboardService>();
-           
+
 
             // Viewmodels
             services.AddTransient<MahViewModel>();
@@ -59,8 +60,10 @@ namespace MahMaterialDragablzMashUp
                 .CreateLogger();
 
             //register logger
-            services.AddLogging(builder => {
-                object p = builder.AddSerilog(logger: serilogLogger, dispose: true);
+            services.AddLogging(builder =>
+            {
+                ILoggingBuilder p = builder.AddSerilog(logger: serilogLogger, dispose: true);
+
             });
 
             return services.BuildServiceProvider();
@@ -79,6 +82,8 @@ namespace MahMaterialDragablzMashUp
                 themeManager.ThemeChanged += ThemeManager_ThemeChanged;
             }
         }
+
+        protected override void OnActivated(EventArgs e) => base.OnActivated(e);
 
         private void ThemeManager_ThemeChanged(object? sender, ThemeChangedEventArgs e)
         {

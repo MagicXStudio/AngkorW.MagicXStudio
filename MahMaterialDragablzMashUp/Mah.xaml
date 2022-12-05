@@ -23,7 +23,6 @@
   </UserControl.Resources>
   <StackPanel>
     <TextBlock TextWrapping="Wrap">All controls using MahApps themes, will use Material Design pallete.</TextBlock>
-
     <controls:MetroAnimatedSingleRowTabControl Background="Transparent" TabStripPlacement="Left">
       <TabItem Header="ListBox">
         <smtx:XamlDisplay UniqueKey="ListBox_1">
@@ -36,6 +35,9 @@
       </TabItem>
       <TabItem Header="Button/Switch">
         <StackPanel>
+          <Button Command="{Binding ConnectCommand}">Connect</Button>
+          <Button Command="{Binding GetStreamCommand}">GetStream</Button>
+          <Button Command="{Binding DebugCommand}">Debug</Button>
           <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="ToggleSwitch_1">
             <controls:ToggleSwitch HorizontalAlignment="Left" IsOn="True" />
           </smtx:XamlDisplay>

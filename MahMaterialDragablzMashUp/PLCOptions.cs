@@ -1,5 +1,4 @@
-﻿using System;
-public class PlcOptions
+﻿public class PlcOptions
 {
 
     public PlcOptions()

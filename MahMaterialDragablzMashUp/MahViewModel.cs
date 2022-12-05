@@ -1,6 +1,10 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Net;
+using System.Net.Sockets;
 using MahAppsDragablzDemo.Services;
+using MahMaterialDragablzMashUp;
+using MainFrom;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -10,6 +14,8 @@ namespace MahAppsDragablzDemo
     public class MahViewModel : INotifyPropertyChanged
     {
         IFilesService FilesService { get; }
+
+        TcpCommunication TcpClient => TcpCommunication.Instance;
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
         private PlcOptions _plcOptions;
@@ -17,6 +23,20 @@ namespace MahAppsDragablzDemo
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public ObservableCollection<GridRowData> GridData { get; }
+
+        public ICommand ConnectCommand { get; }
+        public ICommand GetStreamCommand { get; }
+        public ICommand DebugCommand { get; }
+
+        private void Connect() => TcpCommunication.Instance.Init("192.168.4.22", 503);
+
+        private void GetStream()
+        {
+        }
+        private void TcpDebug()
+        {
+            _logger.LogInformation($"Available={TcpClient.ScanRate}\tConnected={TcpClient.IsConnected}");
+        }
 
         private int _UpDownValue;
         public int UpDownValue
@@ -41,7 +61,7 @@ namespace MahAppsDragablzDemo
 
         public MahViewModel(IFilesService filesService, IConfiguration configuration, ILogger<MahViewModel> logger, IOptions<PlcOptions> plcOptions)
         {
-            FilesService= filesService;
+            FilesService = filesService;
             _configuration = configuration;
             _logger = logger;
             _plcOptions = plcOptions.Value;
@@ -49,6 +69,9 @@ namespace MahAppsDragablzDemo
             var connectionString = _configuration.GetConnectionString("SqlDb");  //从配置文件中读取oeeDb connectionString 
             _logger.LogInformation(connectionString);
 
+            ConnectCommand = new AnotherCommandImplementation(_ => Connect());
+            GetStreamCommand = new AnotherCommandImplementation(_ => GetStream());
+            DebugCommand = new AnotherCommandImplementation(_ => TcpDebug());
             GridData = new ObservableCollection<GridRowData> {
                 new GridRowData {
                     IsChecked = false,
