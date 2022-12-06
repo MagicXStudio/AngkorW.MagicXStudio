@@ -32,9 +32,9 @@ namespace MahMaterialDragablzMashUp
             services.AddSingleton<ISettingsService, SettingsService>();
             services.AddSingleton<IClipboardService, ClipboardService>();
 
-
             // Viewmodels
             services.AddTransient<MahViewModel>();
+            services.AddTransient<DialogsViewModel>();
 
             //注册配置
             IConfigurationBuilder cfgBuilder = new ConfigurationBuilder()

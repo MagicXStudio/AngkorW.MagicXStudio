@@ -11,8 +11,8 @@
              dialogs:DialogParticipation.Register="{Binding}"
              mc:Ignorable="d">
   <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-    <Button Command="{Binding ShowInputDialogCommand}">INPUT DIALOG</Button>
-    <Button Margin="0,48,0,0" Command="{Binding ShowProgressDialogCommand}">PROGRESS DIALOG</Button>
-    <Button Margin="0,48,0,0" Command="{Binding ShowLeftFlyoutCommand}">FLYOUT</Button>
+    <Button Command="{Binding ShowInputDialogCommand}">登录口令</Button>
+    <Button Margin="0,48,0,0" Command="{Binding ShowProgressDialogCommand}">网络诊断</Button>
+    <Button Margin="0,48,0,0" Command="{Binding ShowLeftFlyoutCommand}">参数设定</Button>
   </StackPanel>
 </UserControl>

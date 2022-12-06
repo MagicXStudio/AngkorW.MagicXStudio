@@ -11,7 +11,6 @@
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
-  
   <UserControl.Resources>
     <ObjectDataProvider x:Key="EnumValues"
                         MethodName="GetValues"
@@ -22,24 +21,28 @@
     </ObjectDataProvider>
   </UserControl.Resources>
   <StackPanel>
-    <TextBlock TextWrapping="Wrap">All controls using MahApps themes, will use Material Design pallete.</TextBlock>
+    <TextBlock TextWrapping="Wrap"> Design pallete.</TextBlock>
     <controls:MetroAnimatedSingleRowTabControl Background="Transparent" TabStripPlacement="Left">
-      <TabItem Header="ListBox">
+      <TabItem Header="实时状态">
         <smtx:XamlDisplay UniqueKey="ListBox_1">
           <ListBox Margin="0,8,0,0">
+            <TextBlock Text="123"></TextBlock>
+            <TextBlock Text="123"></TextBlock>
+            <TextBlock Text="123"></TextBlock>
+            <TextBlock Text="123"></TextBlock>
             <ListBoxItem IsSelected="True">MahApps</ListBoxItem>
             <ListBoxItem>Dragablz</ListBoxItem>
             <ListBoxItem>Material</ListBoxItem>
           </ListBox>
         </smtx:XamlDisplay>
       </TabItem>
-      <TabItem Header="Button/Switch">
-        <StackPanel>
-          <Button Command="{Binding ConnectCommand}">连接到PLC</Button>
-          <Button Command="{Binding ReadAllRegisterCommand}">加载寄存器状态</Button>
-          <Button Command="{Binding DebugCommand}">调试</Button>
-          <Button Command="{Binding ResetCommand}">复位设备</Button>
-          <Button Command="{Binding StopCommand}">停止设备</Button>
+      <TabItem Header="发送指令">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Margin="0,48,0,0" Command="{Binding ConnectCommand}">连接到PLC</Button>
+          <Button Margin="0,48,0,0" Command="{Binding ReadAllRegisterCommand}">加载寄存器状态</Button>
+          <Button Margin="0,48,0,0" Command="{Binding DebugCommand}">调试</Button>
+          <Button Margin="0,48,0,0" Command="{Binding ResetCommand}">复位设备</Button>
+          <Button Margin="0,48,0,0" Command="{Binding StopCommand}">停止设备</Button>
           <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="ToggleSwitch_1">
             <controls:ToggleSwitch HorizontalAlignment="Left" IsOn="True" />
           </smtx:XamlDisplay>
@@ -52,7 +55,7 @@
           </smtx:XamlDisplay>
         </StackPanel>
       </TabItem>
-      <TabItem Header="Sliders">
+      <TabItem Header="贴标调试">
         <StackPanel>
           <smtx:XamlDisplay UniqueKey="Slider_1">
             <Slider Margin="6,16,6,0"
@@ -75,7 +78,7 @@
           </smtx:XamlDisplay>
         </StackPanel>
       </TabItem>
-      <TabItem Header="NumericUpDown">
+      <TabItem Header="调试日志">
         <StackPanel>
           <smtx:XamlDisplay UniqueKey="NumericUpDown_1">
             <controls:NumericUpDown Margin="5" Value="{Binding UpDownValue, ValidatesOnExceptions=True}" />
@@ -91,7 +94,7 @@
           </smtx:XamlDisplay>
         </StackPanel>
       </TabItem>
-      <TabItem Header="DataGrid">
+      <TabItem Header="PLC指令">
         <smtx:XamlDisplay UniqueKey="DataGrid_1">
           <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GridData}">
             <DataGrid.Columns>
@@ -119,6 +122,5 @@
         </smtx:XamlDisplay>
       </TabItem>
     </controls:MetroAnimatedSingleRowTabControl>
-
   </StackPanel>
 </UserControl>

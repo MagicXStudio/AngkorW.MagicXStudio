@@ -1,4 +1,6 @@
-﻿namespace MahMaterialDragablzMashUp
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace MahMaterialDragablzMashUp
 {
     /// <summary>
     /// Interaction logic for Dialogs.xaml
@@ -8,6 +10,7 @@
         public Dialogs()
         {
             InitializeComponent();
+            this.DataContext = App.Current.Services.GetService<DialogsViewModel>();
         }
     }
 }
