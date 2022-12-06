@@ -77,7 +77,7 @@ namespace MahAppsDragablzDemo
             // var connectionString = _configuration.GetConnectionString("SqlDb");  //从配置文件中读取oeeDb connectionString 
             _logger.LogInformation("MahViewModel");
 
-            ConnectCommand = new AnotherCommandImplementation(_ => TcpCommunication.Instance.Init("192.168.4.22", 503));
+            ConnectCommand = new AnotherCommandImplementation(_ => TcpCommunication.Instance.Init("192.168.1.28", 503));
             ReadAllRegisterCommand = new AnotherCommandImplementation(_ =>
             {
                 _logger.LogInformation("ReadAllRegisteCommandList");

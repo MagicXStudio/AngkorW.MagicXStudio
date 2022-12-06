@@ -8,6 +8,7 @@ using MahMaterialDragablzMashUp;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Windows.Markup;
+using System.Net.Http;
 
 namespace MainFrom
 {
@@ -118,11 +119,13 @@ namespace MainFrom
             }
         }
 
-        public void WriteRegister<T>(ushort registeraddress, T value) where T : struct
+        public void WriteRegister<T>(ushort registerAddress, T value) where T : struct
         {
-            _logger.LogInformation($"寄存器地址:{registeraddress} \t值:{value}");
-            byte[] bytes = GetWriteRegisterCommand(registeraddress, value);
-            StreamToServer.Write(bytes, 0, bytes.Length);
+            _logger.LogInformation($"寄存器地址:{registerAddress} \t值:{value}");
+            byte[] bytes = GetWriteRegisterCommand(registerAddress, value);
+
+            NetworkStream stream = TcpClient.GetStream();
+            stream.Write(bytes, 0, bytes.Length);
         }
 
         /// <summary>
@@ -248,7 +251,7 @@ namespace MainFrom
                     bit += 8;
                 registeraddress >>= 1;
 
-                ushort value = 2 ;
+                ushort value = 2;
                 if (matches[1].Value == "1")
                     value |= (ushort)(1 << bit);
                 else
