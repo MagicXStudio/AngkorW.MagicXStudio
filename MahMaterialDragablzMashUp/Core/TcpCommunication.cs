@@ -39,7 +39,6 @@ namespace MainFrom
 
         private Thread SendThread;
         private Thread ReceiveThread;
-        private Thread AnalysisThread;
         public ConcurrentQueue<byte[]> SendQueue { get; }
         public ConcurrentQueue<byte[]> ReceiveQueue { get; }
 
@@ -100,12 +99,10 @@ namespace MainFrom
             IsCanRunning = true;
             SendThread = new Thread(SendMethod);
             ReceiveThread = new Thread(ReceiveMethod);
-            AnalysisThread = new Thread(AnalysisMethod);
 
             ThreadPool.QueueUserWorkItem((x) => { AnalysisMethod(); });
 
             Connect(host, port);
-            AnalysisThread.Start();
         }
 
         private void SendMethod()
