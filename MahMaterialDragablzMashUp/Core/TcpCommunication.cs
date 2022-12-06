@@ -7,8 +7,6 @@ using System.Runtime.InteropServices;
 using MahMaterialDragablzMashUp;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using static System.Net.Mime.MediaTypeNames;
-using System.Windows.Markup;
 
 namespace MainFrom
 {
@@ -96,7 +94,7 @@ namespace MainFrom
         {
             IsClosing = false;
             ipaddress = IPAddress.Parse(host);
-            ScanRate =30;
+            ScanRate = 30;
 
             IsCanRunning = true;
             SendThread = new Thread(SendMethod);
@@ -126,8 +124,8 @@ namespace MainFrom
                         if (Sended != null)
                         {
                             CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = data };
-                            _logger.LogInformation($"发送数据：Length={e.Data.Length}\r\n{e.ToString()}:");
-                            Sended.BeginInvoke(e, null, null);
+                            _logger.LogInformation($"发送数据：Length={e.Data.Length}\r\n{e}:");
+                            Sended.Invoke(e);
                         }
                         Thread.Sleep(ScanRate);
                     }
@@ -143,7 +141,7 @@ namespace MainFrom
                     if (Sended != null)
                     {
                         CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = ReadAllBytes };
-                        Sended.BeginInvoke(e, null, null);
+                        Sended.Invoke(e);
                     }
                     Thread.Sleep(ScanRate);
                 }
@@ -172,8 +170,8 @@ namespace MainFrom
                     if (Received != null)
                     {
                         CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = buffer };
-                        _logger.LogInformation($"收到数据：Length={e.Data.Length} \r\n {e.ToString()}");
-                        Received.BeginInvoke(e, null, null);
+                        _logger.LogInformation($"收到数据：Length={e.Data.Length} \r\n {e}");
+                        Received.Invoke(e);
                     }
                     List<byte[]> list = ConvertHelper.SplitData(buffer);
                     for (int i = 0; i < list.Count; i++)
@@ -192,9 +190,8 @@ namespace MainFrom
                     byte[] data;
                     if (ReceiveQueue.TryDequeue(out data))
                     {
-                        var txt = Encoding.Default.GetString(data);
-                        _logger.LogInformation($"解析数据 Length：{data.Length} \r\n{txt}");
-                        AnalysisData(data);
+                        _logger.LogInformation($"解析数据 Length：{data.Length}");
+                         AnalysisData(data);
                     }
                 }
             }
@@ -395,7 +392,15 @@ namespace MainFrom
     {
         public DateTime Time { get; set; }
         public byte[] Data { get; set; }
-        public override string ToString() => Encoding.ASCII.GetString(Data);
+        public override string ToString()
+        {
+            string txt = string.Empty;
+            foreach (var d in Data)
+            {
+                txt += d.ToString();
+            }
+            return txt;
+        }
     }
     #endregion
 }

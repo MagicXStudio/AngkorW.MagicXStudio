@@ -71,24 +71,29 @@ namespace MahAppsDragablzDemo
             _logger = logger;
             _plcOptions = plcOptions.Value;
 
-            TcpClient.Sended+=TcpClient_Sended;
-            TcpClient.Received+=TcpClient_Received;
+            TcpClient.Sended += TcpClient_Sended;
+            TcpClient.Received += TcpClient_Received;
 
-            var connectionString = _configuration.GetConnectionString("SqlDb");  //从配置文件中读取oeeDb connectionString 
-            _logger.LogInformation(connectionString);
+            // var connectionString = _configuration.GetConnectionString("SqlDb");  //从配置文件中读取oeeDb connectionString 
+            _logger.LogInformation("MahViewModel");
 
             ConnectCommand = new AnotherCommandImplementation(_ => TcpCommunication.Instance.Init("192.168.4.22", 503));
-            ReadAllRegisterCommand = new AnotherCommandImplementation(_ => TcpClient.ReadAllRegister());
+            ReadAllRegisterCommand = new AnotherCommandImplementation(_ =>
+            {
+                _logger.LogInformation("ReadAllRegister");
+                TcpClient.ReadAllRegister();
+            });
             DebugCommand = new AnotherCommandImplementation(_ => TcpDebug());
 
             ResetCommand = new AnotherCommandImplementation(_ =>
             {
                 Task.Run(async () =>
                 {
+                    _logger.LogInformation("复位设备");
                     TcpClient.WriteRegister<ushort>(ModbusRegs.ResetPLC, 1);
                     await Task.Delay(50);
                     TcpClient.WriteRegister<ushort>(ModbusRegs.ResetPLC, 0);
-                    _logger.LogInformation("复位设备");
+
                 });
             });
 
@@ -158,12 +163,12 @@ namespace MahAppsDragablzDemo
 
         private void TcpClient_Received(CommunicationEventArgs e)
         {
-            _logger.LogInformation($"{e.Time} {e.Data.ToString()}");
+            _logger.LogInformation($"收到数据:{e.Time} \t {e}");
         }
 
         private void TcpClient_Sended(CommunicationEventArgs e)
         {
-            _logger.LogInformation($"{e.Time} {e.Data.ToString()}");
+            _logger.LogInformation($"发送数据:{e.Time} \t {e}");
         }
     }
 
