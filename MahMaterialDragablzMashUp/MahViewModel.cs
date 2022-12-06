@@ -40,7 +40,7 @@ namespace MahAppsDragablzDemo
 
         private void TcpDebug()
         {
-            _logger.LogInformation($"SendQueue Count={TcpClient.SendQueue.Count}\t ReceiveQueue Count={TcpClient.ReceiveQueue.Count}");
+            _logger.LogInformation($"SendQueue Count={TcpClient.IsConnected}\t ReceiveQueue Count={TcpClient.ReceiveQueue.Count}");
         }
 
         private int _UpDownValue;
@@ -80,8 +80,8 @@ namespace MahAppsDragablzDemo
             ConnectCommand = new AnotherCommandImplementation(_ => TcpCommunication.Instance.Init("192.168.4.22", 503));
             ReadAllRegisterCommand = new AnotherCommandImplementation(_ =>
             {
-                _logger.LogInformation("ReadAllRegister");
-                TcpClient.ReadAllRegister();
+                _logger.LogInformation("ReadAllRegisteCommandList");
+                TcpClient.ReadAllRegisteCommandList();
             });
             DebugCommand = new AnotherCommandImplementation(_ => TcpDebug());
 

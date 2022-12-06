@@ -7,20 +7,19 @@ using System.Runtime.InteropServices;
 using MahMaterialDragablzMashUp;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Windows.Markup;
 
 namespace MainFrom
 {
     public class TcpCommunication : SignalCommunication
     {
         private static readonly Lazy<TcpCommunication> _Lazy = new Lazy<TcpCommunication>(() => new TcpCommunication(new TcpClient()));
-        private int port;
         ILogger<TcpCommunication> _logger;
-        IPAddress ipaddress;
         private NetworkStream StreamToServer { get; set; }
-        public event CommunicationEventHandler Sended;
-        public event CommunicationEventHandler Received;
 
-        public int ScanRate { get; set; } = 50;
+        public event CommunicationEventHandler Sended;
+
+        public event CommunicationEventHandler Received;
 
         #region 单例
         public static TcpCommunication Instance => _Lazy.Value;
@@ -31,18 +30,13 @@ namespace MainFrom
         {
             var logger = App.Current.Services.GetService<ILogger<TcpCommunication>>();
             _logger = logger;
-            SendQueue = new ConcurrentQueue<byte[]>();
             ReceiveQueue = new ConcurrentQueue<byte[]>();
         }
 
         #endregion
 
-        private Thread SendThread;
         private Thread ReceiveThread;
-        public ConcurrentQueue<byte[]> SendQueue { get; }
         public ConcurrentQueue<byte[]> ReceiveQueue { get; }
-
-        private bool IsOvetTime = false;
 
         private ushort ReadAllRegister_ReadNumEach => 120;
 
@@ -60,14 +54,7 @@ namespace MainFrom
             {
                 TcpClient.Connect(host, port);
                 StreamToServer = TcpClient.GetStream();
-                if (SendThread.ThreadState == ThreadState.Unstarted)
-                {
-                    SendThread.Start();
-                }
-                if (ReceiveThread.ThreadState == ThreadState.Unstarted)
-                {
-                    ReceiveThread.Start();
-                }
+                ReceiveThread.Start();
             }
             return IsConnected;
         }
@@ -80,10 +67,7 @@ namespace MainFrom
                 StreamToServer.Dispose();
                 TcpClient.Close();
             }
-            if (SendThread.ThreadState != ThreadState.Unstarted)
-            {
-                SendThread.Abort();
-            }
+
             if (ReceiveThread.ThreadState != ThreadState.Unstarted)
             {
                 ReceiveThread.Abort();
@@ -93,119 +77,44 @@ namespace MainFrom
         public override void Init(string host, int port)
         {
             IsClosing = false;
-            ipaddress = IPAddress.Parse(host);
-            ScanRate = 30;
-
             IsCanRunning = true;
-            SendThread = new Thread(SendMethod);
             ReceiveThread = new Thread(ReceiveMethod);
-
-            ThreadPool.QueueUserWorkItem((x) => { AnalysisMethod(); });
-
             Connect(host, port);
         }
 
-        private void SendMethod()
+        private void SendMethod(byte[] data)
         {
-            while (true)
-            {
-                if (IsOvetTime)
-                {
-                    Thread.Sleep(ScanRate * 2);
-                    IsOvetTime = false;
-                    continue;
-                }
-                if (SendQueue.Count > 0)
-                {
-                    byte[] data;
-                    if (SendQueue.TryDequeue(out data))
-                    {
-                        StreamToServer.Write(data, 0, data.Length);
-                        if (Sended != null)
-                        {
-                            CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = data };
-                            _logger.LogInformation($"发送数据：Length={e.Data.Length}\r\n{e}:");
-                            Sended.Invoke(e);
-                        }
-                        Thread.Sleep(ScanRate);
-                    }
-                }
-                if (IsCanRunning)
-                {
-                    byte[] ReadAllBytes = ReadAllRegisteCommand();
-                    //不加判断，可能会显示未连接，加判断重连时间需要久一点
-                    if (TcpClient.Connected)
-                    {
-                        StreamToServer.Write(ReadAllBytes, 0, ReadAllBytes.Length);
-                    }
-                    if (Sended != null)
-                    {
-                        CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = ReadAllBytes };
-                        Sended.Invoke(e);
-                    }
-                    Thread.Sleep(ScanRate);
-                }
-            }
+            byte[] ReadAllBytes = ReadAllRegisteCommand();
+            CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = data };
+            _logger.LogInformation($"发送数据：Length={e.Data.Length}\r\n{e}:");
+            StreamToServer.Write(data, 0, data.Length);
+            StreamToServer.Write(ReadAllBytes, 0, ReadAllBytes.Length);
+            Sended.Invoke(e);
         }
-        private DateTime LastReceivePackageTime;
         private void ReceiveMethod()
         {
-            LastReceivePackageTime = DateTime.Now;
-            while (true)
+            while (IsConnected)
             {
-                if (!IsConnected)
-                {
-                    return;
-                }
-                if ((DateTime.Now - LastReceivePackageTime).TotalMilliseconds > 4 * ScanRate)
-                {
-                    IsOvetTime = true;
-                    LastReceivePackageTime = DateTime.Now;
-                }
                 int available = TcpClient.Available;
                 if (available > 0)
                 {
                     byte[] buffer = new byte[available];
                     StreamToServer.Read(buffer, 0, available);
-                    if (Received != null)
-                    {
-                        CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = buffer };
-                        _logger.LogInformation($"收到数据：Length={e.Data.Length} \r\n {e}");
-                        Received.Invoke(e);
-                    }
-                    List<byte[]> list = ConvertHelper.SplitData(buffer);
-                    for (int i = 0; i < list.Count; i++)
-                    {
-                        ReceiveQueue.Enqueue(list[i]);
-                    }
-                }
-            }
-        }
-        private void AnalysisMethod()
-        {
-            while (true)
-            {
-                if (ReceiveQueue.Count > 0)
-                {
-                    byte[] data;
-                    if (ReceiveQueue.TryDequeue(out data))
-                    {
-                        _logger.LogInformation($"解析数据 Length：{data.Length}");
-                         AnalysisData(data);
-                    }
+                    CommunicationEventArgs e = new CommunicationEventArgs { Time = DateTime.Now, Data = buffer };
+                    _logger.LogInformation($"收到数据：Length={e.Data.Length} \r\n {e}");
+                    AnalysisData(e);
                 }
             }
         }
 
-        public ushort[] modbusValues = new ushort[1024];
-
-        private void AnalysisData(byte[] data)
+        private void AnalysisData(CommunicationEventArgs args)
         {
-            if (data[7] == 3)
+            Received.Invoke(args);
+            if (args.Data[7] == 3)
             {
-                int index = (data[1] - 1) * 120;
-                ushort[] readbuffer = ConvertBytes(data);
-                Array.Copy(readbuffer, 0, modbusValues, index, readbuffer.Length);
+                int index = (args.Data[1] - 1) * 120;
+                ushort[] readbuffer = ConvertBytes(args.Data);
+                _logger.LogInformation($"解析数据 Length：{readbuffer}");
             }
         }
 
@@ -213,12 +122,7 @@ namespace MainFrom
         {
             _logger.LogInformation($"寄存器地址:{registeraddress} \t值:{value}");
             byte[] bytes = GetWriteRegisterCommand(registeraddress, value);
-            SendQueue.Enqueue(bytes);
-        }
-
-        public void SendData(byte[] bytes)
-        {
-            SendQueue.Enqueue(bytes);
+            StreamToServer.Write(bytes, 0, bytes.Length);
         }
 
         /// <summary>
@@ -252,20 +156,12 @@ namespace MainFrom
             return returnBytes;
         }
 
-        public void ReadAllRegister()
-        {
-            List<byte[]> list = ReadAllRegisteCommandList();
-            for (int i = 0; i < list.Count; i++)
-            {
-                SendQueue.Enqueue(list[i]);
-            }
-        }
-        private List<byte[]> ReadAllRegisteCommandList()
+        public List<byte[]> ReadAllRegisteCommandList()
         {
             List<byte[]> list = new List<byte[]>();
             for (int i = 0; i <= (ModbusRegs.Count - 1) / ReadAllRegister_ReadNumEach; i++)
             {
-                var cmd = ReadAllRegisteCommand();
+                byte[] cmd = ReadAllRegisteCommand();
                 list.Add(cmd);
             }
             return list;
@@ -319,39 +215,40 @@ namespace MainFrom
         {
             return RegWriteInt16.IsMatch(s) || RegWriteInt32.IsMatch(s) || RegWriteFloat.IsMatch(s) || RegWriteBit.IsMatch(s);
         }
-        public byte[] GetCommand(string s)
+        public byte[] GetCommand(string cmd)
         {
-            if (RegWriteInt16.IsMatch(s))
+            if (RegWriteInt16.IsMatch(cmd))
             {
-                MatchCollection matches = RegNum.Matches(s);
+                MatchCollection matches = RegNum.Matches(cmd);
                 ushort registeraddress = (ushort)(Convert.ToUInt16(matches[0].Value) >> 1);
                 ushort value = Convert.ToUInt16(matches[1].Value);
                 return GetWriteRegisterCommand(registeraddress, value);
             }
-            else if (RegWriteInt32.IsMatch(s))
+            else if (RegWriteInt32.IsMatch(cmd))
             {
-                MatchCollection matches = RegNum.Matches(s);
+                MatchCollection matches = RegNum.Matches(cmd);
                 ushort registeraddress = (ushort)(Convert.ToUInt16(matches[0].Value) >> 1);
                 uint value = Convert.ToUInt32(matches[1].Value);
                 return GetWriteRegisterCommand(registeraddress, value);
             }
-            else if (RegWriteFloat.IsMatch(s))
+            else if (RegWriteFloat.IsMatch(cmd))
             {
-                MatchCollection matches = RegNum.Matches(s);
+                MatchCollection matches = RegNum.Matches(cmd);
                 ushort registeraddress = (ushort)(Convert.ToUInt16(matches[0].Value) >> 1);
                 float value = Convert.ToSingle(matches[1].Value);
                 return GetWriteRegisterCommand(registeraddress, value);
             }
-            else if (RegWriteBit.IsMatch(s))
+            else if (RegWriteBit.IsMatch(cmd))
             {
-                MatchCollection matches = RegNum.Matches(s);
+                MatchCollection matches = RegNum.Matches(cmd);
                 string[] a = matches[0].Value.Split('.');
-                ushort registeraddress = Convert.ToUInt16(s[0]);
-                int bit = Convert.ToInt32(s[1]);
+                ushort registeraddress = Convert.ToUInt16(cmd[0]);
+                int bit = Convert.ToInt32(cmd[1]);
                 if ((registeraddress & 1) == 0)
                     bit += 8;
                 registeraddress >>= 1;
-                ushort value = modbusValues[registeraddress];
+
+                ushort value = 2 ;
                 if (matches[1].Value == "1")
                     value |= (ushort)(1 << bit);
                 else
