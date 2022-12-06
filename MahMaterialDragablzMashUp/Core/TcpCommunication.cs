@@ -7,6 +7,8 @@ using System.Runtime.InteropServices;
 using MahMaterialDragablzMashUp;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Markup;
 
 namespace MainFrom
 {
@@ -44,7 +46,7 @@ namespace MainFrom
 
         private bool IsOvetTime = false;
 
-        private ushort ReadAllRegister_ReadNumEach = 120;
+        private ushort ReadAllRegister_ReadNumEach => 120;
 
         private ushort ReadAllRegister_ReadStartAddress = 0;
         private Regex RegWriteInt16 = new Regex(@"^vw\d*[02468]=\d+$", RegexOptions.IgnoreCase);
@@ -190,7 +192,7 @@ namespace MainFrom
                     byte[] data;
                     if (ReceiveQueue.TryDequeue(out data))
                     {
-                        var txt = Encoding.ASCII.GetString(data);
+                        var txt = Encoding.Default.GetString(data);
                         _logger.LogInformation($"解析数据 Length：{data.Length} \r\n{txt}");
                         AnalysisData(data);
                     }
@@ -205,13 +207,14 @@ namespace MainFrom
             if (data[7] == 3)
             {
                 int index = (data[1] - 1) * 120;
-                var readbuffer = CongertBytes(data);
+                ushort[] readbuffer = ConvertBytes(data);
                 Array.Copy(readbuffer, 0, modbusValues, index, readbuffer.Length);
             }
         }
 
         public void WriteRegister<T>(ushort registeraddress, T value) where T : struct
         {
+            _logger.LogInformation($"寄存器地址:{registeraddress} \t值:{value}");
             byte[] bytes = GetWriteRegisterCommand(registeraddress, value);
             SendQueue.Enqueue(bytes);
         }
@@ -260,12 +263,13 @@ namespace MainFrom
                 SendQueue.Enqueue(list[i]);
             }
         }
-        public List<byte[]> ReadAllRegisteCommandList()
+        private List<byte[]> ReadAllRegisteCommandList()
         {
             List<byte[]> list = new List<byte[]>();
             for (int i = 0; i <= (ModbusRegs.Count - 1) / ReadAllRegister_ReadNumEach; i++)
             {
-                list.Add(ReadAllRegisteCommand());
+                var cmd = ReadAllRegisteCommand();
+                list.Add(cmd);
             }
             return list;
         }
@@ -368,7 +372,7 @@ namespace MainFrom
 
         }
 
-        private ushort[] CongertBytes(byte[] bytes)
+        private ushort[] ConvertBytes(byte[] bytes)
         {
             if (bytes.Length == 0)
             {

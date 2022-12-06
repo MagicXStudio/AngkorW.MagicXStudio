@@ -25,17 +25,22 @@ namespace MahAppsDragablzDemo
         public ObservableCollection<GridRowData> GridData { get; }
 
         public ICommand ConnectCommand { get; }
-        public ICommand GetStreamCommand { get; }
+        public ICommand ReadAllRegisterCommand { get; }
         public ICommand DebugCommand { get; }
 
-        private void Connect() => TcpCommunication.Instance.Init("192.168.4.22", 503);
+        /// <summary>
+        /// 复位设备
+        /// </summary>
+        public ICommand ResetCommand { get; }
 
-        private void GetStream()
-        {
-        }
+        /// <summary>
+        /// 停止设备
+        /// </summary>
+        public ICommand StopCommand { get; }
+
         private void TcpDebug()
         {
-            _logger.LogInformation($"Available={TcpClient.ScanRate}\tConnected={TcpClient.IsConnected}");
+            _logger.LogInformation($"SendQueue Count={TcpClient.SendQueue.Count}\t ReceiveQueue Count={TcpClient.ReceiveQueue.Count}");
         }
 
         private int _UpDownValue;
@@ -66,12 +71,33 @@ namespace MahAppsDragablzDemo
             _logger = logger;
             _plcOptions = plcOptions.Value;
 
+            TcpClient.Sended+=TcpClient_Sended;
+            TcpClient.Received+=TcpClient_Received;
+
             var connectionString = _configuration.GetConnectionString("SqlDb");  //从配置文件中读取oeeDb connectionString 
             _logger.LogInformation(connectionString);
 
-            ConnectCommand = new AnotherCommandImplementation(_ => Connect());
-            GetStreamCommand = new AnotherCommandImplementation(_ => GetStream());
+            ConnectCommand = new AnotherCommandImplementation(_ => TcpCommunication.Instance.Init("192.168.4.22", 503));
+            ReadAllRegisterCommand = new AnotherCommandImplementation(_ => TcpClient.ReadAllRegister());
             DebugCommand = new AnotherCommandImplementation(_ => TcpDebug());
+
+            ResetCommand = new AnotherCommandImplementation(_ =>
+            {
+                Task.Run(async () =>
+                {
+                    TcpClient.WriteRegister<ushort>(ModbusRegs.ResetPLC, 1);
+                    await Task.Delay(50);
+                    TcpClient.WriteRegister<ushort>(ModbusRegs.ResetPLC, 0);
+                    _logger.LogInformation("复位设备");
+                });
+            });
+
+            StopCommand = new AnotherCommandImplementation(_ =>
+            {
+                TcpClient.WriteRegister<ushort>(ModbusRegs.PLCStart_stop, 0);
+                _logger.LogInformation("停止设备");
+            });
+
             GridData = new ObservableCollection<GridRowData> {
                 new GridRowData {
                     IsChecked = false,
@@ -128,6 +154,16 @@ namespace MahAppsDragablzDemo
                     IntValue = 2370
                 }
             };
+        }
+
+        private void TcpClient_Received(CommunicationEventArgs e)
+        {
+            _logger.LogInformation($"{e.Time} {e.Data.ToString()}");
+        }
+
+        private void TcpClient_Sended(CommunicationEventArgs e)
+        {
+            _logger.LogInformation($"{e.Time} {e.Data.ToString()}");
         }
     }
 

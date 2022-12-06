@@ -35,9 +35,11 @@
       </TabItem>
       <TabItem Header="Button/Switch">
         <StackPanel>
-          <Button Command="{Binding ConnectCommand}">Connect</Button>
-          <Button Command="{Binding GetStreamCommand}">GetStream</Button>
-          <Button Command="{Binding DebugCommand}">Debug</Button>
+          <Button Command="{Binding ConnectCommand}">连接到PLC</Button>
+          <Button Command="{Binding ReadAllRegisterCommand}">加载寄存器状态</Button>
+          <Button Command="{Binding DebugCommand}">调试</Button>
+          <Button Command="{Binding ResetCommand}">复位设备</Button>
+          <Button Command="{Binding StopCommand}">停止设备</Button>
           <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="ToggleSwitch_1">
             <controls:ToggleSwitch HorizontalAlignment="Left" IsOn="True" />
           </smtx:XamlDisplay>

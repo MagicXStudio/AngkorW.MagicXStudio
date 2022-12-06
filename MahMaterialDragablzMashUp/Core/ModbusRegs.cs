@@ -169,7 +169,8 @@
         /// <summary>
         /// PLC启动/停止 "0：停止 1：启动"
         /// </summary>
-        public const byte PLCStart_stop = 0x22;
+        public  static byte PLCStart_stop => _PLCStart_stop;
+        public const byte _PLCStart_stop = 0x22;
 
         /// <summary>
         /// 通知贴标 1： 通知贴标
