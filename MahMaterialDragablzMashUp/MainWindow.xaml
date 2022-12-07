@@ -47,9 +47,6 @@
       </dragablz:TabablzControl.InterTabController>
       <TabItem Header="设置">
         <mahMaterialDragablzMashUp:Dialogs Margin="8">
-          <mahMaterialDragablzMashUp:Dialogs.DataContext>
-            <mahMaterialDragablzMashUp:DialogsViewModel />
-          </mahMaterialDragablzMashUp:Dialogs.DataContext>
         </mahMaterialDragablzMashUp:Dialogs>
       </TabItem>
       <TabItem Header="幅宽表">

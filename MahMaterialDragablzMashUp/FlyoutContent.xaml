@@ -16,12 +16,12 @@
   </UserControl.Resources>
   <StackPanel Margin="24">
     <TextBox MinWidth="120"
-             wpf:HintAssist.Hint="Hint 1"
+             wpf:HintAssist.Hint="IP地址"
              FontSize="18"
              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
     <TextBox MinWidth="120"
              Margin="0,8,0,0"
-             wpf:HintAssist.Hint="Hint 2"
+             wpf:HintAssist.Hint="端口"
              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
   </StackPanel>
 </UserControl>

@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using MahAppsDragablzDemo;
 using MahAppsDragablzDemo.Services;
 using MaterialDesignThemes.Wpf;
@@ -7,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Core;
 using ShowMeTheXAML;
 
 namespace MahMaterialDragablzMashUp
@@ -21,13 +21,14 @@ namespace MahMaterialDragablzMashUp
             Services = ConfigureServices();
             InitializeComponent();
         }
+        private static Logger Logger { get; set; }
 
         public new static App Current => (App)Application.Current;
         public IServiceProvider Services { get; }
 
         private static IServiceProvider ConfigureServices()
         {
-            var services = new ServiceCollection();
+            ServiceCollection services = new ServiceCollection();
             services.AddSingleton<IFilesService, FilesService>();
             services.AddSingleton<ISettingsService, SettingsService>();
             services.AddSingleton<IClipboardService, ClipboardService>();
@@ -54,7 +55,7 @@ namespace MahMaterialDragablzMashUp
             services.Configure<List<PlcOptions>>(configuration.GetSection("plc"));
 
             //创建 logger
-            var serilogLogger = new LoggerConfiguration()
+            Logger serilogLogger = new LoggerConfiguration()
                 .ReadFrom.Configuration(configuration)
                 .Enrich.FromLogContext()
                 .CreateLogger();
@@ -63,9 +64,8 @@ namespace MahMaterialDragablzMashUp
             services.AddLogging(builder =>
             {
                 ILoggingBuilder p = builder.AddSerilog(logger: serilogLogger, dispose: true);
-
             });
-
+            Logger=serilogLogger;
             return services.BuildServiceProvider();
         }
 
@@ -81,6 +81,7 @@ namespace MahMaterialDragablzMashUp
             {
                 themeManager.ThemeChanged += ThemeManager_ThemeChanged;
             }
+            Logger.Information("OnStartup->启动软件");
         }
 
         protected override void OnActivated(EventArgs e) => base.OnActivated(e);

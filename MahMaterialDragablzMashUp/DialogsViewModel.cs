@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using System.ComponentModel;
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -6,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace MahMaterialDragablzMashUp
 {
-    public class DialogsViewModel
+    public class DialogsViewModel : INotifyPropertyChanged
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
@@ -22,6 +23,8 @@ namespace MahMaterialDragablzMashUp
         {
             Source = new Uri("pack://application:,,,/MaterialDesignThemes.MahApps;component/Themes/MaterialDesignTheme.MahApps.Dialogs.xaml")
         };
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public DialogsViewModel(IConfiguration configuration, ILogger<DialogsViewModel> logger, IOptions<PlcOptions> plcOptions)
         {
@@ -44,7 +47,7 @@ namespace MahMaterialDragablzMashUp
                 NegativeButtonText = "取消"
             };
 
-            DialogCoordinator.Instance.ShowInputAsync(this, "MahApps Dialog", "Using Material Design Themes", metroDialogSettings);
+            DialogCoordinator.Instance.ShowInputAsync(this, "PLC", "登录口令", metroDialogSettings);
         }
 
         private async void ProgressDialog()
@@ -55,7 +58,7 @@ namespace MahMaterialDragablzMashUp
                 NegativeButtonText = "取消"
             };
 
-            var controller = await DialogCoordinator.Instance.ShowProgressAsync(this, "MahApps Dialog", "Using Material Design Themes (WORK IN PROGRESS)", true, metroDialogSettings);
+            var controller = await DialogCoordinator.Instance.ShowProgressAsync(this, "PLC", "网络诊断", true, metroDialogSettings);
             controller.SetIndeterminate();
             await Task.Delay(3000);
             await controller.CloseAsync();
