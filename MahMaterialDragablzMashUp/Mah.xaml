@@ -27,7 +27,7 @@
           <ListBox Margin="0,8,0,0">
             <TextBlock TextWrapping="Wrap" Text="123"></TextBlock>
             <TextBlock Text="123"></TextBlock>
-            <TextBlock Text="123"></TextBlock>
+            <TextBlock Text="{Binding ConnectText}"></TextBlock>
             <TextBlock Text="123"></TextBlock>
             <ListBoxItem IsSelected="True">MahApps</ListBoxItem>
             <ListBoxItem>Dragablz</ListBoxItem>

@@ -38,6 +38,9 @@ namespace MahAppsDragablzDemo
         /// </summary>
         public ICommand StopCommand { get; }
 
+
+        public string ConnectText { get; set; } = "已经连接到PLC";
+
         private void TcpDebug()
         {
             _logger.LogInformation($"SendQueue Count={TcpClient.IsConnected}\t ReceiveQueue Count={TcpClient.ReceiveQueue.Count}");
