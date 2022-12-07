@@ -41,12 +41,12 @@ namespace MainFrom
 
         private ushort ReadAllRegister_ReadNumEach => 120;
 
-        private ushort ReadAllRegister_ReadStartAddress = 0;
-        private Regex RegWriteInt16 = new Regex(@"^vw\d*[02468]=\d+$", RegexOptions.IgnoreCase);
-        private Regex RegWriteInt32 = new Regex(@"^vd\d*[02468]=\d+$", RegexOptions.IgnoreCase);
-        private Regex RegWriteFloat = new Regex(@"^vd\d*[02468]=\d+\.\d+$", RegexOptions.IgnoreCase);
-        private Regex RegWriteBit = new Regex(@"^v\d+\.[0-7]=[01]$", RegexOptions.IgnoreCase);
-        private Regex RegNum = new Regex(@"\d+(\.\d+)?");
+        private ushort ReadAllRegister_ReadStartAddress { get; set; } = 0;
+        private Regex RegWriteInt16 => new Regex(@"^vw\d*[02468]=\d+$", RegexOptions.IgnoreCase);
+        private Regex RegWriteInt32 => new Regex(@"^vd\d*[02468]=\d+$", RegexOptions.IgnoreCase);
+        private Regex RegWriteFloat => new Regex(@"^vd\d*[02468]=\d+\.\d+$", RegexOptions.IgnoreCase);
+        private Regex RegWriteBit =>new Regex(@"^v\d+\.[0-7]=[01]$", RegexOptions.IgnoreCase);
+        private Regex RegNum => new Regex(@"\d+(\.\d+)?");
 
         public override bool Connect(string host, int port)
         {

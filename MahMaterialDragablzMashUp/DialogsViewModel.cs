@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahAppsDragablzDemo;
 using Microsoft.Extensions.Configuration;
@@ -24,8 +23,6 @@ namespace MahMaterialDragablzMashUp
         {
             Source = new Uri("pack://application:,,,/MaterialDesignThemes.MahApps;component/Themes/MaterialDesignTheme.MahApps.Dialogs.xaml")
         };
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public DialogsViewModel(IConfiguration configuration, ILogger<DialogsViewModel> logger, IOptions<PlcOptions> plcOptions)
         {

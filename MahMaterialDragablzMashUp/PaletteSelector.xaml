@@ -100,13 +100,13 @@
         <ColumnDefinition />
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
-      <TextBlock VerticalAlignment="Center">Standard Style</TextBlock>
+      <TextBlock VerticalAlignment="Center">标准</TextBlock>
       <ToggleButton Grid.Column="1"
                     Margin="8,4,16,4"
                     Command="{Binding ToggleStyleCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" />
-      <TextBlock Grid.Column="2" VerticalAlignment="Center">Alternate Style</TextBlock>
-      <TextBlock Grid.Row="1" VerticalAlignment="Center">Light</TextBlock>
+      <TextBlock Grid.Column="2" VerticalAlignment="Center">交替</TextBlock>
+      <TextBlock Grid.Row="1" VerticalAlignment="Center">明亮</TextBlock>
       <ToggleButton Grid.Row="1"
                     Grid.Column="1"
                     Margin="8,4,16,4"
@@ -114,7 +114,7 @@
       <TextBlock Grid.Row="1"
                  Grid.Column="2"
                  VerticalAlignment="Center">
-        Dark
+        黑暗
       </TextBlock>
     </Grid>
     <ScrollViewer Grid.Row="1"
