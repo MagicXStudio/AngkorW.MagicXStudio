@@ -11,7 +11,7 @@ using Microsoft.Extensions.Options;
 
 namespace MahAppsDragablzDemo
 {
-    public class MahViewModel : INotifyPropertyChanged
+    public class MahViewModel : NotifyPropertyChanged
     {
         IFilesService FilesService { get; }
 
@@ -20,12 +20,18 @@ namespace MahAppsDragablzDemo
         private readonly ILogger _logger;
         private PlcOptions _plcOptions;
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         public ObservableCollection<GridRowData> GridData { get; }
 
         public ICommand ConnectCommand { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ICommand ReadAllRegisterCommand { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ICommand DebugCommand { get; }
 
         /// <summary>
@@ -39,7 +45,17 @@ namespace MahAppsDragablzDemo
         public ICommand StopCommand { get; }
 
 
-        public string ConnectText { get; set; } = "已经连接到PLC";
+        public string ConnectText
+        {
+            get
+            {
+                return TcpClient.IsConnected ? "已连接到PLC" : "已断开连接PLC";
+            }
+            private set
+            {
+                RaisePropertyChanged(() => ConnectText);
+            }
+        }
 
         private void TcpDebug()
         {
@@ -53,17 +69,10 @@ namespace MahAppsDragablzDemo
             {
                 return _UpDownValue;
             }
-            set
+            private set
             {
-                if (value < 0)
-                {
-                    throw new Exception("Value must be positive");
-                }
-                if (_UpDownValue != value)
-                {
-                    _UpDownValue = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UpDownValue)));
-                }
+                _UpDownValue = value;
+                RaisePropertyChanged(() => UpDownValue);
             }
         }
 

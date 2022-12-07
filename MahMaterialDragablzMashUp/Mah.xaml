@@ -80,7 +80,7 @@
       <TabItem Header="调试日志">
         <StackPanel>
           <smtx:XamlDisplay UniqueKey="NumericUpDown_1">
-            <controls:NumericUpDown Margin="5" Value="{Binding UpDownValue, ValidatesOnExceptions=True}" />
+            <controls:NumericUpDown Margin="5" Value="{Binding UpDownValue, ValidatesOnExceptions=True,Mode=OneWay}" />
           </smtx:XamlDisplay>
           <smtx:XamlDisplay UniqueKey="NumericUpDown_2">
             <controls:NumericUpDown Margin="5"
@@ -108,7 +108,7 @@
                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
                                        Header="Text" />
               <mdix:DataGridComboBoxColumn Header="Combo"
-                                           ItemsSource="{Binding Source={StaticResource EnumValues}}"
+                                           ItemsSource="{Binding Source={StaticResource EnumValues}, Mode=OneWay}"
                                            SelectedItemBinding="{Binding EnumValue}" />
               <controls:DataGridNumericUpDownColumn Width="300"
                                                     Binding="{Binding IntValue}"

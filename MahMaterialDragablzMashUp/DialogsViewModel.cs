@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using MahAppsDragablzDemo;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace MahMaterialDragablzMashUp
 {
-    public class DialogsViewModel : INotifyPropertyChanged
+    public class DialogsViewModel : NotifyPropertyChanged
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
