@@ -10,6 +10,8 @@
     <Product>MahMaterialDragablzMashUp</Product>
     <Prefer32Bit>true</Prefer32Bit>
     <SignAssembly>false</SignAssembly>
+    <UseWindowsForms>True</UseWindowsForms>
+    <IncludeSymbols>False</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\MaterialDesignColors.Wpf\MaterialDesignColors.Wpf.csproj" />
