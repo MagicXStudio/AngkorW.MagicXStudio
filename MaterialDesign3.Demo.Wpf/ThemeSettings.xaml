@@ -9,11 +9,11 @@
              mc:Ignorable="d">
 
   <StackPanel Orientation="Horizontal">
-    <TextBlock VerticalAlignment="Center" Text="Light" />
+    <TextBlock VerticalAlignment="Center" Text="明亮" />
 
     <ToggleButton Margin="8,0,16,0" IsChecked="{Binding IsDarkTheme}" />
 
-    <TextBlock VerticalAlignment="Center" Text="Dark" />
+    <TextBlock VerticalAlignment="Center" Text="黑暗" />
 
     <TextBlock Margin="50,0,0,0"
                VerticalAlignment="Center"

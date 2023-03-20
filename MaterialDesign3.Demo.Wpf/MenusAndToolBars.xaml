@@ -14,11 +14,11 @@
                       UniqueKey="menus_1">
       <Menu IsMainMenu="True">
         <MenuItem Header="_File">
-          <MenuItem Header="Save" Icon="{materialDesign:PackIcon Kind=ContentSave}" />
+          <MenuItem Header="保存" Icon="{materialDesign:PackIcon Kind=ContentSave}" />
 
-          <MenuItem Header="Save As.." />
+          <MenuItem Header="另存为.." />
 
-          <MenuItem Header="Exit"
+          <MenuItem Header="退出"
                     Icon="{materialDesign:PackIcon Kind=ExitToApp}"
                     InputGestureText="Ctrl+E" />
 

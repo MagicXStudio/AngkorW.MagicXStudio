@@ -10,7 +10,7 @@
              d:DesignWidth="300"
              mc:Ignorable="d">
   <StackPanel>
-    <TextBlock Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="Rating bar" />
+    <TextBlock Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="评分" />
 
     <StackPanel Margin="0,16,0,0" Orientation="Horizontal">
       <smtx:XamlDisplay Margin="5,0,0,5"

@@ -43,7 +43,7 @@
                   Margin="24,0,0,0"
                   VerticalAlignment="Center">
         <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                   Text="Welcome to Material Design In XAML Toolkit"
+                   Text="工作台"
                    TextWrapping="Wrap" />
 
         <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
@@ -51,7 +51,7 @@
                 Style="{StaticResource MaterialDesignFlatButton}">
           <StackPanel Orientation="Horizontal">
             <materialDesign:PackIcon Kind="Binoculars" />
-            <TextBlock Margin="8,0,0,0" Text="EXPLORE" />
+            <TextBlock Margin="8,0,0,0" Text="展开" />
           </StackPanel>
         </Button>
       </StackPanel>
@@ -90,7 +90,7 @@
               <TextBlock Grid.Column="1"
                          Margin="16,16,16,2"
                          Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                         Text="Get In Touch" />
+                         Text="待办项" />
 
               <TextBlock Grid.Row="1"
                          Grid.Column="1"
@@ -188,12 +188,12 @@
               <StackPanel Grid.Column="1">
                 <TextBlock Margin="16,16,16,8"
                            Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                           Text="Open Source" />
+                           Text="文档中心" />
 
                 <TextBlock Margin="16,0,16,8"
                            VerticalAlignment="Top"
                            Foreground="{DynamicResource MaterialDesignBodyLight}"
-                           Text="This project is completely open source. If you like it and want to say thanks you could hit the GitHub Star button, tweet or post about it, or tell your mum about it!"
+                           Text="9. 新生事物不可战胜：本质上优越于旧事物，具有强大生命力!"
                            TextWrapping="Wrap" />
               </StackPanel>
 

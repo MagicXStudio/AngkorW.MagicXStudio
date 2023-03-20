@@ -66,7 +66,7 @@
             <StackPanel Margin="24,8,24,16"
                         Orientation="Vertical"
                         TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
-              <TextBlock Text="Your Content" />
+              <TextBlock Text="目的不明" />
               <TextBlock Style="{StaticResource HorizontalExpanderContentTextBlock}" />
             </StackPanel>
           </Expander>
@@ -75,18 +75,18 @@
             <StackPanel Margin="24,8,24,16"
                         Orientation="Vertical"
                         TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
-              <TextBlock Text="Your Content" />
+              <TextBlock Text="时间太长" />
               <TextBlock Style="{StaticResource HorizontalExpanderContentTextBlock}" />
             </StackPanel>
           </Expander>
 
           <Expander HorizontalAlignment="Stretch"
                     materialDesign:ExpanderAssist.HorizontalHeaderPadding="35,2,24,2"
-                    Header="Custom Header Padding">
+                    Header="效率太低">
             <StackPanel Margin="24,8,24,16"
                         Orientation="Vertical"
                         TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
-              <TextBlock Text="Your Content" />
+              <TextBlock Text="缺乏效果" />
               <TextBlock Style="{StaticResource HorizontalExpanderContentTextBlock}" />
             </StackPanel>
           </Expander>

@@ -29,7 +29,7 @@
             </Style>
           </StackPanel.Resources>
           <TextBlock>
-            <Run FontFamily="Consolas" Text="FontSize" />
+            <Run FontFamily="Consolas" Text="字体大小" />
             <Run FontStyle="Italic" Text="{Binding Value, ElementName=FontSizeSlider, Mode=OneWay}" />
           </TextBlock>
           <Slider x:Name="FontSizeSlider"

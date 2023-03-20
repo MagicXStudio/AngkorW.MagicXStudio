@@ -53,7 +53,7 @@
       <TextBlock Margin="0,0,24,0"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Top"
-                 Text="SAMPLE 1: Localized dialog encapsulating specific content, launched from a routed command, response handled in code-behind."
+                 Text="目的不明，时间太长，效率太低，缺乏效果."
                  TextWrapping="Wrap" />
 
       <smtx:XamlDisplay Grid.Row="1"
@@ -72,7 +72,7 @@
               <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button Margin="0,8,8,0"
                         Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                        Content="ACCEPT"
+                        Content="接受"
                         IsDefault="True"
                         Style="{StaticResource MaterialDesignFlatButton}">
                   <Button.CommandParameter>
@@ -82,7 +82,7 @@
 
                 <Button Margin="0,8,8,0"
                         Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                        Content="CANCEL"
+                        Content="取消"
                         IsCancel="True"
                         Style="{StaticResource MaterialDesignFlatButton}">
                   <Button.CommandParameter>
