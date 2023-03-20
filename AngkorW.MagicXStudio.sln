@@ -58,7 +58,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{18401177
 		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialDesign3Demo", "MaterialDesign3.Demo.Wpf\MaterialDesign3Demo.csproj", "{98627CBE-F009-482E-97E9-C69C7135E91F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "magicXstudio3", "MaterialDesign3.Demo.Wpf\magicXstudio3.csproj", "{98627CBE-F009-482E-97E9-C69C7135E91F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build-and-test", "build-and-test", "{61415388-92DE-4415-9089-68B386FE8E3F}"
 	ProjectSection(SolutionItems) = preProject
