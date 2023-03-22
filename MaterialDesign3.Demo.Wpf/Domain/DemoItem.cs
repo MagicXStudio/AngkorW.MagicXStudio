@@ -14,10 +14,11 @@ namespace MaterialDesign3Demo.Domain
 
         private int _notificationNumber = 0;
 
-        public DemoItem(string name, Type contentType, IEnumerable<DocumentationLink> documentation,
+        public DemoItem(string name, string text, Type contentType, IEnumerable<DocumentationLink> documentation,
             PackIconKind selectedIcon, PackIconKind unselectedIcon, object? dataContext = null)
         {
             Name = name;
+            Text=text;
             _contentType = contentType;
             _dataContext = dataContext;
             Documentation = documentation;
@@ -26,6 +27,8 @@ namespace MaterialDesign3Demo.Domain
         }
 
         public string Name { get; }
+
+        public string Text { get; }
 
         public IEnumerable<DocumentationLink> Documentation { get; }
 

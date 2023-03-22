@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        Title="Material Design in XAML"
+        Title="AngkorW的魔法学院"
         Width="1100"
         Height="800"
         d:DataContext="{d:DesignInstance domain:MainWindowViewModel}"
@@ -127,7 +127,7 @@
               <Style TargetType="ScrollViewer" BasedOn="{StaticResource MaterialDesignScrollViewer}" />
               <Style TargetType="ScrollBar" BasedOn="{StaticResource MaterialDesignScrollBarMinimal}" />
               <DataTemplate DataType="{x:Type domain:DemoItem}">
-                <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                <TextBlock Text="{Binding Text}" TextTrimming="CharacterEllipsis" />
               </DataTemplate>
             </ListBox.Resources>
             <ListBox.ItemContainerStyle>
@@ -183,15 +183,12 @@
                       Style="{StaticResource MaterialDesignToolButton}"
                       ToolTip="Next Item" />
             </StackPanel>
-
-
-
             <TextBlock Grid.Column="1"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        AutomationProperties.Name="Material Design In XAML Toolkit"
                        FontSize="22"
-                       Text="Material Design In XAML Toolkit" />
+                       Text="巴拉巴拉小魔仙" />
 
             <materialDesign:PopupBox Grid.Column="2"
                                      PlacementMode="BottomAndAlignRightEdges"
@@ -287,7 +284,7 @@
                 </ListBox.ItemContainerStyle>
                 <ListBox.Resources>
                   <DataTemplate DataType="{x:Type domain:DemoItem}">
-                    <TextBlock Text="{Binding Name}"
+                    <TextBlock Text="{Binding Text}"
                                TextAlignment="Center"
                                TextWrapping="Wrap" />
                   </DataTemplate>

@@ -15,6 +15,7 @@ namespace MaterialDesign3Demo.Domain
             {
               new DemoItem(
                     "Home",
+                    "我的",
                     typeof(Home),
                     new[]
                     {
@@ -134,6 +135,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Palette",
+                "调色板",
                 typeof(PaletteSelector),
                 new[]
                 {
@@ -149,10 +151,11 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Color Tool",
+                "颜色工具",
                 typeof(ColorTool),
                 new[]
                 {
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
+                    DocumentationLink.WikiLink("Brush-Names", "画刷"),
                     DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
                     DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),
                     DocumentationLink.DemoPageLink<ColorTool>("Demo View"),
@@ -164,6 +167,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Buttons",
+                "智能",
                 typeof(Buttons),
                 new[]
                 {
@@ -179,6 +183,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Toggles",
+                "开关",
                 typeof(Toggles),
                 new[]
                 {
@@ -191,6 +196,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Rating Bar",
+                "评分",
                 typeof(RatingBar),
                 new[]
                 {
@@ -203,6 +209,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Fields",
+                "信息录入",
                 typeof(Fields),
                 new[]
                 {
@@ -214,6 +221,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Fields line up",
+                "鱼香ROS",
                 typeof(FieldsLineUp),
                 new[]
                 {
@@ -224,6 +232,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "ComboBoxes",
+                "魔法组合",
                 typeof(ComboBoxes),
                 new[]
                 {
@@ -235,6 +244,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Pickers",
+                "休闲游戏",
                 typeof(Pickers),
                 new[]
                 {
@@ -248,6 +258,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Sliders",
+                "音乐",
                 typeof(Sliders),
                 new[]
                 {
@@ -259,6 +270,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Chips",
+                "参数设置",
                 typeof(Chips),
                 new[]
                 {
@@ -271,6 +283,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Typography",
+                "洛神赋",
                 typeof(Typography),
                 new[]
                 {
@@ -285,6 +298,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Cards",
+                "美图中心",
                 typeof(Cards),
                 new[]
                 {
@@ -297,6 +311,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Icon Pack",
+                "图标集合",
                 typeof(IconPack),
                 new[]
                 {
@@ -313,6 +328,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Colour Zones",
+                "色欲无边",
                 typeof(ColorZones),
                 new[]
                 {
@@ -324,6 +340,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Lists",
+                "联系人",
                 typeof(Lists),
                 new[]
                 {
@@ -337,6 +354,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Trees",
+                "文档中心",
                 typeof(Trees),
                 new[]
                 {
@@ -349,6 +367,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Data Grids",
+                "档期安排",
                 typeof(DataGrids),
                 new[]
                 {
@@ -361,6 +380,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Expander",
+                "小魔仙",
                 typeof(Expander),
                 new[]
                 {
@@ -372,6 +392,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Group Boxes",
+                "卡哇伊",
                 typeof(GroupBoxes),
                 new[]
                 {
@@ -383,6 +404,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Menus & Tool Bars",
+                "开发中心",
                 typeof(MenusAndToolBars),
                 new[]
                 {
@@ -395,6 +417,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Progress Indicators",
+                "进度",
                 typeof(Progress),
                 new[]
                 {
@@ -406,6 +429,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Navigation Rail",
+                "魔法实验室",
                 typeof(NavigationRail),
                 new[]
                 {
@@ -420,6 +444,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Navigation Bar",
+                "星际迷航",
                 typeof(NavigationBar),
                 new[]
                 {
@@ -434,6 +459,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Dialogs",
+                "对话框",
                 typeof(Dialogs),
                 new[]
                 {
@@ -450,6 +476,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Drawer",
+                "机器人",
                 typeof(Drawers),
                 new[]
                 {
@@ -461,6 +488,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Snackbar",
+                "实时沟通",
                 typeof(Snackbars),
                 new[]
                 {
@@ -478,6 +506,7 @@ namespace MaterialDesign3Demo.Domain
 
             yield return new DemoItem(
                 "Transitions",
+                "丝丝顺滑",
                 typeof(Transitions),
                 new[]
                 {
@@ -491,6 +520,7 @@ namespace MaterialDesign3Demo.Domain
                 unselectedIcon: PackIconKind.Transition);
 
             yield return new DemoItem(
+                "Elevation",
                 "Elevation",
                 typeof(Elevation),
                 new[]
@@ -509,9 +539,7 @@ namespace MaterialDesign3Demo.Domain
             {
                 return true;
             }
-
-            return obj is DemoItem item
-                   && item.Name.ToLower().Contains(_searchKeyword!.ToLower());
+            return obj is DemoItem item && item.Name.ToLower().Contains(_searchKeyword!.ToLower());
         }
     }
 }
