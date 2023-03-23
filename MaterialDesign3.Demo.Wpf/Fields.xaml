@@ -129,7 +129,7 @@
                         UniqueKey="fields_7">
         <PasswordBox x:Name="PasswordBox"
                      materialDesign:HintAssist.HelperText="At least 8 characters"
-                     materialDesign:HintAssist.Hint="Password"
+                     materialDesign:HintAssist.Hint="生成随机密码"
                      materialDesign:TextFieldAssist.HasClearButton="True" />
       </smtx:XamlDisplay>
 
@@ -159,7 +159,7 @@
                  materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
                  FontSize="24"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                 Text="Some Text" />
+                 Text="Unix时间戳" />
       </smtx:XamlDisplay>
 
       <smtx:XamlDisplay Grid.Row="4"
@@ -192,10 +192,10 @@
         <TextBox Height="80"
                  MinWidth="280"
                  VerticalAlignment="Stretch"
-                 materialDesign:HintAssist.Hint="Multiline text"
+                 materialDesign:HintAssist.Hint="ASCII"
                  AcceptsReturn="True"
                  SpellCheck.IsEnabled="True"
-                 Text="Multiline. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The quick brown fox jumps over the lazy dog. War and peace. Keep going. Go on. For how long? Not long. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                 Text="1 2 3 4 5 6 7 8 9"
                  TextWrapping="Wrap"
                  VerticalScrollBarVisibility="Auto" />
       </smtx:XamlDisplay>
@@ -425,7 +425,7 @@
                  Grid.Column="1"
                  Margin="32,0,0,0"
                  Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
-                 Text="DataTemplateSelector" />
+                 Text="JSON序列化" />
 
       <smtx:XamlDisplay Grid.Row="1"
                         Grid.Column="1"
@@ -480,7 +480,7 @@
           <TextBox Width="20"
                    HorizontalAlignment="Left"
                    materialDesign:ValidationAssist.UsePopup="True"
-                   ToolTip="Use a popup which can escape the bounds of the control where space is limited">
+                   ToolTip="Use a popup ace is limited">
             <TextBox.Text>
               <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
                 <Binding.ValidationRules>
@@ -495,7 +495,7 @@
                    HorizontalAlignment="Right"
                    materialDesign:ValidationAssist.PopupPlacement="Left"
                    materialDesign:ValidationAssist.UsePopup="True"
-                   ToolTip="Use a popup which can escape the bounds of the control where space is limited it can be placed in alternative positions">
+                   ToolTip="Use a popup wernative positions">
             <TextBox.Text>
               <Binding Path="Name2" UpdateSourceTrigger="PropertyChanged">
                 <Binding.ValidationRules>

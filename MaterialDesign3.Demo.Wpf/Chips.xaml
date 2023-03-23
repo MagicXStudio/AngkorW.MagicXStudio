@@ -29,12 +29,12 @@
 
     <TextBlock Margin="0,0,0,16"
                Style="{StaticResource ChipsHeadline}"
-               Text="Action Chips" />
+               Text="字符串加解密" />
 
     <StackPanel Grid.Row="1">
       <WrapPanel smtx:XamlDisplay.Ignore="This" Orientation="Horizontal">
         <smtx:XamlDisplay Margin="0,0,6,4" UniqueKey="chips_1">
-          <materialDesign:Chip Content="James Willock">
+          <materialDesign:Chip Content="url编码">
             <materialDesign:Chip.Icon>
               <Image Source="Resources/ProfilePic.jpg" />
             </materialDesign:Chip.Icon>
@@ -42,19 +42,19 @@
         </smtx:XamlDisplay>
 
         <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_2">
-          <materialDesign:Chip Content="Example Chip" />
+          <materialDesign:Chip Content="Base64" />
         </smtx:XamlDisplay>
 
         <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_3">
-          <materialDesign:Chip Content="ANZ Bank" Icon="A" />
+          <materialDesign:Chip Content="md5" Icon="A" />
         </smtx:XamlDisplay>
 
         <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_4">
-          <materialDesign:Chip Content="ZNA Inc" Icon="Z" />
+          <materialDesign:Chip Content="RSA" Icon="Z" />
         </smtx:XamlDisplay>
 
         <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_5">
-          <materialDesign:Chip Content="Twitter"
+          <materialDesign:Chip Content="AES"
                                IconBackground="{DynamicResource PrimaryHueDarkBrush}"
                                IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}">
             <materialDesign:Chip.Icon>
@@ -141,7 +141,7 @@
       <Rectangle Height="1"
                  Margin="0,24,0,0"
                  Fill="{DynamicResource MaterialDesignDivider}" />
-      <TextBlock Style="{StaticResource ChipsHeadline}" Text="Filter Chips" />
+      <TextBlock Style="{StaticResource ChipsHeadline}" Text="正则表达式" />
     </StackPanel>
 
     <StackPanel Grid.Row="3">
@@ -258,7 +258,7 @@
       <Rectangle Height="1"
                  Margin="0,24,0,0"
                  Fill="{DynamicResource MaterialDesignDivider}" />
-      <TextBlock Style="{StaticResource ChipsHeadline}" Text="Choice Chips" />
+      <TextBlock Style="{StaticResource ChipsHeadline}" Text="进制转换" />
     </StackPanel>
 
     <StackPanel Grid.Row="5">
