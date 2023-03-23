@@ -51,7 +51,7 @@
                 Style="{StaticResource MaterialDesignFlatButton}">
           <StackPanel Orientation="Horizontal">
             <materialDesign:PackIcon Kind="Binoculars" />
-            <TextBlock Margin="8,0,0,0" Text="展开" />
+            <TextBlock Margin="8,0,0,0" Text="Span&lt;byte&gt; data = stackalloc byte[128]" />
           </StackPanel>
         </Button>
       </StackPanel>
@@ -218,7 +218,7 @@
                   <TextBlock Margin="16"
                              VerticalAlignment="Center"
                              Foreground="{DynamicResource MaterialDesignBodyLight}"
-                             Text="Feel like you want to make a donation?  It would be gratefully received.  Click the button to donate via Open Collective."
+                             Text="践远游之文履，曳雾绡之轻裾，微幽兰之芳蔼兮，步踟蹰于山隅"
                              TextWrapping="Wrap" />
                 </DockPanel>
               </Border>

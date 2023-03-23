@@ -2,6 +2,10 @@
 
 namespace MaterialDesign3Demo.Domain
 {
+
+    /// <summary>
+    /// https://devblogs.microsoft.com/dotnet/how-async-await-really-works/
+    /// </summary>
     public class ListsAndGridsViewModel : ViewModelBase
     {
         public ListsAndGridsViewModel()
