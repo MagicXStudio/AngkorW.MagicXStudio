@@ -52,21 +52,21 @@ namespace MaterialDesign3Demo.Domain
                 new SelectableViewModel
                 {
                     Code = 'M',
-                    Name = "Material Design",
-                    Description = "Material Design in XAML Toolkit"
+                    Name = "Iterators",
+                    Description = "SynchronizationContext"
                 },
                 new SelectableViewModel
                 {
                     Code = 'D',
                     Name = "Dragablz",
-                    Description = "Dragablz Tab Control",
+                    Description = "ExecutionContext",
                     Food = "Fries"
                 },
                 new SelectableViewModel
                 {
                     Code = 'P',
-                    Name = "Predator",
-                    Description = "If it bleeds, we can kill it"
+                    Name = "GC",
+                    Description = "ThreadPool"
                 }
             };
         }
@@ -75,6 +75,6 @@ namespace MaterialDesign3Demo.Domain
         public ObservableCollection<SelectableViewModel> Items2 { get; }
         public ObservableCollection<SelectableViewModel> Items3 { get; }
 
-        public IEnumerable<string> Foods => new[] { "Burger", "Fries", "Shake", "Lettuce" };
+        public IEnumerable<string> Foods => new[] { "ManualResetEventSlim", "CancellationTokenSource", "Interlocked", "AsyncLocal" };
     }
 }

@@ -78,13 +78,13 @@ namespace MaterialDesign3Demo.Domain
         {
             MovieCategories = new ObservableCollection<MovieCategory>
             {
-                new MovieCategory("Action",
-                    new Movie ("Predator", "John McTiernan"),
-                    new Movie("Alien", "Ridley Scott"),
-                    new Movie("Prometheus", "Ridley Scott")),
-                new MovieCategory("Comedy",
-                    new Movie("EuroTrip", "Jeff Schaffer"),
-                    new Movie("EuroTrip", "Jeff Schaffer")
+                new MovieCategory("Stream",
+                    new Movie ("ICriticalNotifyCompletion", "WaitHandle"),
+                    new Movie("INotifyCompletion", "AsyncCallback"),
+                    new Movie("SecurityCritical", "ManualResetEventSlim ")),
+                new MovieCategory("Pattern",
+                    new Movie("TaskScheduler ", "ManualResetEvent"),
+                    new Movie("CountdownContext", "Exception")
                 )
             };
 
