@@ -3,12 +3,18 @@ using System.Windows.Threading;
 
 namespace MaterialDesign3Demo.Domain
 {
+
+    /// <summary>
+    /// https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators
+    /// </summary>
     public class ButtonsViewModel : ViewModelBase
     {
         private bool _showDismissButton;
         private double _dismissButtonProgress;
         private string? _demoRestartCountdownText;
         private int _orClickMeCount;
+
+        public uint BinaryValue => 0b_0000_1111_0000_1111_0000_1111_0000_1100;
 
         public ButtonsViewModel()
         {
@@ -108,6 +114,10 @@ namespace MaterialDesign3Demo.Domain
         }
 
         public ICommand FloatingActionDemoCommand { get; }
+
+        public string Text => "Microsoft.Toolkit.HighPerformance";
+
+        public ICommand XorCommand { get; }
 
         private static void FloatingActionDemo(object? o)
             => Debug.WriteLine($"Floating action button command. - {o ?? "NULL"}");

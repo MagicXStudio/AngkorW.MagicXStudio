@@ -26,8 +26,8 @@ namespace MaterialDesign3Demo
                 {
                     messageQueue.Enqueue(
                     s,
-                    "TRACE",
-                    param => Trace.WriteLine("Actioned: " + param),
+                    "张翰",
+                    param => Trace.WriteLine("君不见吴中张翰称达生，秋风忽忆江东行: " + param),
                     s);
                 }
             }
@@ -41,7 +41,7 @@ namespace MaterialDesign3Demo
         {
             var duration = MessageDurationOverrideSlider.Value;
             SnackbarSeven.MessageQueue?.Enqueue(
-                $"Hello world! Showing message for {duration:F1} seconds.",
+                $"且乐生前一杯酒，何须身后千载名？ {duration:F1} .",
                 null,
                 null,
                 null,

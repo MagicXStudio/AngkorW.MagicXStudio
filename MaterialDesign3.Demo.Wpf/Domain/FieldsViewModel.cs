@@ -17,7 +17,7 @@
             set => SetProperty(ref _name2, value);
         }
 
-        public FieldsTestObject TestObject => new() { Name = "Mr. Test" };
+        public FieldsTestObject TestObject => new() { Name = "MemoryMarshal" };
     }
 
     public class FieldsTestObject : ViewModelBase

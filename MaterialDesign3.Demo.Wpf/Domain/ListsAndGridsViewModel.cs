@@ -62,7 +62,7 @@ namespace MaterialDesign3Demo.Domain
                 new SelectableViewModel
                 {
                     Code = 'D',
-                    Name = "Dragablz",
+                    Name = "Concurrency",
                     Description = "ExecutionContext",
                     Food = "Fries"
                 },

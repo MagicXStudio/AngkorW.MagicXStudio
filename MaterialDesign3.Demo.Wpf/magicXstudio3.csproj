@@ -41,8 +41,10 @@
     <PackageReference Include="BluwolfIcons">
       <NoWarn>NU1701</NoWarn>
     </PackageReference>
+    <PackageReference Include="System.Memory" />
     <PackageReference Include="VirtualizingWrapPanel" />
     <PackageReference Include="ShowMeTheXAML" />
+    <PackageReference Include="CommunityToolkit.HighPerformance"/>
     <PackageReference Include="ShowMeTheXAML.AvalonEdit" />
     <PackageReference Include="ShowMeTheXAML.MSBuild" />
   </ItemGroup>

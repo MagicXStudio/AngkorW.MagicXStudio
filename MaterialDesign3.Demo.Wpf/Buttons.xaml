@@ -46,7 +46,7 @@
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
-    <TextBlock Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="Buttons" />
+    <TextBlock Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="位和移位运算" />
     <StackPanel Grid.Row="1">
       <StackPanel.Resources>
         <system:Double x:Key="IconSize">24</system:Double>
@@ -522,7 +522,7 @@
     <TextBlock Grid.Row="3"
                Margin="0,24"
                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-               Text="Buttons - With Custom Corner Radius" />
+               Text="位运算" />
 
     <StackPanel Grid.Row="4" Orientation="Horizontal">
 
@@ -537,8 +537,8 @@
                   materialDesign:ButtonAssist.CornerRadius="5"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedLightButton}"
-                  ToolTip="MaterialDesignRaisedLightButton with Round Corners">
-            <TextBlock Text="5/50 Radius" />
+                  ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="0,0,-14,0">
+            <TextBlock Text="按位求补 ~ " Width="125" />
           </Button>
         </Grid>
       </smtx:XamlDisplay>
@@ -550,7 +550,7 @@
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedButton}"
                   ToolTip="MaterialDesignRaisedButton with Round Corners">
-            <TextBlock Text="10/50 Radius" />
+            <TextBlock Text="逻辑与  " />
           </Button>
         </Grid>
       </smtx:XamlDisplay>
@@ -558,11 +558,11 @@
       <smtx:XamlDisplay Margin="8,0" UniqueKey="button_roundcorner_3">
         <Grid Width="{StaticResource GridWidth}">
           <Button Height="{StaticResource ButtonHeight}"
-                  materialDesign:ButtonAssist.CornerRadius="25"
+                  materialDesign:ButtonAssist.CornerRadius="5"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedDarkButton}"
                   ToolTip="MaterialDesignRaisedDarkButton with Round Corners">
-            <TextBlock Text="25/50 Radius" />
+            <TextBlock Text="逻辑异或 ^" />
           </Button>
         </Grid>
       </smtx:XamlDisplay>
@@ -570,11 +570,11 @@
       <smtx:XamlDisplay Margin="8,0" UniqueKey="button_roundcorner_4">
         <Grid Width="{StaticResource GridWidth}">
           <Button Height="{StaticResource ButtonHeight}"
-                  materialDesign:ButtonAssist.CornerRadius="25 25 0 0"
+                  materialDesign:ButtonAssist.CornerRadius="0 0 0 0"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedAccentButton}"
                   ToolTip="MaterialDesignRaisedAccentButton with Round Top Corners">
-            <TextBlock Text="25/50 Radius" />
+            <TextBlock Text="逻辑或 |" />
           </Button>
         </Grid>
       </smtx:XamlDisplay>
@@ -588,7 +588,7 @@
     <TextBlock Grid.Row="6"
                Margin="0,24"
                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-               Text="Buttons - With Progress" />
+               Text="移位运算" />
 
     <StackPanel Grid.Row="7">
       <StackPanel Orientation="Horizontal">
@@ -601,11 +601,8 @@
                     Command="{Binding DismissCommand}"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedButton}"
-                    Visibility="{Binding ShowDismissButton, Converter={StaticResource BooleanToVisibilityConverter}}">
-              <StackPanel Orientation="Horizontal">
-                <TextBlock Text="DISMISS" />
-                <materialDesign:PackIcon Margin="4,.5,0,0" Kind="Close" />
-              </StackPanel>
+                    Visibility="{Binding ShowDismissButton, Converter={StaticResource BooleanToVisibilityConverter}}" Content="左移位 &lt;&lt;">
+             
             </Button>
 
             <TextBlock VerticalAlignment="Center"
@@ -620,7 +617,7 @@
                     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                     materialDesign:ButtonProgressAssist.Value="-1"
-                    Content="Indeterminate"
+                    Content="右移位 >>"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedButton}" />
           </Grid>

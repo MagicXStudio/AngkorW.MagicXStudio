@@ -1,10 +1,17 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using MaterialDesignThemes.Wpf;
 
 namespace MaterialDesign3Demo.Domain
 {
     public class TreeExampleSimpleTemplateSelector : DataTemplateSelector
     {
+
+        public TreeExampleSimpleTemplateSelector()
+        {
+            Span<byte> data = stackalloc byte[128];
+        }
+
         public DataTemplate? PlanetTemplate { get; set; }
 
         public DataTemplate? SolarSystemTemplate { get; set; }
