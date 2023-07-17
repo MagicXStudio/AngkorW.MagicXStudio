@@ -16,7 +16,7 @@ namespace MaterialDesign3Demo.Domain
 
         public uint BinaryValue => 0b_0000_1111_0000_1111_0000_1111_0000_1100;
 
-        public ButtonsViewModel()
+        public ButtonsViewModel():base(nameof(ButtonsViewModel))
         {
             FloatingActionDemoCommand = new AnotherCommandImplementation(FloatingActionDemo);
 

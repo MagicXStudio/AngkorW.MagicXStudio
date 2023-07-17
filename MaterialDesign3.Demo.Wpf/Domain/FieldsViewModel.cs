@@ -5,6 +5,11 @@
         private string? _name;
         private string? _name2;
 
+        public FieldsViewModel() : base(nameof(FieldsViewModel))
+        {
+            
+        }
+
         public string? Name
         {
             get => _name;
@@ -24,6 +29,11 @@
     {
         private string? _name;
         private string? _content;
+
+        public FieldsTestObject() : base(nameof(FieldsTestObject))
+        {
+            
+        }
 
         public string? Name
         {

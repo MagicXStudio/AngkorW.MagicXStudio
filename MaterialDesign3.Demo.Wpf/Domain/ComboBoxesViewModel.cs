@@ -7,7 +7,7 @@
         private string? _selectedValidationOutlined;
         private string? _selectedValidationFilled;
 
-        public ComboBoxesViewModel()
+        public ComboBoxesViewModel():base(nameof(ComboBoxesViewModel))
         {
             LongListToTestComboVirtualization = new List<int>(Enumerable.Range(0, 1000));
             ShortStringList = new[]

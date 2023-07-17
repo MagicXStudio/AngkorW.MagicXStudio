@@ -15,7 +15,7 @@ namespace MaterialDesign3Demo.Domain
         private int _notificationNumber = 0;
 
         public DemoItem(string name, string text, Type contentType, IEnumerable<DocumentationLink> documentation,
-            PackIconKind selectedIcon, PackIconKind unselectedIcon, object? dataContext = null)
+            PackIconKind selectedIcon, PackIconKind unselectedIcon, object? dataContext = null) : base(nameof(DemoItem))
         {
             Name = name;
             Text=text;

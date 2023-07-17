@@ -4,7 +4,7 @@ namespace MaterialDesign3Demo.Domain
 {
     public class ThemeSettingsViewModel : ViewModelBase
     {
-        public ThemeSettingsViewModel()
+        public ThemeSettingsViewModel() : base(nameof(ThemeSettingsViewModel))
         {
             var paletteHelper = new PaletteHelper();
             ITheme theme = paletteHelper.GetTheme();

@@ -5,7 +5,7 @@ namespace MaterialDesign3Demo.Domain
 {
     public class PaletteSelectorViewModel : ViewModelBase
     {
-        public PaletteSelectorViewModel()
+        public PaletteSelectorViewModel() : base(nameof(PaletteSelectorViewModel))
         {
             Swatches = new SwatchesProvider().Swatches;
         }

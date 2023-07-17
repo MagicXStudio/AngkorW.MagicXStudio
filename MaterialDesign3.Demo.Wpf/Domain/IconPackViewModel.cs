@@ -11,7 +11,7 @@ namespace MaterialDesign3Demo.Domain
         private readonly Lazy<IEnumerable<PackIconKindGroup>> _packIconKinds;
         private readonly ISnackbarMessageQueue _snackbarMessageQueue;
 
-        public IconPackViewModel(ISnackbarMessageQueue snackbarMessageQueue)
+        public IconPackViewModel(ISnackbarMessageQueue snackbarMessageQueue) : base(nameof(IconPackViewModel))
         {
             _snackbarMessageQueue = snackbarMessageQueue ?? throw new ArgumentNullException(nameof(snackbarMessageQueue));
 

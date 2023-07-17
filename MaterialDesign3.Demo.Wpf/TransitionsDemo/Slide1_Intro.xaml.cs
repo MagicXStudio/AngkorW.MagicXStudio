@@ -7,7 +7,7 @@ namespace MaterialDesign3Demo.TransitionsDemo
     /// </summary>
     public partial class Slide1_Intro : UserControl
     {
-        public Slide1_Intro()
+        public Slide1_Intro() 
         {
             DataContext = new Slide1ViewModel();
             InitializeComponent();
@@ -15,6 +15,10 @@ namespace MaterialDesign3Demo.TransitionsDemo
 
         public class Slide1ViewModel : ViewModelBase
         {
+            public Slide1ViewModel() : base(nameof(Slide1ViewModel))
+            {
+                
+            }
             private string? _name;
             public string? Name
             {

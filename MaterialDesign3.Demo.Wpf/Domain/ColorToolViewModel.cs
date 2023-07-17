@@ -72,7 +72,7 @@ namespace MaterialDesign3Demo.Domain
             _paletteHelper.SetTheme(theme);
         }
 
-        public ColorToolViewModel()
+        public ColorToolViewModel():base(nameof(ColorToolViewModel))
         {
             ToggleBaseCommand = new AnotherCommandImplementation(o => ApplyBase((bool)o!));
             ChangeHueCommand = new AnotherCommandImplementation(ChangeHue);

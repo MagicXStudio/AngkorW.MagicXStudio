@@ -4,6 +4,11 @@ namespace MaterialDesign3Demo.Domain
     {
         private string? _name;
 
+        public SampleDialogViewModel() : base(nameof(SampleDialogViewModel))
+        {
+            
+        }
+
         public string? Name
         {
             get => _name;

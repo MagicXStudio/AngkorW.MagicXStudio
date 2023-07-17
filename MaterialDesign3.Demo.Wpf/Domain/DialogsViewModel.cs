@@ -5,7 +5,7 @@ namespace MaterialDesign3Demo.Domain
 {
     public class DialogsViewModel : ViewModelBase
     {
-        public DialogsViewModel()
+        public DialogsViewModel() : base(nameof(DialogsViewModel))
         {
             //Sample 4
             OpenSample4DialogCommand = new AnotherCommandImplementation(OpenSample4Dialog);

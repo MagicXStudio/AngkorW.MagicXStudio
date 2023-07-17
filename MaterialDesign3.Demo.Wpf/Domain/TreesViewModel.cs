@@ -81,7 +81,7 @@ namespace MaterialDesign3Demo.Domain
             set => SetProperty(ref _selectedItem, value);
         }
 
-        public TreesViewModel()
+        public TreesViewModel() : base(nameof(TreesViewModel))
         {
             MovieCategories = new ObservableCollection<MovieCategory>
             {

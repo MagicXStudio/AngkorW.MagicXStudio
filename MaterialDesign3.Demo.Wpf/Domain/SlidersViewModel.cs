@@ -2,6 +2,11 @@
 {
     public class SlidersViewModel : ViewModelBase
     {
+        public SlidersViewModel() : base(nameof(SlidersViewModel))
+        {
+            
+        }
+
         public SliderViewModel DiscreteHorizontal { get; } = new();
         public SliderViewModel DiscreteVertical { get; } = new() { Maximum = 100000, TickFrequency = 10000, Value = 50000 };
     }
@@ -13,6 +18,10 @@
         private double _tickFrequency = 10.0;
         private double _value = 50.0;
 
+        public SliderViewModel() : base(nameof(SlidersViewModel))
+        {
+            
+        }
         public double Minimum
         {
             get => _minimum;

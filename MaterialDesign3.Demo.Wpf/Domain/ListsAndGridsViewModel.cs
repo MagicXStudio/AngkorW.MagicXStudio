@@ -8,7 +8,7 @@ namespace MaterialDesign3Demo.Domain
     /// </summary>
     public class ListsAndGridsViewModel : ViewModelBase
     {
-        public ListsAndGridsViewModel()
+        public ListsAndGridsViewModel() : base(nameof(ListsAndGridsViewModel))
         {
             Items1 = CreateData();
             Items2 = CreateData();

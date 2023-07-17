@@ -9,7 +9,7 @@ namespace MaterialDesign3Demo.Domain
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel(ISnackbarMessageQueue snackbarMessageQueue)
+        public MainWindowViewModel(ISnackbarMessageQueue snackbarMessageQueue) : base(nameof(MainWindowViewModel))
         {
             DemoItems = new ObservableCollection<DemoItem>
             {

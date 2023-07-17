@@ -7,7 +7,7 @@
         private string? _validatingTime;
         private DateTime? _futureValidatingDate;
 
-        public PickersViewModel()
+        public PickersViewModel() : base(nameof(PickersViewModel))
         {
             Date = DateTime.Now;
             Time = DateTime.Now;

@@ -1,11 +1,27 @@
-﻿using System.ComponentModel;
+﻿using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MaterialDesign3Demo.Domain
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        public ViewModelBase(string typeofName)
+        {
+            Debug.WriteLine($"{this}");
+        }
+
+        public int SystemPageSize => Environment.SystemPageSize;
+
+        public int SizeOfThis => Marshal.SizeOf(this);
+
+        public string CurrentDirectory = Environment.CurrentDirectory;
+
+        public IDictionary EnvironmentVariables = Environment.GetEnvironmentVariables();
 
         /// <summary>
         /// Sets property if it does not equal existing value. Notifies listeners if change occurs.

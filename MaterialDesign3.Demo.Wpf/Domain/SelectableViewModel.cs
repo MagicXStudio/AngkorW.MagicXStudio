@@ -9,6 +9,11 @@
         private double _numeric;
         private string? _food;
 
+        public SelectableViewModel() : base(nameof(SelectableViewModel))
+        {
+            
+        }
+
         public bool IsSelected
         {
             get => _isSelected;
