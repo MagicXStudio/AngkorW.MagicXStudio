@@ -246,7 +246,7 @@ public class Clock : Control
 
     private static void OnClockChoiceMade(DependencyObject d, ClockDisplayMode displayMode)
     {
-        var instance = (Clock)d;
+        Clock instance = (Clock)d;
         var dragCompletedEventArgs = new ClockChoiceMadeEventArgs(displayMode)
         {
             RoutedEvent = ClockChoiceMadeEvent,
@@ -363,8 +363,8 @@ public class Clock : Control
         string format,
         ClockDisplayMode clockDisplayMode)
     {
-        var anglePerItem = 360.0 / range.Count;
-        var radiansPerItem = anglePerItem * (Math.PI / 180);
+        double anglePerItem = 360.0 / range.Count;
+        double radiansPerItem = anglePerItem * (Math.PI / 180);
 
         //nothing fancy with sizing/measuring...we are demanding a height
         if (canvas.Width < 10.0 || Math.Abs(canvas.Height - canvas.Width) > 0.0) return;
@@ -390,20 +390,17 @@ public class Clock : Control
             button.Content = (i == 60 ? 0 : (i == 24 && clockDisplayMode == ClockDisplayMode.Hours ? 0 : i)).ToString(format);
             canvas.Children.Add(button);
         }
+    }
 
-        BindingBase GetBinding(
-            string propertyName,
-            object? owner = null,
-            IValueConverter? converter = null,
-            object? converterParameter = null)
+    private BindingBase GetBinding(string propertyName, object? owner = null, IValueConverter? converter = null, object? converterParameter = null)
+    {
+        Binding binding = new Binding(propertyName)
         {
-            return new Binding(propertyName)
-            {
-                Source = owner ?? this,
-                Converter = converter,
-                ConverterParameter = converterParameter
-            };
-        }
+            Source = owner ?? this,
+            Converter = converter,
+            ConverterParameter = converterParameter
+        };
+        return binding;
     }
 
 
