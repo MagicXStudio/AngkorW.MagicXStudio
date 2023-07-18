@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace MaterialDesign3Demo.Domain
 {
@@ -13,6 +14,15 @@ namespace MaterialDesign3Demo.Domain
         public ViewModelBase(string typeofName)
         {
             Debug.WriteLine($"{this}");
+        }
+
+        public int GetAvailableThreads
+        {
+            get
+            {
+                ThreadPool.GetAvailableThreads(out int workerThreads, out int completionPortThreads);
+                return completionPortThreads;
+            }
         }
 
         public int SystemPageSize => Environment.SystemPageSize;
