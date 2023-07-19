@@ -2,10 +2,10 @@
   "version": 1,
   "isRoot": true,
   "tools": {
-    "paket": {
-      "version": "5.249.2",
+    "xamlstyler.console": {
+      "version": "3.2206.4",
       "commands": [
-        "paket"
+        "xstyler"
       ]
     }
   }

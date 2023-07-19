@@ -10,7 +10,7 @@
   </ResourceDictionary.MergedDictionaries>
 
   <Style x:Key="MaterialDesignPopupBoxButton" TargetType="{x:Type Button}">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
     <Setter Property="HorizontalContentAlignment" Value="Left" />
     <Setter Property="Padding" Value="16,0,16,16" />
     <Setter Property="Template">
@@ -70,6 +70,7 @@
                                             NotNullValue="Collapsed"
                                             NullValue="Visible" />
   <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
+  <converters:NotConverter x:Key="NotConverter" />
 
   <wpf:PackIcon x:Key="MaterialDesignPopupBoxToggleContent"
                 Width="24"
@@ -83,13 +84,18 @@
     <Setter Property="Focusable" Value="True" />
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="Padding" Value="0,8,0,8" />
-    <Setter Property="PopupHorizontalOffset" Value="5" />
+    <Setter Property="PopupElevation" Value="Dp6" />
+    <Setter Property="PopupHorizontalOffset" Value="0" />
     <Setter Property="PopupUniformCornerRadius" Value="2" />
-    <Setter Property="PopupVerticalOffset" Value="5" />
+    <Setter Property="PopupVerticalOffset" Value="0" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type wpf:PopupBox}">
           <ControlTemplate.Resources>
+            <wpf:ElevationMarginConverter x:Key="ElevationMarginConverter" />
+            <wpf:ElevationRadiusConverter x:Key="ElevationRadiusConverter" Multiplier="-1" />
+            <wpf:ElevationRadiusConverter x:Key="RtlElevationRadiusConverter" Multiplier="1" />
+
             <Style TargetType="Separator" BasedOn="{StaticResource MaterialDesignSeparator}" />
             <Style x:Key="ToggleButtonStyle" TargetType="ToggleButton">
               <Setter Property="Template">
@@ -98,8 +104,6 @@
                     <wpf:Ripple Padding="{TemplateBinding Padding}"
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                wpf:RippleAssist.IsCentered="True"
-                                ClipToBounds="False"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                 Focusable="False"
@@ -124,17 +128,18 @@
             <wpf:PopupEx x:Name="PART_Popup"
                          AllowsTransparency="True"
                          CustomPopupPlacementCallback="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PopupPlacementMethod}"
-                         HorizontalOffset="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PopupHorizontalOffset}"
+                         HorizontalOffset="{TemplateBinding PopupElevation, Converter={StaticResource ElevationRadiusConverter}}"
                          IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsPopupOpen, Mode=TwoWay}"
                          Placement="Custom"
                          PlacementTarget="{Binding ElementName=PART_Toggle}"
                          PopupAnimation="Fade"
-                         VerticalOffset="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PopupVerticalOffset}">
-              <wpf:Card Margin="5"
+                         VerticalOffset="{TemplateBinding PopupElevation, Converter={StaticResource ElevationRadiusConverter}}">
+              <wpf:Card Margin="{TemplateBinding PopupElevation, Converter={StaticResource ElevationMarginConverter}}"
                         Padding="{TemplateBinding Padding}"
+                        wpf:ElevationAssist.Elevation="{TemplateBinding PopupElevation}"
                         Content="{TemplateBinding PopupContent}"
                         ContentTemplate="{TemplateBinding PopupContentTemplate}"
-                        Foreground="{DynamicResource MaterialDesignBody}"
+                        Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
                         RenderOptions.ClearTypeHint="Enabled"
                         UniformCornerRadius="{TemplateBinding PopupUniformCornerRadius}">
                 <wpf:Card.Resources>
@@ -147,20 +152,25 @@
             <Trigger Property="IsEnabled" Value="false">
               <Setter Property="Opacity" Value="0.38" />
             </Trigger>
+            <Trigger Property="FlowDirection" Value="RightToLeft">
+              <Setter TargetName="PART_Popup" Property="HorizontalOffset" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:ElevationAssist.Elevation), Converter={StaticResource RtlElevationRadiusConverter}}" />
+            </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
     <Setter Property="TextElement.FontWeight" Value="Normal" />
     <Setter Property="ToggleContent" Value="{StaticResource MaterialDesignPopupBoxToggleContent}" />
-    <Setter Property="wpf:ElevationAssist.Elevation" Value="Dp6" />
-    <Setter Property="wpf:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignFlatButtonRipple}" />
+    <Setter Property="ToolTipService.IsEnabled" Value="{Binding IsPopupOpen, RelativeSource={RelativeSource Self}, Converter={StaticResource NotConverter}}" />
+    <Setter Property="wpf:RippleAssist.ClipToBounds" Value="False" />
+    <Setter Property="wpf:RippleAssist.Feedback" Value="{DynamicResource MaterialDesign.Brush.Button.Ripple}" />
+    <Setter Property="wpf:RippleAssist.IsCentered" Value="True" />
   </Style>
 
   <Style x:Key="MaterialDesignToolPopupBox"
          TargetType="wpf:PopupBox"
          BasedOn="{StaticResource MaterialDesignPopupBox}">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignToolForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Foreground}" />
     <Setter Property="Padding" Value="4" />
   </Style>
 
@@ -178,12 +188,12 @@
                 Kind="Plus" />
 
   <Style x:Key="MaterialDesignMultiFloatingActionPopupBox" TargetType="{x:Type wpf:PopupBox}">
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.Primary}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Focusable" Value="False" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Foreground}" />
     <Setter Property="Height" Value="56" />
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="PlacementMode" Value="TopAndAlignCentres" />
@@ -258,7 +268,6 @@
                       <wpf:Ripple Padding="{TemplateBinding Padding}"
                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  wpf:RippleAssist.IsCentered="True"
                                   Clip="{Binding ElementName=GeometryEllipse, Path=RenderedGeometry}"
                                   ClipToBounds="True"
                                   Focusable="False"
@@ -401,8 +410,6 @@
                 -->
                 <Border Background="White" Opacity="0.002" />
                 <ContentControl x:Name="PART_PopupContentControl"
-                                Margin="5"
-                                Padding="8"
                                 Content="{TemplateBinding PopupContent}"
                                 ContentTemplate="{TemplateBinding PopupContentTemplate}"
                                 Opacity="0"
@@ -454,6 +461,7 @@
     <Setter Property="Width" Value="56" />
     <Setter Property="wpf:ElevationAssist.Elevation" Value="Dp6" />
     <Setter Property="wpf:RippleAssist.Feedback" Value="White" />
+    <Setter Property="wpf:RippleAssist.IsCentered" Value="True" />
     <Style.Triggers>
       <Trigger Property="UnfurlOrientation" Value="Horizontal">
         <Setter Property="ToolTipService.Placement" Value="Custom" />
@@ -464,25 +472,30 @@
   <Style x:Key="MaterialDesignMultiFloatingActionLightPopupBox"
          TargetType="{x:Type wpf:PopupBox}"
          BasedOn="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Light}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.Primary.Light}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Light.Foreground}" />
   </Style>
 
   <Style x:Key="MaterialDesignMultiFloatingActionDarkPopupBox"
          TargetType="{x:Type wpf:PopupBox}"
          BasedOn="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}" />
   </Style>
 
-  <Style x:Key="MaterialDesignMultiFloatingActionAccentPopupBox"
+  <Style x:Key="MaterialDesignMultiFloatingActionSecondaryPopupBox"
          TargetType="{x:Type wpf:PopupBox}"
          BasedOn="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
-    <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Secondary}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.Secondary}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Secondary.Foreground}" />
   </Style>
+
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignMultiFloatingActionAccentPopupBox"
+         TargetType="{x:Type wpf:PopupBox}"
+         BasedOn="{StaticResource MaterialDesignMultiFloatingActionSecondaryPopupBox}" />
 
 </ResourceDictionary>

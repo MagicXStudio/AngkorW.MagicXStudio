@@ -14,6 +14,10 @@
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.GroupBox.xaml" />
       </ResourceDictionary.MergedDictionaries>
+
+      <Style TargetType="smtx:XamlDisplay" BasedOn="{StaticResource {x:Type smtx:XamlDisplay}}">
+        <Setter Property="MaxWidth" Value="350" />
+      </Style>
     </ResourceDictionary>
   </UserControl.Resources>
 
@@ -25,6 +29,7 @@
     </Grid.ColumnDefinitions>
 
     <Grid.RowDefinitions>
+      <RowDefinition />
       <RowDefinition />
       <RowDefinition />
       <RowDefinition />
@@ -68,7 +73,7 @@
                       UniqueKey="groupbox_4">
       <GroupBox Margin="16"
                 materialDesign:ColorZoneAssist.Mode="SecondaryMid"
-                Header="Accent Header"
+                Header="Secondary Header"
                 Style="{StaticResource MaterialDesignGroupBox}">
         <TextBlock Text="My Content" />
       </GroupBox>
@@ -120,7 +125,7 @@
                       UniqueKey="groupbox_7">
       <GroupBox Margin="16"
                 materialDesign:ColorZoneAssist.Mode="SecondaryMid"
-                Header="Card Group Box Accent"
+                Header="Card Group Box Secondary"
                 Style="{StaticResource MaterialDesignCardGroupBox}">
         <GroupBox.HeaderTemplate>
           <DataTemplate>
@@ -172,6 +177,46 @@
         <Image HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Source="Resources/Contact.png" />
+      </GroupBox>
+    </smtx:XamlDisplay>
+
+    <smtx:XamlDisplay Grid.Row="3"
+                      Grid.Column="0"
+                      UniqueKey="groupbox_9">
+      <GroupBox Margin="16"
+                materialDesign:ElevationAssist.Elevation="Dp6"
+                Background="White"
+                Header="Elevation"
+                Style="{StaticResource MaterialDesignGroupBox}">
+        <Grid Height="50">
+          <TextBlock VerticalAlignment="Center" Text="GroupBox (with border) and elevation" />
+        </Grid>
+      </GroupBox>
+    </smtx:XamlDisplay>
+    <smtx:XamlDisplay Grid.Row="3"
+                      Grid.Column="1"
+                      UniqueKey="groupbox_10">
+      <GroupBox Margin="16"
+                materialDesign:ElevationAssist.Elevation="Dp6"
+                Background="White"
+                BorderThickness="0"
+                Header="Elevation (no border)"
+                Style="{StaticResource MaterialDesignGroupBox}">
+        <Grid Height="50">
+          <TextBlock VerticalAlignment="Center" Text="GroupBox (without border) and elevation" />
+        </Grid>
+      </GroupBox>
+    </smtx:XamlDisplay>
+    <smtx:XamlDisplay Grid.Row="3"
+                      Grid.Column="2"
+                      UniqueKey="groupbox_11">
+      <GroupBox Margin="16"
+                materialDesign:ElevationAssist.Elevation="Dp6"
+                Header="Elevation on Card"
+                Style="{StaticResource MaterialDesignCardGroupBox}">
+        <Grid Height="50">
+          <TextBlock VerticalAlignment="Center" Text="GroupBox (using Card style) and elevation" />
+        </Grid>
       </GroupBox>
     </smtx:XamlDisplay>
   </Grid>

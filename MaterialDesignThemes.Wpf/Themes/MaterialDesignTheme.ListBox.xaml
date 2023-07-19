@@ -34,7 +34,7 @@
 
   <Style x:Key="MaterialDesignToolToggleListBoxItem" TargetType="{x:Type ListBoxItem}">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.ListBoxItem.Border}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
     <Setter Property="Padding" Value="14,6,14,6" />
@@ -124,7 +124,7 @@
                       Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
                       Opacity="0" />
               <Border x:Name="SelectedBackgroundBorder"
-                      Background="{DynamicResource MaterialDesignDivider}"
+                      Background="{DynamicResource MaterialDesign.Brush.ListBoxItem.Selected}"
                       Opacity="0" />
               <wpf:Ripple x:Name="Ripple"
                           Padding="{TemplateBinding Padding}"
@@ -138,7 +138,7 @@
                           Opacity=".56"
                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
               <Border x:Name="SelectedBorder"
-                      BorderBrush="{DynamicResource MaterialDesignDivider}"
+                      BorderBrush="{DynamicResource MaterialDesign.Brush.ListBoxItem.Selected}"
                       BorderThickness="0"
                       Opacity="0"
                       Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=SelectionMode, Converter={StaticResource EqualityToVisibilityConverter}, ConverterParameter={x:Static SelectionMode.Extended}, Mode=OneWay}" />
@@ -159,10 +159,10 @@
   </Style>
 
   <Style x:Key="MaterialDesignToolToggleListBox" TargetType="{x:Type ListBox}">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignToolBarBackground}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.ToolBar.Background}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignToolToggleListBoxItem}" />
     <Setter Property="ItemsPanel">
@@ -338,7 +338,7 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignListBoxItem}" />
     <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
@@ -413,10 +413,10 @@
   <!--#region Navigation-->
 
   <Style x:Key="MaterialDesignNavigationListBoxItem" TargetType="{x:Type ListBoxItem}">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="FontWeight" Value="Medium" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
     <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
     <Setter Property="Margin" Value="4,2,4,2" />
     <Setter Property="Padding" Value="8" />
@@ -507,7 +507,7 @@
             </Trigger>
 
             <Trigger Property="IsSelected" Value="False">
-              <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+              <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
             </Trigger>
 
           </ControlTemplate.Triggers>
@@ -517,16 +517,16 @@
     <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
     <Setter Property="wpf:ListBoxItemAssist.CornerRadius" Value="4" />
 
-    <Setter Property="wpf:ThemeAssist.TriggerBrush" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="wpf:ThemeAssist.TriggerBrush" Value="{DynamicResource MaterialDesign.Brush.Background}" />
   </Style>
 
   <Style x:Key="MaterialDesignNavigationPrimaryListBoxItem"
          TargetType="{x:Type ListBoxItem}"
          BasedOn="{StaticResource MaterialDesignNavigationListBoxItem}">
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary}" />
 
-    <Setter Property="wpf:ThemeAssist.TriggerBrush" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="wpf:ThemeAssist.TriggerBrush" Value="{DynamicResource MaterialDesign.Brush.Background}" />
 
     <Style.Triggers>
       <MultiDataTrigger>
@@ -534,20 +534,20 @@
           <Condition Binding="{Binding Path=(wpf:ThemeAssist.TriggerBrush), RelativeSource={RelativeSource Self}, Converter={StaticResource IsDarkConverter}}" Value="True" />
           <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
         </MultiDataTrigger.Conditions>
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Light}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Light}" />
       </MultiDataTrigger>
     </Style.Triggers>
 
   </Style>
 
-  <Style x:Key="MaterialDesignNavigationAccentListBoxItem"
+  <Style x:Key="MaterialDesignNavigationSecondaryListBoxItem"
          TargetType="{x:Type ListBoxItem}"
          BasedOn="{StaticResource MaterialDesignNavigationListBoxItem}">
-    <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Secondary}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Secondary}" />
 
-    <Setter Property="wpf:ThemeAssist.TriggerBrush" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="wpf:ThemeAssist.TriggerBrush" Value="{DynamicResource MaterialDesign.Brush.Background}" />
 
     <Style.Triggers>
       <MultiDataTrigger>
@@ -555,12 +555,17 @@
           <Condition Binding="{Binding Path=(wpf:ThemeAssist.TriggerBrush), RelativeSource={RelativeSource Self}, Converter={StaticResource IsDarkConverter}}" Value="True" />
           <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
         </MultiDataTrigger.Conditions>
-        <Setter Property="Background" Value="{DynamicResource SecondaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueLightBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Secondary.Light}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Secondary.Light}" />
       </MultiDataTrigger>
     </Style.Triggers>
 
   </Style>
+
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignNavigationAccentListBoxItem"
+         TargetType="{x:Type ListBoxItem}"
+         BasedOn="{StaticResource MaterialDesignNavigationSecondaryListBoxItem}" />
 
   <Style x:Key="MaterialDesignNavigationListBox"
          TargetType="{x:Type ListBox}"
@@ -574,11 +579,16 @@
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignNavigationPrimaryListBoxItem}" />
   </Style>
 
-  <Style x:Key="MaterialDesignNavigationAccentListBox"
+  <Style x:Key="MaterialDesignNavigationSecondaryListBox"
          TargetType="{x:Type ListBox}"
          BasedOn="{StaticResource MaterialDesignListBox}">
-    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignNavigationAccentListBoxItem}" />
+    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignNavigationSecondaryListBoxItem}" />
   </Style>
+
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignNavigationAccentListBox"
+         TargetType="{x:Type ListBox}"
+         BasedOn="{StaticResource MaterialDesignNavigationSecondaryListBox}" />
 
   <!--#endregion-->
 
@@ -608,7 +618,7 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignFilterChipListBoxItem}" />
     <Setter Property="ItemsPanel">
       <Setter.Value>
@@ -682,7 +692,7 @@
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignFilterChipPrimaryListBoxItem}" />
   </Style>
 
-  <Style x:Key="MaterialDesignFilterChipAccentListBoxItem" TargetType="{x:Type ListBoxItem}">
+  <Style x:Key="MaterialDesignFilterChipSecondaryListBoxItem" TargetType="{x:Type ListBoxItem}">
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -696,17 +706,27 @@
                     FontStyle="{TemplateBinding FontStyle}"
                     FontWeight="{TemplateBinding FontWeight}"
                     IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"
-                    Style="{StaticResource MaterialDesignFilterChipAccentCheckBox}" />
+                    Style="{StaticResource MaterialDesignFilterChipSecondaryCheckBox}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
 
-  <Style x:Key="MaterialDesignFilterChipAccentListBox"
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignFilterChipAccentListBoxItem"
+         TargetType="{x:Type ListBoxItem}"
+         BasedOn="{StaticResource MaterialDesignFilterChipSecondaryListBoxItem}" />
+
+  <Style x:Key="MaterialDesignFilterChipSecondaryListBox"
          TargetType="{x:Type ListBox}"
          BasedOn="{StaticResource MaterialDesignFilterChipListBox}">
-    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignFilterChipAccentListBoxItem}" />
+    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignFilterChipSecondaryListBoxItem}" />
   </Style>
+
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignFilterChipAccentListBox"
+         TargetType="{x:Type ListBox}"
+         BasedOn="{StaticResource MaterialDesignFilterChipSecondaryListBox}" />
 
   <Style x:Key="MaterialDesignFilterChipOutlineListBoxItem" TargetType="{x:Type ListBoxItem}">
     <Setter Property="Template">
@@ -760,7 +780,7 @@
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBoxItem}" />
   </Style>
 
-  <Style x:Key="MaterialDesignFilterChipAccentOutlineListBoxItem" TargetType="{x:Type ListBoxItem}">
+  <Style x:Key="MaterialDesignFilterChipSecondaryOutlineListBoxItem" TargetType="{x:Type ListBoxItem}">
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -774,17 +794,26 @@
                     FontStyle="{TemplateBinding FontStyle}"
                     FontWeight="{TemplateBinding FontWeight}"
                     IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"
-                    Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" />
+                    Style="{StaticResource MaterialDesignFilterChipSecondaryOutlineCheckBox}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
 
-  <Style x:Key="MaterialDesignFilterChipAccentOutlineListBox"
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignFilterChipAccentOutlineListBoxItem"
+         TargetType="{x:Type ListBoxItem}"
+         BasedOn="{StaticResource MaterialDesignFilterChipSecondaryOutlineListBoxItem}" />
+
+  <Style x:Key="MaterialDesignFilterChipSecondaryOutlineListBox"
          TargetType="{x:Type ListBox}"
          BasedOn="{StaticResource MaterialDesignFilterChipListBox}">
-    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignFilterChipAccentOutlineListBoxItem}" />
+    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignFilterChipSecondaryOutlineListBoxItem}" />
   </Style>
+
+  <Style x:Key="MaterialDesignFilterChipAccentOutlineListBox"
+         TargetType="{x:Type ListBox}"
+         BasedOn="{StaticResource MaterialDesignFilterChipSecondaryOutlineListBox}" />
 
   <!--#endregion-->
 
@@ -844,7 +873,7 @@
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignChoiceChipPrimaryListBoxItem}" />
   </Style>
 
-  <Style x:Key="MaterialDesignChoiceChipAccentListBoxItem" TargetType="{x:Type ListBoxItem}">
+  <Style x:Key="MaterialDesignChoiceChipSecondaryListBoxItem" TargetType="{x:Type ListBoxItem}">
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -859,17 +888,27 @@
                        FontWeight="{TemplateBinding FontWeight}"
                        GroupName="{Binding Name, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"
                        IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"
-                       Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" />
+                       Style="{StaticResource MaterialDesignChoiceChipSecondaryRadioButton}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
 
-  <Style x:Key="MaterialDesignChoiceChipAccentListBox"
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignChoiceChipAccentListBoxItem"
+         TargetType="{x:Type ListBoxItem}"
+         BasedOn="{StaticResource MaterialDesignChoiceChipSecondaryListBoxItem}" />
+
+  <Style x:Key="MaterialDesignChoiceChipSecondaryListBox"
          TargetType="{x:Type ListBox}"
          BasedOn="{StaticResource MaterialDesignChoiceChipListBox}">
-    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignChoiceChipAccentListBoxItem}" />
+    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignChoiceChipSecondaryListBoxItem}" />
   </Style>
+
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignChoiceChipAccentListBox"
+         TargetType="{x:Type ListBox}"
+         BasedOn="{StaticResource MaterialDesignChoiceChipSecondaryListBox}" />
 
   <Style x:Key="MaterialDesignChoiceChipOutlineListBoxItem" TargetType="{x:Type ListBoxItem}">
     <Setter Property="Template">
@@ -925,7 +964,7 @@
     <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBoxItem}" />
   </Style>
 
-  <Style x:Key="MaterialDesignChoiceChipAccentOutlineListBoxItem" TargetType="{x:Type ListBoxItem}">
+  <Style x:Key="MaterialDesignChoiceChipSecondaryOutlineListBoxItem" TargetType="{x:Type ListBoxItem}">
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -940,17 +979,27 @@
                        FontWeight="{TemplateBinding FontWeight}"
                        GroupName="{Binding Name, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"
                        IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"
-                       Style="{StaticResource MaterialDesignChoiceChipAccentOutlineRadioButton}" />
+                       Style="{StaticResource MaterialDesignChoiceChipSecondaryOutlineRadioButton}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
 
-  <Style x:Key="MaterialDesignChoiceChipAccentOutlineListBox"
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignChoiceChipAccentOutlineListBoxItem"
+         TargetType="{x:Type ListBoxItem}"
+         BasedOn="{StaticResource MaterialDesignChoiceChipSecondaryOutlineListBoxItem}" />
+
+  <Style x:Key="MaterialDesignChoiceChipSecondaryOutlineListBox"
          TargetType="{x:Type ListBox}"
          BasedOn="{StaticResource MaterialDesignChoiceChipListBox}">
-    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignChoiceChipAccentOutlineListBoxItem}" />
+    <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignChoiceChipSecondaryOutlineListBoxItem}" />
   </Style>
+
+  <!-- Obsolete -->
+  <Style x:Key="MaterialDesignChoiceChipAccentOutlineListBox"
+         TargetType="{x:Type ListBox}"
+         BasedOn="{StaticResource MaterialDesignChoiceChipSecondaryOutlineListBox}" />
 
   <!--#endregion-->
 </ResourceDictionary>

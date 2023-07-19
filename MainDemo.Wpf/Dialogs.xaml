@@ -62,6 +62,7 @@
                         UniqueKey="dialogs_sample1">
         <materialDesign:DialogHost DialogClosed="Sample1_DialogHost_OnDialogClosed"
                                    DialogClosing="Sample1_DialogHost_OnDialogClosing"
+                                   DialogContentUniformCornerRadius="20"
                                    DialogTheme="Inherit">
           <materialDesign:DialogHost.DialogContent>
             <StackPanel Margin="16">
@@ -124,7 +125,7 @@
                       Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                       Content="{materialDesign:PackIcon Kind=Plus,
                                                         Size=22}"
-                      Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" />
+                      Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}" />
             </Grid>
           </Border>
         </materialDesign:DialogHost>
@@ -324,7 +325,7 @@
                       Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                       Content="{materialDesign:PackIcon Kind=Plus,
                                                         Size=22}"
-                      Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" />
+                      Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}" />
             </Grid>
           </Border>
         </materialDesign:DialogHost>
