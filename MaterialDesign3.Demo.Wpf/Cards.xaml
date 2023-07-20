@@ -20,9 +20,6 @@
     </ResourceDictionary>
   </UserControl.Resources>
   <WrapPanel Margin="0,0,8,8">
-    <smtx:XamlDisplay Margin="4,4,0,16"
-                      VerticalContentAlignment="Top"
-                      UniqueKey="cards_1">
       <materialDesign:Card Width="200">
         <Grid>
           <Grid.RowDefinitions>
@@ -44,7 +41,7 @@
           <StackPanel Grid.Row="1" Margin="8,24,8,0">
             <TextBlock FontWeight="Bold">Cycling</TextBlock>
             <TextBlock VerticalAlignment="Center"
-                       Text="A great way to keep fit and forget about the constant grind of IT."
+                       Text="BmpBitmapDecoder"
                        TextWrapping="Wrap" />
           </StackPanel>
           <StackPanel Grid.Row="2"
@@ -72,11 +69,7 @@
           </StackPanel>
         </Grid>
       </materialDesign:Card>
-    </smtx:XamlDisplay>
 
-    <smtx:XamlDisplay Margin="4,4,0,16"
-                      VerticalContentAlignment="Top"
-                      UniqueKey="cards_2">
       <materialDesign:Card Width="220">
         <Grid>
           <Grid.RowDefinitions>
@@ -100,7 +93,7 @@
           <StackPanel Grid.Row="1" Margin="8,24,8,4">
             <TextBlock Margin="0"
                        Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
-                       Text="E.T. the Extra-Terrestrial" />
+                       Text="JpegBitmapEncoder" />
             <Viewbox Height="16"
                      Margin="0,4,0,8"
                      HorizontalAlignment="Left">
@@ -111,7 +104,7 @@
             </Viewbox>
             <TextBlock VerticalAlignment="Center"
                        Style="{StaticResource MaterialDesignBody1TextBlock}"
-                       Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott."
+                       Text="GifBitmapDecoder"
                        TextWrapping="Wrap" />
           </StackPanel>
           <Separator Grid.Row="2"
@@ -166,69 +159,57 @@
           </StackPanel>
         </Grid>
       </materialDesign:Card>
-    </smtx:XamlDisplay>
 
     <StackPanel>
-      <smtx:XamlDisplay Margin="4,4,0,16"
-                        VerticalContentAlignment="Top"
-                        UniqueKey="cards_3">
-        <materialDesign:Card Width="200"
+      <materialDesign:Card Width="200"
                              Padding="0"
                              Background="#03a9f4"
                              Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
-          <Grid>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="Auto" />
-              <RowDefinition Height="Auto" />
-              <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0"
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <TextBlock Grid.Row="0"
                        Margin="16,16,16,4"
                        Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                       Text="Call Jennifer" />
-            <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
-            <TextBlock Grid.Row="2"
+                       Text="IconBitmapDecoder" />
+          <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+          <TextBlock Grid.Row="2"
                        Margin="16,0,16,8"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        Style="{StaticResource MaterialDesignBody2TextBlock}"
-                       Text="March 19, 2016" />
-            <StackPanel Grid.Row="2"
+                       Text="IconBitmapEncoder" />
+          <StackPanel Grid.Row="2"
                         Margin="16,0,16,8"
                         HorizontalAlignment="Right"
                         Orientation="Horizontal">
-              <Button Width="30"
+            <Button Width="30"
                       Padding="2,0,2,0"
                       HorizontalAlignment="Right"
                       materialDesign:RippleAssist.IsCentered="True"
                       Style="{StaticResource MaterialDesignToolForegroundButton}">
-                <materialDesign:PackIcon Kind="Phone" />
-              </Button>
-              <materialDesign:PopupBox Padding="2,0,2,0"
+              <materialDesign:PackIcon Kind="Phone" />
+            </Button>
+            <materialDesign:PopupBox Padding="2,0,2,0"
                                        HorizontalAlignment="Right"
                                        Style="{StaticResource MaterialDesignToolForegroundPopupBox}">
-                <StackPanel>
-                  <Button Content="More" />
-                  <Button Content="Options" />
-                </StackPanel>
-              </materialDesign:PopupBox>
-            </StackPanel>
-          </Grid>
-        </materialDesign:Card>
-      </smtx:XamlDisplay>
-
-      <smtx:XamlDisplay Margin="4,4,0,16"
-                        VerticalContentAlignment="Top"
-                        UniqueKey="cards_4">
-        <materialDesign:Card Width="200"
+              <StackPanel>
+                <Button Content="更多" />
+                <Button Content="Options" />
+              </StackPanel>
+            </materialDesign:PopupBox>
+          </StackPanel>
+        </Grid>
+      </materialDesign:Card>
+      <materialDesign:Card Width="200"
                              Padding="8"
                              Background="{DynamicResource PrimaryHueLightBrush}"
                              Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
           <TextBlock FontSize="16" Text="Boring Text" />
         </materialDesign:Card>
-      </smtx:XamlDisplay>
-
-      <smtx:XamlDisplay Margin="4,4,0,16" UniqueKey="cards_5">
         <materialDesign:Card Width="200"
                              Padding="8"
                              Background="{DynamicResource PrimaryHueDarkBrush}"
@@ -236,12 +217,9 @@
                              UniformCornerRadius="6">
           <TextBlock Text="You can adjust the corner radius" TextWrapping="Wrap" />
         </materialDesign:Card>
-      </smtx:XamlDisplay>
     </StackPanel>
 
-    <smtx:XamlDisplay Margin="4,4,0,16"
-                      VerticalContentAlignment="Top"
-                      UniqueKey="cards_6">
+
       <materialDesign:Card Width="200"
                            Padding="8"
                            Background="{DynamicResource PrimaryHueDarkBrush}"
@@ -249,21 +227,21 @@
         <StackPanel>
           <TextBlock Margin="16,16,12,8"
                      FontSize="16"
-                     Text="Notes" />
+                     Text="操作" />
           <CheckBox Margin="16,4,16,0"
-                    Content="Do something good"
+                    Content="Rotation"
                     Style="{StaticResource MaterialDesignUserForegroundCheckBox}" />
           <CheckBox Margin="16,4,16,0"
-                    Content="Take a breather"
+                    Content="Thumbnail"
                     Style="{StaticResource MaterialDesignUserForegroundCheckBox}" />
           <CheckBox Margin="16,4,16,0"
-                    Content="And go create"
+                    Content="ColorContexts"
                     Style="{StaticResource MaterialDesignUserForegroundCheckBox}" />
           <RadioButton Margin="16,4,16,0"
-                       Content="This?"
+                       Content="Palette"
                        Style="{StaticResource MaterialDesignUserForegroundRadioButton}" />
           <RadioButton Margin="16,4,16,0"
-                       Content="Or This?"
+                       Content="Metadata"
                        Style="{StaticResource MaterialDesignUserForegroundRadioButton}" />
           <Separator Style="{StaticResource MaterialDesignLightSeparator}" />
           <StackPanel Margin="8,0,8,8"
@@ -279,22 +257,15 @@
           </StackPanel>
         </StackPanel>
       </materialDesign:Card>
-    </smtx:XamlDisplay>
 
-    <!--
-            For the Card styled <Flipper />, bring in this resource dictionary (see top of this file)
-            pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml
-    -->
     <StackPanel>
-      <smtx:XamlDisplay Margin="4,4,0,0"
-                        VerticalContentAlignment="Top"
-                        UniqueKey="cards_7">
+
         <materialDesign:Flipper IsFlippedChanged="Flipper_OnIsFlippedChanged" Style="{StaticResource MaterialDesignCardFlipper}">
           <materialDesign:Flipper.FrontContent>
             <Button Width="184"
                     Margin="8"
                     Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                    Content="FLIPPABLZ!"
+                    Content="LateBoundBitmapDecoder"
                     Style="{StaticResource MaterialDesignFlatButton}" />
           </materialDesign:Flipper.FrontContent>
           <materialDesign:Flipper.BackContent>
@@ -305,11 +276,8 @@
                     Style="{StaticResource MaterialDesignFlatButton}" />
           </materialDesign:Flipper.BackContent>
         </materialDesign:Flipper>
-      </smtx:XamlDisplay>
 
-      <smtx:XamlDisplay Margin="4,4,0,0"
-                        VerticalContentAlignment="Top"
-                        UniqueKey="cards_8">
+
         <materialDesign:Flipper materialDesign:ElevationAssist.Elevation="Dp0" Style="{StaticResource MaterialDesignCardFlipper}">
           <materialDesign:Flipper.FrontContent>
             <Grid Width="200" Height="256">
@@ -327,10 +295,10 @@
               <StackPanel Grid.Row="1"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center">
-                <TextBlock Text="James Willock" />
+              <TextBlock Text="延迟位图解码器" />
                 <Button Margin="0,4,0,0"
                         Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                        Content="EDIT"
+                        Content="异步图像下载"
                         Style="{StaticResource MaterialDesignFlatButton}" />
               </StackPanel>
             </Grid>
@@ -391,18 +359,14 @@
             </Grid>
           </materialDesign:Flipper.BackContent>
         </materialDesign:Flipper>
-      </smtx:XamlDisplay>
     </StackPanel>
 
-    <smtx:XamlDisplay Margin="4,4,0,0"
-                      VerticalContentAlignment="Top"
-                      UniqueKey="cards_9">
       <materialDesign:Flipper VerticalAlignment="Top" Style="{StaticResource MaterialDesignCardFlipper}">
         <materialDesign:Flipper.FrontContent>
           <Button Width="192"
                   Margin="8"
                   Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                  Content="RESIZING..."
+                  Content="JpegBitmapDecoder"
                   Style="{StaticResource MaterialDesignFlatButton}" />
         </materialDesign:Flipper.FrontContent>
         <materialDesign:Flipper.BackContent>
@@ -420,7 +384,7 @@
                 </Button>
                 <TextBlock Margin="8,0,0,0"
                            VerticalAlignment="Center"
-                           Text="EDIT USER" />
+                           Text="WmpBitmapDecoder" />
               </StackPanel>
             </materialDesign:ColorZone>
 
@@ -438,31 +402,30 @@
               <TextBox Margin="0,12,0,0"
                        materialDesign:HintAssist.Hint="First name"
                        materialDesign:HintAssist.IsFloating="True"
-                       Text="James" />
+                       Text="TiffBitmapDecoder" />
               <TextBox Grid.Row="1"
                        Margin="0,12,0,0"
                        materialDesign:HintAssist.Hint="Last name"
                        materialDesign:HintAssist.IsFloating="True"
-                       Text="Willock" />
+                       Text="PngBitmapDecoder" />
               <StackPanel Grid.Row="2"
                           Margin="0,12,0,0"
                           HorizontalAlignment="Right"
                           Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Text="Email Contact" />
+              <TextBlock VerticalAlignment="Center" Text="123" />
                 <ToggleButton Margin="8,0,0,0" />
               </StackPanel>
               <StackPanel Grid.Row="3"
                           Margin="0,12,0,0"
                           HorizontalAlignment="Right"
                           Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Text="Telephone Contact" />
+              <TextBlock VerticalAlignment="Center" Text="123" />
                 <ToggleButton Margin="8,0,0,0" />
               </StackPanel>
             </Grid>
           </Grid>
         </materialDesign:Flipper.BackContent>
       </materialDesign:Flipper>
-    </smtx:XamlDisplay>
   </WrapPanel>
 </UserControl>
 
