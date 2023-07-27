@@ -23,10 +23,10 @@ namespace MaterialDesign3Demo.Domain
 
     public sealed class Movie
     {
-        public Movie(string name, string director)
+        public Movie(string name)
         {
             Name = name;
-            Director = director;
+            Director = name;
         }
 
         public string Name { get; }
@@ -47,10 +47,10 @@ namespace MaterialDesign3Demo.Domain
 
     public sealed class MovieCategory
     {
-        public MovieCategory(string name, params Movie[] movies)
+        public MovieCategory(string dir)
         {
-            Name = name;
-            Movies = new ObservableCollection<Movie>(movies);
+            Name = dir;
+            Movies = new ObservableCollection<Movie>(Directory.GetFiles(dir).Select(file => new Movie(file)));
         }
 
         public string Name { get; }
@@ -61,6 +61,8 @@ namespace MaterialDesign3Demo.Domain
     public sealed class TreesViewModel : ViewModelBase
     {
         private object? _selectedItem;
+
+        public string[] Drives => System.IO.Directory.GetLogicalDrives();
 
         public ObservableCollection<MovieCategory> MovieCategories { get; }
 
@@ -76,17 +78,9 @@ namespace MaterialDesign3Demo.Domain
 
         public TreesViewModel()
         {
-            MovieCategories = new ObservableCollection<MovieCategory>
-            {
-                new MovieCategory("Action",
-                    new Movie ("Predator", "John McTiernan"),
-                    new Movie("Alien", "Ridley Scott"),
-                    new Movie("Prometheus", "Ridley Scott")),
-                new MovieCategory("Comedy",
-                    new Movie("EuroTrip", "Jeff Schaffer"),
-                    new Movie("EuroTrip", "Jeff Schaffer")
-                )
-            };
+            var items = Drives.Select(x => new MovieCategory(x));
+
+            MovieCategories = new ObservableCollection<MovieCategory>(items);
 
             AddCommand = new AnotherCommandImplementation(
                 _ =>
@@ -100,7 +94,7 @@ namespace MaterialDesign3Demo.Domain
                         var index = new Random().Next(0, MovieCategories.Count);
 
                         MovieCategories[index].Movies.Add(
-                            new Movie(GenerateString(15), GenerateString(20)));
+                            new Movie(GenerateString(15)));
                     }
                 });
 
@@ -125,7 +119,6 @@ namespace MaterialDesign3Demo.Domain
         private static string GenerateString(int length)
         {
             var random = new Random();
-
             return string.Join(string.Empty,
                 Enumerable.Range(0, length)
                 .Select(v => (char)random.Next('a', 'z' + 1)));
