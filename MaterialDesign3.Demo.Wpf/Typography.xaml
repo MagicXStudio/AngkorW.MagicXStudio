@@ -532,7 +532,7 @@
       <StackPanel Orientation="Horizontal">
         <materialDesign:PackIcon VerticalAlignment="Center" Kind="LetterABoxOutline" />
 
-        <TextBlock Style="{StaticResource Caption}" Text="Regular" />
+        <TextBlock Style="{StaticResource Caption}" Text="ConfigureAwait" />
       </StackPanel>
     </Border>
 
@@ -548,7 +548,7 @@
       <StackPanel Orientation="Horizontal">
         <materialDesign:PackIcon VerticalAlignment="Center" Kind="ArrowUpDown" />
 
-        <TextBlock Style="{StaticResource Caption}" Text="16" />
+        <TextBlock Style="{StaticResource Caption}" Text="ConfigureAwait(false)" />
       </StackPanel>
     </Border>
 
@@ -558,7 +558,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignBodySmallTextBlock}"
-                 Text="Body Small" />
+                 Text="SynchronizationContext" />
     </smtx:XamlDisplay>
   </Grid>
 </UserControl>

@@ -23,7 +23,14 @@
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                  TextWrapping="Wrap">
-        The transition will originate from where the user clicks the button.  Experiment with the back/forward buttons.
+BlockingCollection 是一个线程安全集合类，可提供以下功能：
+实现制造者-使用者模式
+通过多线程并发添加和获取项
+可选最大容量
+集合为空或已满时通过插入和移除操作进行阻塞
+插入和移除“尝试”操作不发生阻塞，或在指定时间段内发生阻塞
+封装实现IProducerConsumerCollection的任何集合类型
+使用取消标记执行取消操作
       </TextBlock>
       <Button Grid.Row="1"
               HorizontalAlignment="Left"
