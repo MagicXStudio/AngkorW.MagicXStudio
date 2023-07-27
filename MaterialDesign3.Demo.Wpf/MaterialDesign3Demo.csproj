@@ -34,6 +34,7 @@
   <ItemGroup>
     <Resource Include="Resources\*.jpg" />
     <Resource Include="Resources\*.png" />
+    <None Remove="Resources\Eating your five-a-day.jpg" />
     <Resource Include="ScreenGrabFromGoogle.gif" />
     <Resource Include="favicon.ico" />
   </ItemGroup>
