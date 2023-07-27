@@ -433,7 +433,7 @@
                Grid.Column="0"
                Margin="0,24"
                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-               Text="Tabs" />
+               Text="BinaryPrimitives" />
 
     <Border Grid.Row="9"
             Grid.Column="0"
@@ -445,97 +445,67 @@
     <StackPanel Grid.Row="11">
       <WrapPanel Orientation="Horizontal">
         <StackPanel>
-          <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="buttons_60">
-            <StackPanel Margin="4" Orientation="Horizontal">
-              <RadioButton Margin="4"
-                           Content="FIRST"
+          <StackPanel  HorizontalAlignment="Left" Margin="4" Orientation="Horizontal">
+            <RadioButton Margin="4"
+                           Content="ReadInt32BigEndian WriteInt32BigEndian"
                            IsChecked="True"
                            Style="{StaticResource MaterialDesignTabRadioButton}" />
-
-              <RadioButton Margin="4"
-                           Content="SECOND"
+            <RadioButton Margin="4"
+                           Content="ReadInt32LittleEndian WriteInt32LittleEndian"
                            IsChecked="False"
                            Style="{StaticResource MaterialDesignTabRadioButton}" />
+          </StackPanel>
 
+          <materialDesign:ColorZone Mode="PrimaryMid"  HorizontalAlignment="Left">
+            <StackPanel Margin="2" Orientation="Horizontal">
               <RadioButton Margin="4"
-                           Content="THIRD"
-                           IsChecked="False"
-                           IsEnabled="False"
-                           Style="{StaticResource MaterialDesignTabRadioButton}" />
-            </StackPanel>
-          </smtx:XamlDisplay>
-
-          <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="buttons_61">
-            <materialDesign:ColorZone Mode="PrimaryMid">
-              <StackPanel Margin="2" Orientation="Horizontal">
-                <RadioButton Margin="4"
-                             Content="FIRST"
+                             Content="ReadInt64BigEndian"
                              IsChecked="True"
                              Style="{StaticResource MaterialDesignTabRadioButton}" />
-
-                <RadioButton Margin="4"
-                             Content="SECOND"
+              <RadioButton Margin="4"
+                             Content="ReadInt64LittleEndian"
                              IsChecked="False"
                              Style="{StaticResource MaterialDesignTabRadioButton}" />
-
-                <RadioButton Margin="4"
-                             Content="THIRD"
-                             IsChecked="False"
-                             IsEnabled="False"
-                             Style="{StaticResource MaterialDesignTabRadioButton}" />
-              </StackPanel>
-            </materialDesign:ColorZone>
-          </smtx:XamlDisplay>
+            </StackPanel>
+          </materialDesign:ColorZone>
         </StackPanel>
 
         <StackPanel>
-          <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="buttons_71">
-            <StackPanel Margin="4" Orientation="Horizontal">
-              <RadioButton Margin="4"
+          <StackPanel Margin="4" HorizontalAlignment="Left" Orientation="Horizontal">
+            <RadioButton Margin="4"
                            BorderBrush="{DynamicResource PrimaryHueMidBrush}"
-                           Content="FIRST"
+                           Content="ReadSingleBigEndian"
                            IsChecked="True"
                            Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
-
-              <RadioButton Margin="4"
+            <RadioButton Margin="4"
                            BorderBrush="{DynamicResource PrimaryHueMidBrush}"
-                           Content="SECOND"
+                           Content="ReadSingleLittleEndian"
                            IsChecked="False"
                            Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
+          </StackPanel>
 
+          <materialDesign:ColorZone Mode="SecondaryMid" HorizontalAlignment="Left">
+            <StackPanel Margin="2" Orientation="Horizontal">
               <RadioButton Margin="4"
-                           BorderBrush="{DynamicResource PrimaryHueMidBrush}"
-                           Content="THIRD"
-                           IsChecked="False"
-                           IsEnabled="False"
-                           Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
-            </StackPanel>
-          </smtx:XamlDisplay>
-
-          <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="buttons_72">
-            <materialDesign:ColorZone Mode="SecondaryMid">
-              <StackPanel Margin="2" Orientation="Horizontal">
-                <RadioButton Margin="4"
                              BorderBrush="{DynamicResource PrimaryHueMidBrush}"
-                             Content="FIRST"
+                             Content="ReverseEndianness"
                              IsChecked="True"
                              Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
 
-                <RadioButton Margin="4"
+              <RadioButton Margin="4"
                              BorderBrush="{DynamicResource PrimaryHueMidBrush}"
                              Content="SECOND"
                              IsChecked="False"
                              Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
 
-                <RadioButton Margin="4"
+              <RadioButton Margin="4"
                              BorderBrush="{DynamicResource PrimaryHueMidBrush}"
                              Content="THIRD"
                              IsChecked="False"
                              IsEnabled="False"
                              Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
-              </StackPanel>
-            </materialDesign:ColorZone>
-          </smtx:XamlDisplay>
+            </StackPanel>
+          </materialDesign:ColorZone>
         </StackPanel>
 
       </WrapPanel>
