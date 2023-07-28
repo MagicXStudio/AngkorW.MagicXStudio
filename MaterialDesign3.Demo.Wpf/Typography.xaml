@@ -82,7 +82,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignDisplayLargeTextBlock}"
-                 Text="Display Large" />
+                 Text="背下陵高，足往神留，遗情想像，顾望怀愁。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignDisplayMediumTextBlock -->
@@ -116,7 +116,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignDisplayMediumTextBlock}"
-                 Text="Display Medium" />
+                 Text="屏翳收风，川后静波。冯夷鸣鼓，女娲清歌。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignDisplaySmallTextBlock -->
@@ -150,7 +150,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignDisplaySmallTextBlock}"
-                 Text="Display Small" />
+                 Text="践远游之文履，曳雾绡之轻裾，微幽兰之芳蔼兮，步踟蹰于山隅。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignHeadlineLargeTextBlock -->
@@ -184,7 +184,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignHeadlineLargeTextBlock}"
-                 Text="Headline Large" />
+                 Text="远而望之，皎若太阳升朝霞；迫而察之，灼若芙蕖出渌波。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignHeadlineMediumTextBlock -->
@@ -218,7 +218,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignHeadlineMediumTextBlock}"
-                 Text="Headline Medium" />
+                 Text="仿佛兮若轻云之蔽月，飘飘兮若流风之回雪。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignHeadlineSmallTextBlock -->
@@ -252,7 +252,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignHeadlineSmallTextBlock}"
-                 Text="Headline Small" />
+                 Text="丹唇外朗，皓齿内鲜，明眸善睐，靥辅承权。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignTitleLargeTextBlock -->
@@ -286,7 +286,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignTitleLargeTextBlock}"
-                 Text="Title Large" />
+                 Text="动无常则，若危若安。进止难期，若往若还。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignTitleMediumTextBlock -->
@@ -320,7 +320,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignTitleMediumTextBlock}"
-                 Text="Title Medium" />
+                 Text="体迅飞鸟，飘忽若神，凌波微步，罗袜生尘。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignTitleSmallTextBlock -->
@@ -354,7 +354,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignTitleSmallTextBlock}"
-                 Text="Title Small" />
+                 Text="超长吟以永慕兮，声哀厉而弥长。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignLabelLargeTextBlock -->
@@ -388,7 +388,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignLabelLargeTextBlock}"
-                 Text="Label Large" />
+                 Text="恨人神之道殊兮，怨盛年之莫当。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignLabelMediumTextBlock -->
@@ -422,7 +422,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignLabelMediumTextBlock}"
-                 Text="Label Medium" />
+                 Text="悼良会之永绝兮，哀一逝而异乡。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignLabelSmallTextBlock -->
@@ -456,7 +456,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignLabelSmallTextBlock}"
-                 Text="Label Small" />
+                 Text="瑰姿艳逸，仪静体闲。柔情绰态，媚于语言。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignBodyLargeTextBlock -->
@@ -490,7 +490,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
-                 Text="Body Large" />
+                 Text="背下陵高，足往神留，遗情想像，顾望怀愁。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignBodyMediumTextBlock -->
@@ -524,7 +524,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
-                 Text="Body Medium" />
+                 Text="珥瑶碧之华琚：佩着璀璨耀眼的碧玉耳坠。" />
     </smtx:XamlDisplay>
 
     <!-- MaterialDesignBodySmallTextBlock -->
@@ -532,7 +532,7 @@
       <StackPanel Orientation="Horizontal">
         <materialDesign:PackIcon VerticalAlignment="Center" Kind="LetterABoxOutline" />
 
-        <TextBlock Style="{StaticResource Caption}" Text="ConfigureAwait" />
+        <TextBlock Style="{StaticResource Caption}" Text="Regular" />
       </StackPanel>
     </Border>
 
@@ -548,7 +548,7 @@
       <StackPanel Orientation="Horizontal">
         <materialDesign:PackIcon VerticalAlignment="Center" Kind="ArrowUpDown" />
 
-        <TextBlock Style="{StaticResource Caption}" Text="ConfigureAwait(false)" />
+        <TextBlock Style="{StaticResource Caption}" Text="16" />
       </StackPanel>
     </Border>
 
@@ -558,7 +558,7 @@
       <TextBlock Padding="0,16"
                  VerticalAlignment="Center"
                  Style="{StaticResource MaterialDesignBodySmallTextBlock}"
-                 Text="SynchronizationContext" />
+                 Text="山西皎若若成翩若流川。" />
     </smtx:XamlDisplay>
   </Grid>
 </UserControl>
