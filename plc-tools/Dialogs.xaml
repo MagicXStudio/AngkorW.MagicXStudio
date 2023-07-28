@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="MahMaterialDragablzMashUp.Dialogs"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:MahMaterialDragablzMashUp"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             dialogs:DialogParticipation.Register="{Binding}"
+             mc:Ignorable="d">
+  <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Button Command="{Binding ShowInputDialogCommand}">登录口令</Button>
+    <Button Margin="0,48,0,0" Command="{Binding ShowProgressDialogCommand}">网络诊断</Button>
+    <Button Margin="0,48,0,0" Command="{Binding ShowLeftFlyoutCommand}">参数设定</Button>
+  </StackPanel>
+</UserControl>

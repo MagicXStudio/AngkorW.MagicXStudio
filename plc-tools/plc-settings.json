@@ -1,0 +1,39 @@
+{
+    "plc": [
+        {
+            "DataPoints": [
+                {
+                    "EqpId": "eqp1",
+                    "ModbusAddress": 0
+                },
+                {
+                    "EqpId": "eqp2",
+                    "ModbusAddress": 0
+                }
+            ],
+            "IpAddress": "127.0.0.1",
+            "PlcDeviceId": "Plc1",
+            "Port": 1234,
+            "SlaveId": 1
+        },
+
+        {
+            "DataPoints": [
+                {
+                    "EqpId": "eqp3",
+                    "ModbusAddress": 0
+                },
+                {
+                    "EqpId": "eqp4",
+                    "ModbusAddress": 0
+                }
+            ],
+            "IpAddress": "127.0.0.2",
+            "PlcDeviceId": "Plc2",
+            "Port": 1234,
+            "SlaveId": "2"
+        }
+    ]
+
+
+}
