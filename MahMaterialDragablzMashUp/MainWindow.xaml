@@ -6,7 +6,7 @@
                       xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
                       xmlns:mahMaterialDragablzMashUp="clr-namespace:MahMaterialDragablzMashUp"
                       xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:mahMaterialDragablzMashUp1="clr-namespace:MahAppsDragablzDemo"
-                      Title="Union Studio"
+                      Title="Image Studio"
                       Width="800"
                       Height="640"
                       FontFamily="{DynamicResource MahApps.Fonts.Family.Window.Title}"
@@ -33,9 +33,9 @@
     <controls:WindowCommands>
       <wpf:PopupBox Style="{StaticResource WindowCommandsPopupBoxStyle}">
         <StackPanel>
-          <Button Content="Hello World" />
-          <Button Content="Nice Popup" />
-          <Button Content="Goodbye" />
+          <Button Content="状态" />
+          <Button Content="隐藏" />
+          <Button Content="退出" />
         </StackPanel>
       </wpf:PopupBox>
     </controls:WindowCommands>
@@ -45,20 +45,20 @@
       <dragablz:TabablzControl.InterTabController>
         <dragablz:InterTabController />
       </dragablz:TabablzControl.InterTabController>
-      <TabItem Header="DIALOGS">
+      <TabItem Header="隐私设置">
         <mahMaterialDragablzMashUp:Dialogs Margin="8">
           <mahMaterialDragablzMashUp:Dialogs.DataContext>
             <mahMaterialDragablzMashUp:DialogsViewModel />
           </mahMaterialDragablzMashUp:Dialogs.DataContext>
         </mahMaterialDragablzMashUp:Dialogs>
       </TabItem>
-      <TabItem Header="PhotoViewer">
+      <TabItem Header="图片浏览">
         <mahMaterialDragablzMashUp1:PhotoViewer />
       </TabItem>
-      <TabItem Header="MAHAPPS">
+      <TabItem Header="Wallhaven">
         <mahMaterialDragablzMashUp:Mah Margin="16" />
       </TabItem>
-      <TabItem Header="PALETTE">
+      <TabItem Header="标签设置">
         <mahMaterialDragablzMashUp:PaletteSelector Margin="16">
           <mahMaterialDragablzMashUp:PaletteSelector.DataContext>
             <mahMaterialDragablzMashUp:PaletteSelectorViewModel />
