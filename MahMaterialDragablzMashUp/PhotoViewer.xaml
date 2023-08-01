@@ -31,22 +31,22 @@
     <!-- Photo -->
     <Border Grid.Column="0" Grid.Row="0" Padding="4" Margin="4"
                 Background="White" BorderBrush="#22000000" BorderThickness="1">
-      <Image Name="ViewedPhoto" Source="./Resources/ProfilePic.jpg" DragOver="" RenderTransformOrigin="0.5,0.5">
+      <Image Name="ViewedPhoto" Source="./Resources/ProfilePic.jpg"  RenderTransformOrigin="0.5,0.5">
         <b:Interaction.Triggers>
           <b:EventTrigger EventName="MouseMove">
-            <b:InvokeCommandAction Command="{Binding MouseMoveCommand}"></b:InvokeCommandAction>
+            <b:InvokeCommandAction Command="{Binding MouseMoveCommand}" CommandParameter="{Binding ElementName=ViewedPhoto, Path=RenderTransform}"></b:InvokeCommandAction>
           </b:EventTrigger>
           <b:EventTrigger EventName="MouseWheel">
-            <b:InvokeCommandAction Command="{Binding MouseMoveCommand}"></b:InvokeCommandAction>
+            <b:InvokeCommandAction Command="{Binding MouseWheelCommand}" CommandParameter="{Binding ElementName=Scale, Path=ScaleX}"></b:InvokeCommandAction>
           </b:EventTrigger>
           <b:EventTrigger EventName="DragOver">
-            <b:InvokeCommandAction Command="{Binding MouseMoveCommand}"></b:InvokeCommandAction>
+            <b:InvokeCommandAction Command="{Binding DragOverCommand}"></b:InvokeCommandAction>
           </b:EventTrigger>
         </b:Interaction.Triggers>
         <Image.RenderTransform>
-          <TransformGroup>
-            <ScaleTransform ScaleX="-2" ScaleY="-1.2"/>
-            <SkewTransform AngleX="10"/>
+          <TransformGroup x:Name="TransformGroup">
+            <ScaleTransform x:Name="Scale" ScaleX="{Binding Scale.ScaleX,Mode=TwoWay}" ScaleY="{Binding Scale.ScaleY,Mode=TwoWay}"/>
+            <SkewTransform AngleX="{Binding AngleX,Mode=TwoWay}" AngleY="{Binding AngleY,Mode=TwoWay}"/>
             <RotateTransform Angle="30"/>
             <TranslateTransform X="10" Y="20"/>
           </TransformGroup>
