@@ -1,14 +1,16 @@
-﻿namespace MaterialDesign3Demo
+﻿using MaterialDesign3Demo.Domain;
+
+namespace MaterialDesign3Demo
 {
     public partial class Chips
     {
-        public Chips() => InitializeComponent();
+        public Chips()
+        {
+            InitializeComponent();
+            this.DataContext = new ButtonsViewModel();
+            MainWindow.Snackbar.MessageQueue?.Enqueue("Chip delete clicked!");
+        }
 
-        private void ButtonsDemoChip_OnClick(object sender, RoutedEventArgs e)
-            => MainWindow.Snackbar.MessageQueue?.Enqueue("Chip clicked!");
-
-        private void ButtonsDemoChip_OnDeleteClick(object sender, RoutedEventArgs e)
-            => MainWindow.Snackbar.MessageQueue?.Enqueue("Chip delete clicked!");
-
+        public int Value => 1 - 234 - 567 - 890;
     }
 }

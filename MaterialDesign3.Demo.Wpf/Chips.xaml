@@ -29,111 +29,52 @@
 
     <TextBlock Margin="0,0,0,16"
                Style="{StaticResource ChipsHeadline}"
-               Text="Action Chips" />
+               Text="BitConverter" />
 
     <StackPanel Grid.Row="1">
       <WrapPanel smtx:XamlDisplay.Ignore="This" Orientation="Horizontal">
-        <smtx:XamlDisplay Margin="0,0,6,4" UniqueKey="chips_1">
-          <materialDesign:Chip Content="James Willock">
-            <materialDesign:Chip.Icon>
-              <Image Source="Resources/ProfilePic.jpg" />
-            </materialDesign:Chip.Icon>
-          </materialDesign:Chip>
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_2">
-          <materialDesign:Chip Content="Example Chip" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_3">
-          <materialDesign:Chip Content="ANZ Bank" Icon="A" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_4">
-          <materialDesign:Chip Content="ZNA Inc" Icon="Z" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_5">
-          <materialDesign:Chip Content="Twitter"
-                               IconBackground="{DynamicResource PrimaryHueDarkBrush}"
-                               IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}">
-            <materialDesign:Chip.Icon>
-              <materialDesign:PackIcon Kind="Twitter" />
-            </materialDesign:Chip.Icon>
-          </materialDesign:Chip>
-        </smtx:XamlDisplay>
+        <materialDesign:Chip  Margin="0,0,6,4" Content="DoubleToInt64Bits"
+                              ToolTip="返回整数中的[位顺序]取决于计算机体系结构是little-endian还是big-endian">
+          <materialDesign:Chip.Icon>
+            <Image Source="Resources/ProfilePic.jpg" />
+          </materialDesign:Chip.Icon>
+        </materialDesign:Chip>
+        <TextBlock   Margin="0,0,4,4"  Text="1.23456789012345E-150"/>
+        <materialDesign:Chip Margin="0,0,4,4" Content="01AA74FE1C1E7E45" Icon="little" />
+        <materialDesign:Chip  Margin="0,0,4,4" Content="406FE00000000000" Icon="big" />
       </WrapPanel>
 
       <WrapPanel smtx:XamlDisplay.Ignore="This" Orientation="Horizontal">
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_6">
-          <materialDesign:Chip Click="ButtonsDemoChip_OnClick"
-                               Content="James Willock"
-                               DeleteClick="ButtonsDemoChip_OnDeleteClick"
-                               DeleteToolTip="Your friendly neighbor delete button"
-                               IsDeletable="True"
-                               ToolTip="Just a tool tip">
-            <materialDesign:Chip.Icon>
-              <Image Source="Resources/ProfilePic.jpg" />
-            </materialDesign:Chip.Icon>
-          </materialDesign:Chip>
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_7">
-          <materialDesign:Chip Content="Example Chip"
-                               IsDeletable="True"
-                               ToolTip="This is an example chip" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_8">
-          <materialDesign:Chip Content="ANZ Bank"
-                               Icon="A"
-                               IsDeletable="True" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_9">
-          <materialDesign:Chip Content="ZNA Inc"
-                               Icon="Z"
-                               IconBackground="{DynamicResource PrimaryHueLightBrush}"
-                               IconForeground="{DynamicResource PrimaryHueLightForegroundBrush}"
-                               IsDeletable="True" />
-        </smtx:XamlDisplay>
+        <materialDesign:Chip Margin="0,0,4,4" Content="GetBytes"
+                               ToolTip="在little-endian系统上，低阶字节先于高阶字节;在big-endian系统上，高阶字节先于低阶字节">
+          <materialDesign:Chip.Icon>
+            <Image Source="Resources/ProfilePic.jpg" />
+          </materialDesign:Chip.Icon>
+        </materialDesign:Chip>
+        <materialDesign:Chip Margin="0,0,4,4" Content="1234567890(0x499602D2)" ToolTip="十六进制" />
+        <materialDesign:Chip Margin="0,0,4,4" Content="D2-02-96-49" Icon="小" />
+        <materialDesign:Chip Margin="0,0,4,4" Content="49-96-02-D2" Icon="大" />
+        <TextBlock Text="BitConverter.ToString(BitConverter.GetBytes(0x499602D2))"></TextBlock>
       </WrapPanel>
 
       <WrapPanel smtx:XamlDisplay.Ignore="This" Orientation="Horizontal">
-        <smtx:XamlDisplay Margin="0,0,6,4" UniqueKey="chips_34">
-          <materialDesign:Chip Content="James Willock" Style="{StaticResource MaterialDesignOutlineChip}">
-            <materialDesign:Chip.Icon>
-              <Image Source="Resources/ProfilePic.jpg" />
-            </materialDesign:Chip.Icon>
-          </materialDesign:Chip>
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_35">
-          <materialDesign:Chip Content="Example Chip" Style="{StaticResource MaterialDesignOutlineChip}" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_36">
-          <materialDesign:Chip Content="ANZ Bank"
-                               Icon="A"
-                               Style="{StaticResource MaterialDesignOutlineChip}" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_37">
-          <materialDesign:Chip Content="ZNA Inc"
-                               Icon="Z"
-                               Style="{StaticResource MaterialDesignOutlineChip}" />
-        </smtx:XamlDisplay>
-
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_38">
-          <materialDesign:Chip Content="Twitter"
+        <materialDesign:Chip Margin="0,0,6,4"  Content="DoubleToUInt64Bits" Style="{StaticResource MaterialDesignOutlineChip}"
+                               ToolTip="在传输超出计算机边界的字节数据时，需将数据转换为网络字节顺序">
+          <materialDesign:Chip.Icon>
+            <Image Source="Resources/ProfilePic.jpg" />
+          </materialDesign:Chip.Icon>
+        </materialDesign:Chip>
+        <materialDesign:Chip  Margin="0,0,4,4"  Content="Example Chip" Style="{StaticResource MaterialDesignOutlineChip}" />
+        <materialDesign:Chip Content="ANZ Bank" Icon="A"  Style="{StaticResource MaterialDesignOutlineChip}" />
+        <materialDesign:Chip Content="ZNA Inc" Icon="Z" Style="{StaticResource MaterialDesignOutlineChip}" />
+        <materialDesign:Chip  Margin="0,0,4,4"  Content="嘿嘿"
                                IconBackground="{DynamicResource PrimaryHueDarkBrush}"
                                IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                                Style="{StaticResource MaterialDesignOutlineChip}">
-            <materialDesign:Chip.Icon>
-              <materialDesign:PackIcon Kind="Twitter" />
-            </materialDesign:Chip.Icon>
-          </materialDesign:Chip>
-        </smtx:XamlDisplay>
+          <materialDesign:Chip.Icon>
+            <materialDesign:PackIcon Kind="Home" />
+          </materialDesign:Chip.Icon>
+        </materialDesign:Chip>
       </WrapPanel>
     </StackPanel>
 
@@ -141,7 +82,7 @@
       <Rectangle Height="1"
                  Margin="0,24,0,0"
                  Fill="{DynamicResource MaterialDesignDivider}" />
-      <TextBlock Style="{StaticResource ChipsHeadline}" Text="Filter Chips" />
+      <TextBlock Style="{StaticResource ChipsHeadline}" Text="NativeBuffer" />
     </StackPanel>
 
     <StackPanel Grid.Row="3">
@@ -253,34 +194,27 @@
         </materialDesign:Card>
       </WrapPanel>
     </StackPanel>
-
     <StackPanel Grid.Row="4">
       <Rectangle Height="1"
                  Margin="0,24,0,0"
                  Fill="{DynamicResource MaterialDesignDivider}" />
-      <TextBlock Style="{StaticResource ChipsHeadline}" Text="Choice Chips" />
+      <TextBlock Style="{StaticResource ChipsHeadline}" Text="Buffer" />
     </StackPanel>
 
     <StackPanel Grid.Row="5">
       <WrapPanel smtx:XamlDisplay.Ignore="This" Orientation="Horizontal">
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_22">
-          <RadioButton Content="RadioButton"
+        <RadioButton  Margin="0,0,4,4" Content="BlockCopy"
                        GroupName="GroupChoiceChip"
                        Style="{StaticResource MaterialDesignChoiceChipRadioButton}" />
-        </smtx:XamlDisplay>
 
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_23">
-          <RadioButton Content="Primary"
+        <RadioButton  Margin="0,0,4,4" Content="MemoryCopy"
                        GroupName="GroupChoiceChip"
                        IsChecked="True"
                        Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}" />
-        </smtx:XamlDisplay>
 
-        <smtx:XamlDisplay Margin="0,0,4,4" UniqueKey="chips_24">
-          <RadioButton Content="Secondary"
+        <RadioButton  Margin="0,0,4,4" Content="GetByte"
                        GroupName="GroupChoiceChip"
                        Style="{StaticResource MaterialDesignChoiceChipAccentRadioButton}" />
-        </smtx:XamlDisplay>
       </WrapPanel>
 
       <WrapPanel smtx:XamlDisplay.Ignore="This" Orientation="Horizontal">
