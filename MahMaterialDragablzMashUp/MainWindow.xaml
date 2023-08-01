@@ -5,8 +5,8 @@
                       xmlns:dockablz="clr-namespace:Dragablz.Dockablz;assembly=Dragablz"
                       xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
                       xmlns:mahMaterialDragablzMashUp="clr-namespace:MahMaterialDragablzMashUp"
-                      xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
-                      Title="Material-MahApps-Dragablz Mash Up"
+                      xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:mahMaterialDragablzMashUp1="clr-namespace:MahAppsDragablzDemo"
+                      Title="Union Studio"
                       Width="800"
                       Height="640"
                       FontFamily="{DynamicResource MahApps.Fonts.Family.Window.Title}"
@@ -23,7 +23,7 @@
     <controls:FlyoutsControl>
       <controls:Flyout x:Name="LeftFlyout"
                        wpf:FlyoutAssist.HeaderColorMode="SecondaryMid"
-                       Header="Settings"
+                       Header="设置"
                        Position="Left">
         <mahMaterialDragablzMashUp:FlyoutContent />
       </controls:Flyout>
@@ -51,6 +51,9 @@
             <mahMaterialDragablzMashUp:DialogsViewModel />
           </mahMaterialDragablzMashUp:Dialogs.DataContext>
         </mahMaterialDragablzMashUp:Dialogs>
+      </TabItem>
+      <TabItem Header="PhotoViewer">
+        <mahMaterialDragablzMashUp1:PhotoViewer />
       </TabItem>
       <TabItem Header="MAHAPPS">
         <mahMaterialDragablzMashUp:Mah Margin="16" />
