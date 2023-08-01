@@ -59,29 +59,25 @@
                  Grid.Column="0"
                  Grid.ColumnSpan="2"
                  Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                 Text="Common Fields" />
+                 Text="ArraySegment" />
 
       <materialDesign:PackIcon Grid.Row="1"
                                Grid.Column="0"
                                Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}"
                                Kind="Account" />
 
-      <smtx:XamlDisplay Grid.Row="1"
+      <TextBox x:Name="NameTextBox"  Grid.Row="1"
                         Grid.Column="1"
-                        UniqueKey="fields_1">
-        <TextBox x:Name="NameTextBox"
                  materialDesign:HintAssist.HelperText="Helper text longer than error"
                  materialDesign:HintAssist.Hint="Name">
-
-          <TextBox.Text>
-            <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
-              <Binding.ValidationRules>
-                <domain1:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
-              </Binding.ValidationRules>
-            </Binding>
-          </TextBox.Text>
-        </TextBox>
-      </smtx:XamlDisplay>
+        <TextBox.Text>
+          <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+            <Binding.ValidationRules>
+              <domain1:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+            </Binding.ValidationRules>
+          </Binding>
+        </TextBox.Text>
+      </TextBox>
 
       <materialDesign:PackIcon Grid.Row="2"
                                Grid.Column="0"
@@ -101,22 +97,16 @@
                                Foreground="{Binding ElementName=CommentTextBox, Path=BorderBrush}"
                                Kind="Comment" />
 
-      <smtx:XamlDisplay Grid.Row="3"
+      <TextBox x:Name="CommentTextBox" Grid.Row="3"
                         Grid.Column="1"
-                        UniqueKey="fields_6">
-        <TextBox x:Name="CommentTextBox"
                  materialDesign:HintAssist.HelperText="Bigger Helper Text"
                  materialDesign:HintAssist.HelperTextFontSize="16"
                  materialDesign:HintAssist.Hint="Comment" />
-      </smtx:XamlDisplay>
 
-      <smtx:XamlDisplay Grid.Row="4"
+      <TextBox VerticalAlignment="Center"   Grid.Row="4"
                         Grid.Column="1"
-                        UniqueKey="fields_8">
-        <TextBox VerticalAlignment="Center"
                  materialDesign:HintAssist.Hint="Floating Hint"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-      </smtx:XamlDisplay>
 
       <materialDesign:PackIcon Grid.Row="1"
                                Grid.Column="2"
@@ -124,14 +114,11 @@
                                Foreground="{Binding ElementName=PasswordBox, Path=BorderBrush}"
                                Kind="Key" />
 
-      <smtx:XamlDisplay Grid.Row="1"
+      <PasswordBox x:Name="PasswordBox"  Grid.Row="1"
                         Grid.Column="3"
-                        UniqueKey="fields_7">
-        <PasswordBox x:Name="PasswordBox"
                      materialDesign:HintAssist.HelperText="At least 8 characters"
                      materialDesign:HintAssist.Hint="Password"
                      materialDesign:TextFieldAssist.HasClearButton="True" />
-      </smtx:XamlDisplay>
 
       <materialDesign:PackIcon Grid.Row="2"
                                Grid.Column="2"
