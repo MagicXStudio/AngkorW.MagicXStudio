@@ -1,8 +1,8 @@
 {
-  "profiles": {
-    "MahAppsDragablzDemo": {
-      "commandName": "Project",
-      "nativeDebugging": true
+    "profiles": {
+        "ImageStudio": {
+            "commandName": "Project",
+            "nativeDebugging": true
+        }
     }
-  }
 }
