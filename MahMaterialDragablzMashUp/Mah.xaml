@@ -4,6 +4,7 @@
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MahAppsDragablzDemo"
+             xmlns:entities="clr-namespace:ImageStudio.Entities"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:mdix="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -15,11 +16,11 @@
     <local:MahViewModel />
   </UserControl.DataContext>
   <UserControl.Resources>
-    <ObjectDataProvider x:Key="EnumValues"
+    <ObjectDataProvider x:Key="Colors"
                         MethodName="GetValues"
                         ObjectType="{x:Type system:Enum}">
       <ObjectDataProvider.MethodParameters>
-        <x:Type TypeName="local:EnumValues" />
+        <x:Type TypeName="entities:Colors" />
       </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
   </UserControl.Resources>
@@ -93,21 +94,21 @@
         <smtx:XamlDisplay UniqueKey="DataGrid_1">
           <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GridData}">
             <DataGrid.Columns>
-              <DataGridCheckBoxColumn Binding="{Binding IsChecked}"
+              <DataGridCheckBoxColumn Binding="{Binding IsBlocked}"
                                       EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"
                                       ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}">
                 <DataGridCheckBoxColumn.Header>
                   <CheckBox IsChecked="False" IsEnabled="False" />
                 </DataGridCheckBoxColumn.Header>
               </DataGridCheckBoxColumn>
-              <mdix:DataGridTextColumn Binding="{Binding Text}"
+              <mdix:DataGridTextColumn Binding="{Binding Name}"
                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
                                        Header="Text" />
               <mdix:DataGridComboBoxColumn Header="Combo"
-                                           ItemsSource="{Binding Source={StaticResource EnumValues}}"
-                                           SelectedItemBinding="{Binding EnumValue}" />
+                                           ItemsSource="{Binding Source={StaticResource Colors}}"
+                                           SelectedItemBinding="{Binding Colour}" />
               <controls:DataGridNumericUpDownColumn Width="300"
-                                                    Binding="{Binding IntValue}"
+                                                    Binding="{Binding Id}"
                                                     Header="Numeric"
                                                     Minimum="0"
                                                     StringFormat="{}{0} km"

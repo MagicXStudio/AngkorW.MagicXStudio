@@ -46,7 +46,7 @@ namespace ImageStudio.Services
 
             modelBuilder.Entity<Category>().ToTable("Category").HasKey(x => x.Id);
 
-            modelBuilder.Entity<Detail>().ToTable("Detail").HasKey(x => x.Name);
+            modelBuilder.Entity<Detail>().ToTable("Detail").Ignore(x => x.Colour).HasKey(x => x.Name);
         }
     }
 }
