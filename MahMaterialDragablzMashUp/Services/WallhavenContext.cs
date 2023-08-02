@@ -20,6 +20,8 @@ namespace ImageStudio.Services
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Detail> Details { get; set; }
+
         public WallhavenContext()
         {
 
@@ -28,7 +30,7 @@ namespace ImageStudio.Services
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite(@"./awesome.db");
+            optionsBuilder.UseSqlite(@"Data Source=Awesome.db;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,10 +40,13 @@ namespace ImageStudio.Services
 
             modelBuilder.Entity<Tag>(tag =>
             {
+                tag.ToTable("Tag");
                 tag.HasKey(e => e.Id);
             });
 
-            modelBuilder.Entity<Category>().HasKey(x => x.Id);
+            modelBuilder.Entity<Category>().ToTable("Category").HasKey(x => x.Id);
+
+            modelBuilder.Entity<Detail>().ToTable("Detail").HasKey(x => x.Name);
         }
     }
 }

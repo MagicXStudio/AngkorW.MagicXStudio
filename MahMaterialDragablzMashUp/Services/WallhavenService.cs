@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ImageStudio.Entities;
 using ImageStudio.ViewModels;
 
 namespace ImageStudio.Services
@@ -16,12 +17,23 @@ namespace ImageStudio.Services
             DBContext = new WallhavenContext();
         }
 
+        public Tag GetTag(string name)
+        {
+            return DBContext.Tags.First(x => x.Name == name);
+        }
+
+
         /// <summary>
         /// GET https://wallhaven.cc/api/v1/w/94x38z
         /// </summary>
-        public void Get(string id)
+        public Detail GetDetail(string name)
         {
-            DBContext.Tags.Where(x => x.Name == id);
+            return DBContext.Details.First(x => x.Name == name);
+        }
+
+        public IEnumerable<Detail> GetAllDetail()
+        {
+            return DBContext.Details.OrderBy(x => x.Id);
         }
 
         /// <summary>

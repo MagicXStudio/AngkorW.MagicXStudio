@@ -21,12 +21,11 @@ namespace MahMaterialDragablzMashUp
         public PhotoViewerViewModel()
         {
             WallhavenService = new WallhavenService();
-            WallhavenService.Get("Hello");
+            var items = WallhavenService.GetAllDetail().ToList();
             MouseMoveCommand = new AnotherCommandImplementation((o) => MouseMoveHandler(o as TransformGroup));
             MouseWheelCommand = new AnotherCommandImplementation((scaleX) => MouseWheelHandler((double)scaleX));
             DragOverCommand = new AnotherCommandImplementation(_ => DragOverHandler());
         }
-
 
         public int _AngleX = 20;
 
