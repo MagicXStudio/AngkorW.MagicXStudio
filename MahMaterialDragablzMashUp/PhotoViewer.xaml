@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ImageStudio" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:local="clr-namespace:ImageStudio" xmlns:b="http://schemas.microsoft.com/xaml/behaviors" xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
   <Grid Margin="10" Name="PhotoViewerLayout">
@@ -13,6 +13,7 @@
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
 
@@ -63,6 +64,19 @@
         <Button Content="黑白" />
       </StackPanel>
     </Border>
+    <StackPanel Grid.Column="0" Grid.Row="1">
+      <Slider Margin="1,2,3,4" Name="ScaleX" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Scale.ScaleX,Mode=TwoWay}" />
+      <Slider Margin="1,2,3,4" Name="ScaleY" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Scale.ScaleY,Mode=TwoWay}" />
+      <controls:RangeSlider Margin="6,16,6,0"
+                                  LowerValue="25"
+                                  TickFrequency="10"
+                                  TickPlacement="BottomRight"
+                                  UpperValue="75" />
+      <controls:RangeSlider Height="200"
+                                  Margin="0,16,0,0"
+                                  LowerValue="25"
+                                  Orientation="Horizontal"
+                                  UpperValue="75"  Value="25"/>
+    </StackPanel>
   </Grid>
-
 </UserControl>

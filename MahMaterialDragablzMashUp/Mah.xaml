@@ -53,25 +53,7 @@
       </TabItem>
       <TabItem Header="Sliders">
         <StackPanel>
-          <smtx:XamlDisplay UniqueKey="Slider_1">
-            <Slider Margin="6,16,6,0"
-                    TickFrequency="10"
-                    TickPlacement="BottomRight" />
-          </smtx:XamlDisplay>
-          <smtx:XamlDisplay UniqueKey="Slider_2">
-            <controls:RangeSlider Margin="6,16,6,0"
-                                  LowerValue="25"
-                                  TickFrequency="10"
-                                  TickPlacement="BottomRight"
-                                  UpperValue="75" />
-          </smtx:XamlDisplay>
-          <smtx:XamlDisplay UniqueKey="Slider_3">
-            <controls:RangeSlider Height="200"
-                                  Margin="0,16,0,0"
-                                  LowerValue="25"
-                                  Orientation="Vertical"
-                                  UpperValue="75" />
-          </smtx:XamlDisplay>
+          <TextBlock>Helllo</TextBlock>
         </StackPanel>
       </TabItem>
       <TabItem Header="NumericUpDown">
