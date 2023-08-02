@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{7D0AC158-FD0
 		web\PaletteBuilder.html = web\PaletteBuilder.html
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{D34BE232-DE51-43C1-ABDC-B69003BB50FF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{D34BE232-DE51-43C1-ABDC-B69003BB50FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialDesignColors.Wpf.Tests", "MaterialDesignColors.Wpf.Tests\MaterialDesignColors.Wpf.Tests.csproj", "{FD1D557A-251C-4D00-9FDE-6FF9FFA747B8}"
 EndProject
