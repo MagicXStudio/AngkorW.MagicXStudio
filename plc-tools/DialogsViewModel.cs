@@ -1,11 +1,11 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using MahAppsDragablzDemo;
+using ImageStudio;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace MahMaterialDragablzMashUp
+namespace ImageStudio
 {
     public class DialogsViewModel : NotifyPropertyChanged
     {

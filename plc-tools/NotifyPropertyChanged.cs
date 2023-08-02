@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace MahAppsDragablzDemo
+namespace ImageStudio
 {
     public class NotifyPropertyChanged : INotifyPropertyChanged
     {

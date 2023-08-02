@@ -1,4 +1,4 @@
-﻿namespace MahAppsDragablzDemo
+﻿namespace ImageStudio
 {
     public static class XamlDisplayEx
     {

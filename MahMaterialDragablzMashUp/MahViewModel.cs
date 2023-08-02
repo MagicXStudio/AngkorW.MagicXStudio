@@ -3,7 +3,7 @@ using System.ComponentModel;
 using ImageStudio.Entities;
 using ImageStudio.Services;
 
-namespace MahAppsDragablzDemo
+namespace ImageStudio
 {
     public class MahViewModel : INotifyPropertyChanged
     {

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MahAppsDragablzDemo": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

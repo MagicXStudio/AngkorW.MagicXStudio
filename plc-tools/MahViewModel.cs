@@ -2,14 +2,14 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net;
 using System.Net.Sockets;
-using MahAppsDragablzDemo.Services;
-using MahMaterialDragablzMashUp;
+using ImageStudio.Services;
+using ImageStudio;
 using MainFrom;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace MahAppsDragablzDemo
+namespace ImageStudio
 {
     public class MahViewModel : NotifyPropertyChanged
     {

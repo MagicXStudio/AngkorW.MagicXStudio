@@ -1,7 +1,7 @@
-﻿using MahAppsDragablzDemo;
+﻿using ImageStudio;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MahMaterialDragablzMashUp
+namespace ImageStudio
 {
     /// <summary>
     /// Interaction logic for MahApps.xaml

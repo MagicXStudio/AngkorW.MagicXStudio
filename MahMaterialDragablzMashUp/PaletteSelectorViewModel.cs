@@ -2,7 +2,7 @@
 using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 
-namespace MahMaterialDragablzMashUp;
+namespace ImageStudio;
 
 public class PaletteSelectorViewModel : INotifyPropertyChanged
 {

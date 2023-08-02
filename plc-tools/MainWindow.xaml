@@ -4,7 +4,7 @@
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:dockablz="clr-namespace:Dragablz.Dockablz;assembly=Dragablz"
                       xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
-                      xmlns:mahMaterialDragablzMashUp="clr-namespace:MahMaterialDragablzMashUp"
+                      xmlns:mahMaterialDragablzMashUp="clr-namespace:ImageStudio"
                       xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
                       Title="PLC Tool"
                       Width="800"

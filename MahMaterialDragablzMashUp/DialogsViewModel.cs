@@ -1,7 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
-namespace MahMaterialDragablzMashUp
+namespace ImageStudio
 {
     public class DialogsViewModel
     {

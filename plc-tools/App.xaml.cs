@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
-using MahAppsDragablzDemo;
-using MahAppsDragablzDemo.Services;
+using ImageStudio;
+using ImageStudio.Services;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +9,7 @@ using Serilog;
 using Serilog.Core;
 using ShowMeTheXAML;
 
-namespace MahMaterialDragablzMashUp
+namespace ImageStudio
 {
     /// <summary>
     /// Interaction logic for App.xaml

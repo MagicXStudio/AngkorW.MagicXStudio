@@ -1,6 +1,6 @@
-﻿using MahMaterialDragablzMashUp;
+﻿using ImageStudio;
 
-namespace MahAppsDragablzDemo
+namespace ImageStudio
 {
     /// <summary>
     /// PhotoViewer.xaml 的交互逻辑

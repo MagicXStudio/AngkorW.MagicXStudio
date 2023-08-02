@@ -1,4 +1,4 @@
-﻿namespace MahMaterialDragablzMashUp
+﻿namespace ImageStudio
 {
     /// <summary>
     /// No WPF project is complete without it's own version of this.

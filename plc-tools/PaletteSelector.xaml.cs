@@ -1,4 +1,4 @@
-﻿namespace MahMaterialDragablzMashUp
+﻿namespace ImageStudio
 {
     /// <summary>
     /// Interaction logic for Palette.xaml

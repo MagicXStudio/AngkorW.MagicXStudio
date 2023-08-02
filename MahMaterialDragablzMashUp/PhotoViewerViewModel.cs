@@ -3,7 +3,7 @@ using System.Windows.Media;
 using ImageStudio.Services;
 using MahApps.Metro.Controls;
 
-namespace MahMaterialDragablzMashUp
+namespace ImageStudio
 {
     public class PhotoViewerViewModel : INotifyPropertyChanged
     {

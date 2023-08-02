@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MahAppsDragablzDemo.Services
+namespace ImageStudio.Services
 {
     internal class FilesService : IFilesService
     {

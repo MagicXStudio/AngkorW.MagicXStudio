@@ -3,7 +3,7 @@ using ImageStudio.Services;
 using MaterialDesignThemes.Wpf;
 using ShowMeTheXAML;
 
-namespace MahMaterialDragablzMashUp
+namespace ImageStudio
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace MahMaterialDragablzMashUp
+namespace ImageStudio
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

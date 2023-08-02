@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MahAppsDragablzDemo.Properties {
+namespace ImageStudio.Properties {
     using System;
     
     
