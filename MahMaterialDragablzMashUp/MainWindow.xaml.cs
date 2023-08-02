@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using ImageStudio.ViewModels;
 
 namespace MahMaterialDragablzMashUp
 {
@@ -10,6 +11,8 @@ namespace MahMaterialDragablzMashUp
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
+            
         }
 
         private void OnCopy(object sender, ExecutedRoutedEventArgs e)
