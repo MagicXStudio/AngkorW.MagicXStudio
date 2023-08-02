@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Media;
 using ImageStudio.Services;
-using MahApps.Metro.Controls;
 
 namespace ImageStudio
 {
@@ -27,53 +26,10 @@ namespace ImageStudio
             DragOverCommand = new AnotherCommandImplementation(_ => DragOverHandler());
         }
 
-        public int _AngleX = 20;
-
-        public int AngleX
-        {
-            get
-            {
-                return _AngleX;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new Exception("Value must be positive");
-                }
-                if (_AngleX != value)
-                {
-                    _AngleX = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AngleX)));
-                }
-            }
-        }
-
-        public int _AngleY = 20;
-
-        public int AngleY
-        {
-            get
-            {
-                return _AngleY;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new Exception("Value must be positive");
-                }
-                if (_AngleY != value)
-                {
-                    _AngleY = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AngleY)));
-                }
-            }
-        }
-
-
         public ScaleTransform _Scale = new ScaleTransform(0.1, 0.2, 0.3, 0.3);
-
+        /// <summary>
+        /// 缩放
+        /// </summary>
         public ScaleTransform Scale
         {
             get
@@ -87,7 +43,58 @@ namespace ImageStudio
             }
         }
 
-        public Flyout? LeftFlyout { get; set; }
+        public SkewTransform _Skew = new SkewTransform(0.1, 0.2, 0.3, 0.3);
+        /// <summary>
+        /// 倾斜
+        /// </summary>
+        public SkewTransform Skew
+        {
+            get
+            {
+                return _Skew;
+            }
+            set
+            {
+                _Skew = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Skew)));
+            }
+        }
+
+
+        public RotateTransform _Rotate = new RotateTransform(15);
+        /// <summary>
+        /// 旋转
+        /// </summary>
+        public RotateTransform Rotate
+        {
+            get
+            {
+                return _Rotate;
+            }
+            set
+            {
+                _Rotate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rotate)));
+            }
+        }
+
+
+        public TranslateTransform _Translate = new TranslateTransform(5, 18);
+        /// <summary>
+        /// 平移
+        /// </summary>
+        public TranslateTransform Translate
+        {
+            get
+            {
+                return _Translate;
+            }
+            set
+            {
+                _Translate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Translate)));
+            }
+        }
 
         private void MouseMoveHandler(TransformGroup obj)
         {
@@ -96,9 +103,11 @@ namespace ImageStudio
 
         private void MouseWheelHandler(double scaleX)
         {
-            AngleX += 2;
-            AngleY += 2;
             Scale.ScaleX += 0.2;
+            Translate.X += 10;
+            Translate.Y += 10;
+            Skew.AngleX += 5;
+            Skew.AngleY += 5;
         }
 
         private void DragOverHandler()

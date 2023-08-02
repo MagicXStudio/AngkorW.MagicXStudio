@@ -14,7 +14,7 @@
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
       <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
+      <RowDefinition Height="200" />
     </Grid.RowDefinitions>
 
     <!-- Blur drop shadow under photo -->
@@ -47,9 +47,9 @@
         <Image.RenderTransform>
           <TransformGroup x:Name="TransformGroup">
             <ScaleTransform x:Name="Scale" ScaleX="{Binding Scale.ScaleX,Mode=TwoWay}" ScaleY="{Binding Scale.ScaleY,Mode=TwoWay}"/>
-            <SkewTransform AngleX="{Binding AngleX,Mode=TwoWay}" AngleY="{Binding AngleY,Mode=TwoWay}"/>
-            <RotateTransform Angle="30"/>
-            <TranslateTransform X="10" Y="20"/>
+            <SkewTransform AngleX="{Binding Skew.AngleX,Mode=TwoWay}" AngleY="{Binding Skew.AngleY,Mode=TwoWay}"/>
+            <RotateTransform   Angle="{Binding Rotate.Angle,Mode=TwoWay}"/>
+            <TranslateTransform x:Name="Translate" X="{Binding Translate.X,Mode=TwoWay}" Y="{Binding Translate.Y,Mode=TwoWay}"/>
           </TransformGroup>
         </Image.RenderTransform>
       </Image>
@@ -64,19 +64,13 @@
         <Button Content="黑白" />
       </StackPanel>
     </Border>
-    <StackPanel Grid.Column="0" Grid.Row="1">
+    <StackPanel Grid.Column="0" Grid.Row="2">
       <Slider Margin="1,2,3,4" Name="ScaleX" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Scale.ScaleX,Mode=TwoWay}" />
       <Slider Margin="1,2,3,4" Name="ScaleY" TickFrequency="10" TickPlacement="BottomRight" Value="{Binding Scale.ScaleY,Mode=TwoWay}" />
-      <controls:RangeSlider Margin="6,16,6,0"
-                                  LowerValue="25"
-                                  TickFrequency="10"
-                                  TickPlacement="BottomRight"
-                                  UpperValue="75" />
-      <controls:RangeSlider Height="200"
-                                  Margin="0,16,0,0"
-                                  LowerValue="25"
-                                  Orientation="Horizontal"
-                                  UpperValue="75"  Value="25"/>
+      <Slider Margin="1,2,3,4" Name="TranslateY" TickFrequency="20" TickPlacement="BottomRight" Value="{Binding Translate.Y,Mode=TwoWay}" />
+      <Slider Margin="1,2,3,4" Name="TranslateX" TickFrequency="30" TickPlacement="BottomRight" Value="{Binding Translate.X,Mode=TwoWay}" />
+      <controls:RangeSlider  Margin="2,3,4,0" LowerValue="15" TickFrequency="10" TickPlacement="BottomRight" UpperValue="55" Value="{Binding  Skew.AngleX,Mode=TwoWay}"/>
+      <controls:RangeSlider  Margin="0,6,0,0" LowerValue="5" Orientation="Horizontal" UpperValue="45"  Value="{Binding Rotate.Angle,Mode=TwoWay}"/>
     </StackPanel>
   </Grid>
 </UserControl>
