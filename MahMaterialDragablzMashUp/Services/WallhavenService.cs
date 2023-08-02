@@ -22,10 +22,6 @@ namespace ImageStudio.Services
             return DBContext.Tags.First(x => x.Name == name);
         }
 
-
-        /// <summary>
-        /// GET https://wallhaven.cc/api/v1/w/94x38z
-        /// </summary>
         public Detail GetDetail(string name)
         {
             return DBContext.Details.First(x => x.Name == name);
@@ -36,30 +32,9 @@ namespace ImageStudio.Services
             return DBContext.Details.OrderBy(x => x.Id);
         }
 
-        /// <summary>
-        /// GET https://wallhaven.cc/api/v1/search
-        /// </summary>
         public void Search(SearchParameter search)
         {
 
         }
-
-
-        /// <summary>
-        /// GET https://wallhaven.cc/api/v1/tag/1
-        /// </summary>
-        public void tag() { }
-
-
-        /// <summary>
-        /// GET https://wallhaven.cc/api/v1/settings?apikey=****
-        /// </summary>
-        public void settings() { }
-
-
-        /// <summary>
-        /// GET https://wallhaven.cc/api/v1/collections?apikey=****
-        /// </summary>
-        public void collections() { }
     }
 }
