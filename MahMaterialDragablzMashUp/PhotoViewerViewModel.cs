@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Media;
+using ImageStudio.Services;
 using MahApps.Metro.Controls;
 
 namespace MahMaterialDragablzMashUp
@@ -12,10 +13,15 @@ namespace MahMaterialDragablzMashUp
 
         public ICommand DragOverCommand { get; }
 
+
+        WallhavenService WallhavenService { get; set; }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public PhotoViewerViewModel()
         {
+            WallhavenService = new WallhavenService();
+            WallhavenService.Get("Hello");
             MouseMoveCommand = new AnotherCommandImplementation((o) => MouseMoveHandler(o as TransformGroup));
             MouseWheelCommand = new AnotherCommandImplementation((scaleX) => MouseWheelHandler((double)scaleX));
             DragOverCommand = new AnotherCommandImplementation(_ => DragOverHandler());

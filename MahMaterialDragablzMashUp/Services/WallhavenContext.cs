@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using ImageStudio.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,13 +20,28 @@ namespace ImageStudio.Services
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Category> Categories { get; set; }
 
-
         public WallhavenContext()
         {
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => base.OnConfiguring(optionsBuilder);
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlite(@"./awesome.db");
+        }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Ignore<Entity>();
+
+            modelBuilder.Entity<Tag>(tag =>
+            {
+                tag.HasKey(e => e.Id);
+            });
+
+            modelBuilder.Entity<Category>().HasKey(x => x.Id);
+        }
     }
 }

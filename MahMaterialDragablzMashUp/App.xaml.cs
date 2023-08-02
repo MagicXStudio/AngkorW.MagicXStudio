@@ -1,4 +1,5 @@
 ﻿using System.Windows.Media;
+using ImageStudio.Services;
 using MaterialDesignThemes.Wpf;
 using ShowMeTheXAML;
 
@@ -13,7 +14,7 @@ namespace MahMaterialDragablzMashUp
         {
             XamlDisplay.Init();
             base.OnStartup(e);
-
+          
             //Add/Update brush used by Dragablz when the theme changes
             //Solution for https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/issues/2349
             PaletteHelper helper = new PaletteHelper();

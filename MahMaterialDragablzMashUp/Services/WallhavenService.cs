@@ -9,22 +9,26 @@ namespace ImageStudio.Services
 {
     public class WallhavenService
     {
+        private WallhavenContext DBContext { get; }
+
+        public WallhavenService()
+        {
+            DBContext = new WallhavenContext();
+        }
 
         /// <summary>
         /// GET https://wallhaven.cc/api/v1/w/94x38z
         /// </summary>
         public void Get(string id)
         {
-
-
+            DBContext.Tags.Where(x => x.Name == id);
         }
 
         /// <summary>
         /// GET https://wallhaven.cc/api/v1/search
         /// </summary>
-        public void Search(SearchParameter search) {
-
-
+        public void Search(SearchParameter search)
+        {
 
         }
 
