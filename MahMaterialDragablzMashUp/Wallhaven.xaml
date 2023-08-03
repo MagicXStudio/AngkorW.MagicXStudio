@@ -7,7 +7,6 @@
              xmlns:entities="clr-namespace:ImageStudio.Entities"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:mdix="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              d:DesignHeight="300"
              d:DesignWidth="300"
@@ -25,30 +24,22 @@
     </ObjectDataProvider>
   </UserControl.Resources>
   <StackPanel>
-    <TextBlock TextWrapping="Wrap">All controls using MahApps themes, will use Material Design pallete.</TextBlock>
-
     <controls:MetroAnimatedSingleRowTabControl Background="Transparent" TabStripPlacement="Left">
       <TabItem Header="ListBox">
-        <smtx:XamlDisplay UniqueKey="ListBox_1">
-          <ListBox Margin="0,8,0,0">
-            <ListBoxItem IsSelected="True">MahApps</ListBoxItem>
-            <ListBoxItem>Dragablz</ListBoxItem>
-            <ListBoxItem>Material</ListBoxItem>
-          </ListBox>
-        </smtx:XamlDisplay>
+        <ListBox Margin="0,8,0,0">
+          <ListBoxItem IsSelected="True">MahApps</ListBoxItem>
+          <ListBoxItem>Dragablz</ListBoxItem>
+          <ListBoxItem>Material</ListBoxItem>
+        </ListBox>
       </TabItem>
       <TabItem Header="Button/Switch">
         <StackPanel>
-          <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="ToggleSwitch_1">
-            <controls:ToggleSwitch HorizontalAlignment="Left" IsOn="True" />
-          </smtx:XamlDisplay>
-          <smtx:XamlDisplay HorizontalAlignment="Left" UniqueKey="AccentSquareButton_1">
-            <Button Width="100"
+          <controls:ToggleSwitch  HorizontalAlignment="Left" IsOn="True" />
+          <Button Width="100"
                     Margin="0,8,0,0"
                     HorizontalAlignment="Left"
                     Content="Nice"
                     Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
-          </smtx:XamlDisplay>
         </StackPanel>
       </TabItem>
       <TabItem Header="Sliders">
@@ -59,44 +50,38 @@
       </TabItem>
       <TabItem Header="NumericUpDown">
         <StackPanel>
-          <smtx:XamlDisplay UniqueKey="NumericUpDown_1">
-            <controls:NumericUpDown Margin="5" Value="{Binding UpDownValue, ValidatesOnExceptions=True}" />
-          </smtx:XamlDisplay>
-          <smtx:XamlDisplay UniqueKey="NumericUpDown_2">
-            <controls:NumericUpDown Margin="5"
+          <controls:NumericUpDown Margin="5" Value="{Binding UpDownValue, ValidatesOnExceptions=True}" />
+          <controls:NumericUpDown Margin="5"
                                     controls:TextBoxHelper.SelectAllOnFocus="True"
                                     Culture="ar-EG"
                                     FlowDirection="RightToLeft" />
-          </smtx:XamlDisplay>
-          <smtx:XamlDisplay UniqueKey="NumericUpDown_3">
-            <controls:NumericUpDown Style="{StaticResource MaterialDesignOutlinedNumericUpDown}" />
-          </smtx:XamlDisplay>
+          <controls:NumericUpDown Style="{StaticResource MaterialDesignOutlinedNumericUpDown}" />
         </StackPanel>
       </TabItem>
       <TabItem Header="DataGrid">
-          <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding GridData}">
-            <DataGrid.Columns>
-              <DataGridCheckBoxColumn Binding="{Binding IsBlocked}"
+        <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding GridData}">
+          <DataGrid.Columns>
+            <DataGridCheckBoxColumn Binding="{Binding IsBlocked}"
                                       EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"
                                       ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}">
-                <DataGridCheckBoxColumn.Header>
-                  <CheckBox IsChecked="False" IsEnabled="False" />
-                </DataGridCheckBoxColumn.Header>
-              </DataGridCheckBoxColumn>
-              <mdix:DataGridTextColumn Binding="{Binding url}"
+              <DataGridCheckBoxColumn.Header>
+                <CheckBox IsChecked="False" IsEnabled="False" />
+              </DataGridCheckBoxColumn.Header>
+            </DataGridCheckBoxColumn>
+            <mdix:DataGridTextColumn Binding="{Binding url}"
                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
                                        Header="Text" />
-              <mdix:DataGridComboBoxColumn Header="Combo"
+            <mdix:DataGridComboBoxColumn Header="Combo"
                                            ItemsSource="{Binding Source={StaticResource Colors}}"
                                            SelectedItemBinding="{Binding Colour}" />
-              <controls:DataGridNumericUpDownColumn Width="50"
+            <controls:DataGridNumericUpDownColumn Width="50"
                                                     Binding="{Binding id}"
                                                     Header="Numeric"
                                                     Minimum="0"
                                                     StringFormat="{}{0} km"
                                                     TextAlignment="Center" />
-            </DataGrid.Columns>
-          </DataGrid>
+          </DataGrid.Columns>
+        </DataGrid>
       </TabItem>
     </controls:MetroAnimatedSingleRowTabControl>
   </StackPanel>
