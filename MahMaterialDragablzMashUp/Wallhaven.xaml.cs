@@ -3,9 +3,9 @@
     /// <summary>
     /// Interaction logic for MahApps.xaml
     /// </summary>
-    public partial class Mah : UserControl
+    public partial class Wallhaven : UserControl
     {
-        public Mah()
+        public Wallhaven()
         {
             InitializeComponent();
         }

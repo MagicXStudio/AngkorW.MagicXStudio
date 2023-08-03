@@ -61,7 +61,7 @@
         <mahMaterialDragablzMashUp1:PhotoViewer />
       </TabItem>
       <TabItem Header="Wallhaven">
-        <mahMaterialDragablzMashUp:Mah Margin="16" />
+        <mahMaterialDragablzMashUp:Wallhaven Margin="16" />
       </TabItem>
       <TabItem Header="标签设置">
         <mahMaterialDragablzMashUp:PaletteSelector Margin="16">

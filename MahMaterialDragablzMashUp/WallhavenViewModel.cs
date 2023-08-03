@@ -5,7 +5,7 @@ using ImageStudio.Services;
 
 namespace ImageStudio
 {
-    public class MahViewModel : INotifyPropertyChanged
+    public class WallhavenViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -34,7 +34,7 @@ namespace ImageStudio
             }
         }
 
-        public MahViewModel()
+        public WallhavenViewModel()
         {
             WallhavenService = new WallhavenService();
             var items = WallhavenService.GetAllDetail().ToList();
