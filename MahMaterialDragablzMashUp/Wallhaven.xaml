@@ -74,8 +74,7 @@
         </StackPanel>
       </TabItem>
       <TabItem Header="DataGrid">
-        <smtx:XamlDisplay UniqueKey="DataGrid_1">
-          <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GridData}">
+          <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding GridData}">
             <DataGrid.Columns>
               <DataGridCheckBoxColumn Binding="{Binding IsBlocked}"
                                       EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"
@@ -90,7 +89,7 @@
               <mdix:DataGridComboBoxColumn Header="Combo"
                                            ItemsSource="{Binding Source={StaticResource Colors}}"
                                            SelectedItemBinding="{Binding Colour}" />
-              <controls:DataGridNumericUpDownColumn Width="300"
+              <controls:DataGridNumericUpDownColumn Width="50"
                                                     Binding="{Binding id}"
                                                     Header="Numeric"
                                                     Minimum="0"
@@ -98,9 +97,7 @@
                                                     TextAlignment="Center" />
             </DataGrid.Columns>
           </DataGrid>
-        </smtx:XamlDisplay>
       </TabItem>
     </controls:MetroAnimatedSingleRowTabControl>
-
   </StackPanel>
 </UserControl>
