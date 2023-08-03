@@ -1,18 +1,15 @@
-﻿namespace ImageStudio.Entities
+﻿using ImageStudio.ViewModels;
+
+namespace ImageStudio.Entities
 {
-    public class Detail
+    public class Detail : Data
     {
         public Detail()
         {
 
         }
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
 
         public bool IsBlocked { get; set; }
-        public string Title { get; set; }
 
 
         public Colors Colour { get; set; }

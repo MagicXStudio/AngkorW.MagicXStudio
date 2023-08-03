@@ -1,7 +1,9 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Media;
 using ImageStudio.Entities;
 using ImageStudio.Services;
+using ImageStudio.ViewModels;
 
 namespace ImageStudio
 {
@@ -12,6 +14,21 @@ namespace ImageStudio
         public ObservableCollection<Detail> GridData { get; }
 
         WallhavenService WallhavenService { get; set; }
+
+
+        public ICommand SaveCommand { get; }
+
+
+        private async Task Save(object obj)
+        {
+            JsonResult result = await WallhavenAPI.Search(new SearchParameter());
+
+            foreach (Detail item in result.Data)
+            {
+                await WallhavenService.AddDetail(item);
+            }
+        }
+
 
         private int _UpDownValue;
         public int UpDownValue
@@ -36,6 +53,7 @@ namespace ImageStudio
 
         public WallhavenViewModel()
         {
+            SaveCommand = new AnotherCommandImplementation(async (o) => await Save(o));
             WallhavenService = new WallhavenService();
             var items = WallhavenService.GetAllDetail().ToList();
             GridData = new ObservableCollection<Detail>(items);

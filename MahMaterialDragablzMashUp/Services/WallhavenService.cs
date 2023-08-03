@@ -24,12 +24,18 @@ namespace ImageStudio.Services
 
         public Detail GetDetail(string name)
         {
-            return DBContext.Details.First(x => x.Name == name);
+            return DBContext.Details.First(x => x.id == name);
+        }
+
+        public async Task<int> AddDetail(Detail item)
+        {
+            await DBContext.Details.AddAsync(item);
+            return await DBContext.SaveChangesAsync();
         }
 
         public IEnumerable<Detail> GetAllDetail()
         {
-            return DBContext.Details.OrderBy(x => x.Id);
+            return DBContext.Details.OrderBy(x => x.id);
         }
 
         public void Search(SearchParameter search)

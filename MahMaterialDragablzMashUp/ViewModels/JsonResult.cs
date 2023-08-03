@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ImageStudio.Entities;
+using Newtonsoft.Json;
 
 namespace ImageStudio.ViewModels
 {
@@ -9,7 +10,7 @@ namespace ImageStudio.ViewModels
 
         }
         [JsonProperty("data")]
-        public List<Data> Data { get; set; }
+        public List<Detail> Data { get; set; }
 
 
         [JsonProperty("meta")]
