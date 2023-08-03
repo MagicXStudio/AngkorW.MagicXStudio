@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Media;
 using ImageStudio.Entities;
 using ImageStudio.Services;
 using ImageStudio.ViewModels;
