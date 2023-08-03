@@ -1,6 +1,8 @@
 ﻿using System.Net.Http;
 using System.Text.Json.Nodes;
+using System.Xml.Linq;
 using ImageStudio.ViewModels;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ImageStudio.Services
@@ -12,7 +14,8 @@ namespace ImageStudio.Services
         static WallhavenAPI()
         {
             Client = new HttpClient();
-            Client.DefaultRequestHeaders.Add("Accept", "application/json");
+            Client.BaseAddress = new Uri("https://wallhaven.cc");
+            Client.DefaultRequestHeaders.Add("X-API-Key", "T401JgkfBJXdgMkteJfGVDYXjjmWoBo5");
         }
 
         private static Task<string> GetJsonAsync(string name)
@@ -25,16 +28,17 @@ namespace ImageStudio.Services
         /// </summary>
         public static async Task<JObject> GetDetail(string name)
         {
-            string text = await GetJsonAsync(name);
+            string text = await Client.GetStringAsync(name);
             return JObject.Parse(text);
         }
 
         /// <summary>
-        /// GET https://wallhaven.cc/api/v1/search
+        /// GET /api/v1/search
         /// </summary>
-        public static void Search(SearchParameter search)
+        public static async Task<JsonResult> Search(SearchParameter search)
         {
-
+            string text = await Client.GetStringAsync("/api/v1/search");
+            return JsonConvert.DeserializeObject<JsonResult>(text);
         }
 
 
