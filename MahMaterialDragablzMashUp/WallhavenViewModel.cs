@@ -17,6 +17,8 @@ namespace ImageStudio
 
         WallhavenService WallhavenService { get; set; }
 
+        public WallhavenGridViewModel GridViewDataContext { get; set; }
+
 
         public ICommand SaveCommand { get; }
 
@@ -55,6 +57,7 @@ namespace ImageStudio
 
         public WallhavenViewModel()
         {
+            GridViewDataContext = new WallhavenGridViewModel();
             ImgSource = new BitmapImage();
             ImgSource.BeginInit();
             ImgSource.UriSource = new Uri(@"https://w.wallhaven.cc/full/yx/wallhaven-yx2gyd.jpg", UriKind.RelativeOrAbsolute);
