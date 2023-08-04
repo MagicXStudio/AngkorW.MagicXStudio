@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Media.Imaging;
 using ImageStudio.Entities;
 using ImageStudio.Services;
 using ImageStudio.ViewModels;
@@ -11,6 +12,8 @@ namespace ImageStudio
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public ObservableCollection<Detail> GridData { get; }
+
+        public BitmapImage ImgSource { get; }
 
         WallhavenService WallhavenService { get; set; }
 
@@ -52,6 +55,11 @@ namespace ImageStudio
 
         public WallhavenViewModel()
         {
+            ImgSource = new BitmapImage();
+            ImgSource.BeginInit();
+            ImgSource.UriSource = new Uri(@"https://w.wallhaven.cc/full/yx/wallhaven-yx2gyd.jpg", UriKind.RelativeOrAbsolute);
+            ImgSource.EndInit();
+
             SaveCommand = new AnotherCommandImplementation(async (o) => await Save(o));
             WallhavenService = new WallhavenService();
             var items = WallhavenService.GetAllDetail().ToList();

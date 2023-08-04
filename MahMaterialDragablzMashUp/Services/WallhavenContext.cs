@@ -1,4 +1,5 @@
-﻿using ImageStudio.Entities;
+﻿using System.Windows.Media.Imaging;
+using ImageStudio.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ImageStudio.Services
@@ -17,7 +18,6 @@ namespace ImageStudio.Services
 
         public WallhavenContext()
         {
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

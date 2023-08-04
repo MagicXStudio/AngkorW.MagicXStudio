@@ -25,6 +25,10 @@
   </UserControl.Resources>
   <StackPanel>
     <controls:MetroAnimatedSingleRowTabControl Background="Transparent" TabStripPlacement="Left">
+      <TabItem Header="View">
+        <Image Margin="0,8,0,0" Source="{Binding ImgSource,Mode=OneWay}">
+        </Image>
+      </TabItem>
       <TabItem Header="Tags">
         <ListBox Margin="0,8,0,0">
           <ListBoxItem IsSelected="True">Tags</ListBoxItem>
