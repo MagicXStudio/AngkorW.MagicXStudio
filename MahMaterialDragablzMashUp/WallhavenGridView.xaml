@@ -24,8 +24,8 @@
         <!-- Image Template -->
         <Border Padding="4" Background="White" BorderBrush="#22000000" BorderThickness="1">
           <StackPanel Orientation="Vertical">
-            <Image Source="{Binding Image.Thumbnail}" />
-            <Label Content="{Binding Metadata.DateImageTaken}">
+            <Image Source="{Binding Image.short_url}" />
+            <Label Content="{Binding Metadata.short_url}">
               <Label.ToolTip>
                 Only JPeg images with a stored thumbnail will display a thumbnail during preview.
               </Label.ToolTip>
@@ -185,7 +185,7 @@
 
       <!-- Zoom Control -->
       <DockPanel DockPanel.Dock="Bottom" Margin="5">
-        <Label DockPanel.Dock="Left">Zoom:</Label>
+        <Label DockPanel.Dock="Left">缩放视图</Label>
         <Slider Name="ZoomSlider"
                         Margin="10,0,0,0"
                         Orientation="Horizontal"

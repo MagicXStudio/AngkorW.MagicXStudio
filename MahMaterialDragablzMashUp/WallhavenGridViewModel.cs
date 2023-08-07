@@ -10,7 +10,7 @@ namespace ImageStudio
 {
     public class WallhavenGridViewModel
     {
-        public ObservableCollection<Detail> Photos { get; }
+        public ObservableCollection<Detail> Photos { get; set; }
 
 
         public WallhavenGridViewModel()

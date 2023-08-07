@@ -67,6 +67,7 @@ namespace ImageStudio
             WallhavenService = new WallhavenService();
             var items = WallhavenService.GetAllDetail().ToList();
             GridData = new ObservableCollection<Detail>(items);
+            GridViewDataContext.Photos = GridData;
         }
     }
 }
