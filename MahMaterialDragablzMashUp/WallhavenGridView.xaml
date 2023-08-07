@@ -24,10 +24,10 @@
         <!-- Image Template -->
         <Border Padding="4" Background="White" BorderBrush="#22000000" BorderThickness="1">
           <StackPanel Orientation="Vertical">
-            <Image Source="{Binding Image.short_url}" />
-            <Label Content="{Binding Metadata.short_url}">
+            <Image Source="{Binding Image.path}" />
+            <Label Content="{Binding Metadata.path}">
               <Label.ToolTip>
-                Only JPeg images with a stored thumbnail will display a thumbnail during preview.
+                Only JPeg images with a stored
               </Label.ToolTip>
             </Label>
           </StackPanel>
