@@ -35,7 +35,7 @@ namespace ImageStudio.Services
         /// <summary>
         /// GET /api/v1/search
         /// </summary>
-        public static async Task<JsonResult> Search(SearchParameter search)
+        public static async Task<JsonResult> Search(SearchParameters search)
         {
             string text = await Client.GetStringAsync("/api/v1/search");
             return JsonConvert.DeserializeObject<JsonResult>(text);

@@ -38,7 +38,7 @@ namespace ImageStudio.Services
             return DBContext.Details.OrderBy(x => x.id);
         }
 
-        public void Search(SearchParameter search)
+        public void Search(SearchParameters search)
         {
 
         }

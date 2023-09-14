@@ -25,7 +25,7 @@ namespace ImageStudio
 
         private async Task Save(object obj)
         {
-            JsonResult result = await WallhavenAPI.Search(new SearchParameter());
+            JsonResult result = await WallhavenAPI.Search(new SearchParameters());
 
             foreach (Detail item in result.Data)
             {
